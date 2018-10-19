@@ -12,12 +12,8 @@ public class Movement : MonoBehaviour {
     public Sprite [] left;
     public Sprite [] right;
 
-    public Animator anim; 
-
     public int walk_cycle = 0;
-
-    public float tile_size = 1f;
-    public bool has_moved = false;
+    public float tile_size = 0.16f;
 
     // Use this for initialization
     void Start()
@@ -25,69 +21,54 @@ public class Movement : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         spriteR = GetComponent<SpriteRenderer>();
 
-        anim = GetComponent<Animator>(); 
-
-        up    = Resources.LoadAll<Sprite>("walk_up"); 
-        down  = Resources.LoadAll<Sprite>("walk_down");
-        left  = Resources.LoadAll<Sprite>("walk_left");
+        up = Resources.LoadAll<Sprite>("walk_up");
+        down = Resources.LoadAll<Sprite>("walk_down");
+        left = Resources.LoadAll<Sprite>("walk_left");
         right = Resources.LoadAll<Sprite>("walk_right");
     }
-
+    /*
+     * "I tried some things when working on collision detection (which should have came naturally).
+     * This may not have done anything, but if we ever need to re-program 
+     * collisions using a kinematic rigidbody rather than a dynamic one for the player character,
+     * then we'll need this" - Kent (10/18/2018)
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "south_wall" ||
+           collision.gameObject.name == "north_wall" || 
+           collision.gameObject.name == "east_wall"  ||
+           collision.gameObject.name == "west_wall")
+        {
+            rb2d.velocity = Vector2.zero;
+        }
+    }
+    */
     // Update is called once per frame
     void Update()
     {
-        if (has_moved == false)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
-            if (Input.GetKey(KeyCode.LeftArrow) ||
-                Input.GetKey(KeyCode.A))
-            {
-                rb2d.MovePosition(new Vector2(rb2d.position.x - tile_size, rb2d.position.y));
-                has_moved = true;
-                spriteR.sprite = left[walk_cycle++];
-            }
-            else if (Input.GetKey(KeyCode.RightArrow) ||
-                Input.GetKey(KeyCode.D))
-            {
-                rb2d.MovePosition(new Vector2(rb2d.position.x + tile_size, rb2d.position.y));
-                has_moved = true;
-                spriteR.sprite = right[walk_cycle++];
-            }
-            else if (Input.GetKey(KeyCode.UpArrow) ||
-                Input.GetKey(KeyCode.W))
-            {
-                rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + tile_size));
-                has_moved = true;
-                spriteR.sprite = up[walk_cycle++];
-            }
-            else if (Input.GetKey(KeyCode.DownArrow) ||
-                Input.GetKey(KeyCode.S))
-            {
-                rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - tile_size));
-                has_moved = true;
-                spriteR.sprite = down[walk_cycle++];
-            }
+            rb2d.MovePosition(new Vector2(rb2d.position.x - tile_size, rb2d.position.y));
+            spriteR.sprite = left[walk_cycle++];
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        {
+            rb2d.MovePosition(new Vector2(rb2d.position.x + tile_size, rb2d.position.y));
+            spriteR.sprite = right[walk_cycle++];
+        } 
+        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        {
+            rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + tile_size));
+            spriteR.sprite = up[walk_cycle++];
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        {
+            rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - tile_size));
+            spriteR.sprite = down[walk_cycle++];
         }
 
         if (walk_cycle == 6)
         {
             walk_cycle = 0;
-        }
-
-        if (Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            has_moved = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.DownArrow))
-        {
-            has_moved = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            has_moved = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            has_moved = false;
         }
     }
 }

@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour {
     public Sprite [] right;
 
     public int walk_cycle = 0;
-    public float tile_size = 1f;
+    public float tile_size = 0.16f;
 
     // Use this for initialization
     void Start()
