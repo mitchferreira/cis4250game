@@ -72,9 +72,11 @@ public class DatabaseHandler : MonoBehaviour
         foreach(GameObject chest in chests) {
             string name = chest.GetComponent<ChestScript>().name;
             int opened = chest.GetComponent<ChestScript>().opened ? 1 : 0;
+            string truncateString = "TRUNCATE TABLE chests;";
             string insertString = $"INSERT INTO chests VALUES (\"{name}\", {opened});";
 
             try {
+                Debug.Log(truncateString);
                 Debug.Log(insertString);
                 cmd = new MySqlCommand(insertString, con);
                 rdr = cmd.ExecuteReader();
