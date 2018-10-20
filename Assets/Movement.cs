@@ -26,22 +26,18 @@ public class Movement : MonoBehaviour {
         left = Resources.LoadAll<Sprite>("walk_left");
         right = Resources.LoadAll<Sprite>("walk_right");
     }
-    /*
-     * "I tried some things when working on collision detection (which should have came naturally).
-     * This may not have done anything, but if we ever need to re-program 
-     * collisions using a kinematic rigidbody rather than a dynamic one for the player character,
-     * then we'll need this" - Kent (10/18/2018)
+    /*If the user hits a wall, they should no longer fly or rotate or spin or make bizarre movement
+     * that is what enter() and stay() are for, Kent 10/20/2018 */
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "south_wall" ||
-           collision.gameObject.name == "north_wall" || 
-           collision.gameObject.name == "east_wall"  ||
-           collision.gameObject.name == "west_wall")
-        {
-            rb2d.velocity = Vector2.zero;
-        }
+        rb2d.angularVelocity = 0;
     }
-    */
+
+    void OnCollisionStay(Collision collision)
+    {
+        rb2d.angularVelocity = 0;
+    }
+    
     // Update is called once per frame
     void Update()
     {
