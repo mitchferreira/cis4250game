@@ -61,8 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\animation.cs" />
-    <Compile Include="Assets\Movement.cs" />
-    <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\BarManager.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\DatabaseManager.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\EquipmentManager.cs" />
@@ -81,6 +79,8 @@
     <Compile Include="Assets\scripts\DatabaseHandler.cs" />
     <Compile Include="Assets\scripts\InGameMenu.cs" />
     <Compile Include="Assets\scripts\LoginGUI.cs" />
+    <Compile Include="Assets\scripts\Movement.cs" />
+    <Compile Include="Assets\scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\scripts\QuitOnClick.cs" />
     <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
