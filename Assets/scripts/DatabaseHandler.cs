@@ -22,6 +22,8 @@ public class DatabaseHandler : MonoBehaviour
 
     private MD5 _md5Hash;
 
+    private GameObject[] chests;
+
     public Button saveBtn;
     public Button loadBtn;
 
@@ -30,8 +32,6 @@ public class DatabaseHandler : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         connectionString = "Server=" + host + ";Database=" + database + ";User=" + user + ";Password=" + password + ";Pooling=";
 
-        // Button saveBtn = GameObject.Find("SaveButton").GetComponent<Button>();
-        // Button loadBtn = GameObject.Find("LoadButton").GetComponent<Button>();
         saveBtn.onClick.AddListener(SaveGame);
         loadBtn.onClick.AddListener(LoadGame);
 
@@ -58,6 +58,33 @@ public class DatabaseHandler : MonoBehaviour
 
     void SaveGame() {
         Debug.Log("Saving");
+        chests = GameObject.FindGameObjectsWithTag("chest");
+
+        try {
+            cmd = new MySqlCommand("TRUNCATE TABLE chests", con);
+            rdr = cmd.ExecuteReader();
+            rdr.Close();
+        }
+        catch (Exception e) {
+            Debug.Log(e);
+        }
+
+        foreach(GameObject chest in chests) {
+            string name = chest.GetComponent<ChestScript>().name;
+            int opened = chest.GetComponent<ChestScript>().opened ? 1 : 0;
+            string insertString = $"INSERT INTO chests VALUES (\"{name}\", {opened});";
+
+            try {
+                Debug.Log(insertString);
+                cmd = new MySqlCommand(insertString, con);
+                rdr = cmd.ExecuteReader();
+                rdr.Close();
+            }
+            catch (Exception e) {
+                Debug.Log(e);
+            }
+        }
+
         try
         {
             cmd = new MySqlCommand("UPDATE save_file SET data = \"new text\", data_blob = 100 where id = 1;", con);
