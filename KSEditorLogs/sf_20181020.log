@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2018-10-20 12:17:06.0697 [DEBUG] Scene Fusion version 1.8.1-0
 2018-10-20 12:17:55.0295 [DEBUG] Scene Fusion version 1.8.1-0
 2018-10-20 12:20:41.2522 [DEBUG] Scene Fusion version 1.8.1-0
@@ -56,3 +57,46 @@
 2018-10-20 15:45:44.4159 [DEBUG] Scene Fusion version 1.8.1-0
 2018-10-20 15:45:45.0110 [DEBUG] Play mode: True, sync in play mode: True
 2018-10-20 15:46:26.4741 [DEBUG] Play mode: False
+=======
+2018-10-20 14:02:18.9847 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:02:19.0167 [INFO] Setting define symbol SCENE_FUSION
+2018-10-20 14:02:33.2102 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:02:55.6444 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:02:55.9780 [DEBUG] Play mode: True, sync in play mode: False
+2018-10-20 14:05:30.7813 [DEBUG] Play mode: False
+2018-10-20 14:06:00.6816 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:06:01.0265 [DEBUG] Play mode: True, sync in play mode: False
+2018-10-20 14:08:01.7796 [DEBUG] Play mode: False
+2018-10-20 14:08:42.8979 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:16:59.0215 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:21:57.0743 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:21:57.3800 [DEBUG] Play mode: True, sync in play mode: False
+2018-10-20 14:22:22.5257 [DEBUG] Play mode: False
+2018-10-20 14:22:49.8511 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:22:50.1717 [DEBUG] Play mode: True, sync in play mode: False
+2018-10-20 14:22:51.7144 [ERROR] UnassignedReferenceException: The variable chest of ChestScript has not been assigned.
+You probably need to assign the chest variable of the ChestScript script in the inspector.
+UnityEngine.GameObject.AddComponent (System.Type componentType) (at /Users/builduser/buildslave/unity/build/Runtime/Export/GameObject.bindings.cs:221)
+UnityEngine.GameObject.AddComponent[T] () (at /Users/builduser/buildslave/unity/build/Runtime/Export/GameObject.bindings.cs:226)
+ChestScript.Start () (at Assets/scripts/ChestScript.cs:14)
+
+2018-10-20 14:23:10.7709 [DEBUG] Play mode: False
+2018-10-20 14:23:16.2054 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:23:16.4906 [DEBUG] Play mode: True, sync in play mode: False
+2018-10-20 14:23:17.5489 [ERROR] UnassignedReferenceException: The variable chest of ChestScript has not been assigned.
+You probably need to assign the chest variable of the ChestScript script in the inspector.
+UnityEngine.GameObject.AddComponent (System.Type componentType) (at /Users/builduser/buildslave/unity/build/Runtime/Export/GameObject.bindings.cs:221)
+UnityEngine.GameObject.AddComponent[T] () (at /Users/builduser/buildslave/unity/build/Runtime/Export/GameObject.bindings.cs:226)
+ChestScript.Start () (at Assets/scripts/ChestScript.cs:14)
+
+2018-10-20 14:23:21.2809 [DEBUG] Play mode: False
+2018-10-20 14:23:38.6206 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:23:38.8625 [DEBUG] Play mode: True, sync in play mode: False
+2018-10-20 14:23:40.3361 [DEBUG] Play mode: False
+2018-10-20 14:26:19.5909 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:26:19.9109 [DEBUG] Play mode: True, sync in play mode: False
+2018-10-20 14:26:38.6920 [DEBUG] Play mode: False
+2018-10-20 14:26:54.5752 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-20 14:26:54.8466 [DEBUG] Play mode: True, sync in play mode: False
+2018-10-20 14:26:59.6821 [DEBUG] Play mode: False
+>>>>>>> develop
