@@ -82,6 +82,7 @@
      <None Include="Assets\KinematicSoup\SceneFusion\Shaders\Missing.shader" />
      <None Include="Assets\KinematicSoup\SceneFusion\Shaders\Drag2D.shader" />
      <None Include="Assets\KinematicSoup\SceneFusion\Shaders\Lock.shader" />
+     <None Include="Assets\New Text Document.txt" />
      <None Include="Assets\KinematicSoup\SceneFusion\Stand-Ins\DoNothing.compute" />
      <None Include="Assets\KinematicSoup\SceneFusion\Shaders\Drag.shader" />
      <None Include="Assets\KinematicSoup\SceneFusion\Shaders\Cutout.shader" />

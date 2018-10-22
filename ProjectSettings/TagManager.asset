@@ -6,6 +6,7 @@ TagManager:
   tags:
   - _mysql
   - chest
+  - Enemy
   layers:
   - Default
   - TransparentFX
