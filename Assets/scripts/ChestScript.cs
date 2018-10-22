@@ -12,6 +12,7 @@ public class ChestScript : MonoBehaviour {
 	void Start()
 	{
 			SpriteRenderer renderer = chest.AddComponent<SpriteRenderer>();
+			renderer.sortingOrder = 1;
 
 			if(opened) {
 				renderer.sprite = open;
