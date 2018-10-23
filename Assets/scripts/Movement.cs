@@ -33,9 +33,7 @@ public class Movement : MonoBehaviour {
         if(c.gameObject.CompareTag("Enemy"))
         {
             print("KJAFHJKJFDDFSKJA"); 
-
-            /*"dbscene" is a placeholder for whatever the battle scene is named (PLZ UPDATE BEFORE 10/24/2018)*/
-            SceneManager.LoadScene("dbscene"); 
+            SceneManager.LoadScene("BattleUI"); 
         }
     }
     
