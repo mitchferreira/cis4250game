@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour {
         if(c.gameObject.CompareTag("Enemy"))
         {
             print("KJAFHJKJFDDFSKJA"); 
-            SceneManager.LoadScene("dbscene"); 
+            SceneManager.LoadScene("BattleUI"); 
         }
     }
     
