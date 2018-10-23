@@ -21,7 +21,7 @@ public class ChestScript : MonoBehaviour {
              * if the transform scale changes, the box collider size WILL NEED to change as well,
              *  (Kent, 10/23/2018) 
              */
-            collider.size = new Vector2(0.7f, 1.2f);
+            collider.size = new Vector2(1.2f, 1.2f);
 
             render.sprite = closed;
             opened = false;
