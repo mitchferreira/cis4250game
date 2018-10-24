@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Movement : MonoBehaviour {
@@ -26,16 +27,14 @@ public class Movement : MonoBehaviour {
         left = Resources.LoadAll<Sprite>("walk_left");
         right = Resources.LoadAll<Sprite>("walk_right");
     }
-    /*If the user hits a wall, they should no longer fly or rotate or spin or make bizarre movement
-     * that is what enter() and stay() are for, Kent 10/20/2018 */
-    void OnCollisionEnter(Collision collision)
-    {
-        rb2d.angularVelocity = 0;
-    }
 
-    void OnCollisionStay(Collision collision)
+    void OnCollisionEnter2D(Collision2D c)
     {
-        rb2d.angularVelocity = 0;
+        if(c.gameObject.CompareTag("Enemy"))
+        {
+            print("KJAFHJKJFDDFSKJA"); 
+            SceneManager.LoadScene("BattleUI"); 
+        }
     }
     
     // Update is called once per frame
