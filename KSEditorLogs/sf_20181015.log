@@ -1,0 +1,1415 @@
+2018-10-15 13:19:06.2512 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 13:20:01.2946 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 13:20:29.5403 [DEBUG] Web request login error: Invalid credentials
+2018-10-15 13:20:41.6648 [DEBUG] Web request login error: Invalid credentials
+2018-10-15 13:58:12.5970 [INFO] Launching Session: SampleScene
+2018-10-15 13:58:13.4260 [DEBUG] Connecting
+2018-10-15 13:58:13.6030 [DEBUG] Connecting to room (83680:SceneFusion:SceneFusion) via TCP at ec2-52-43-42-38.us-west-2.compute.amazonaws.com:1100
+2018-10-15 15:52:38.7062 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 15:52:39.0352 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 15:52:41.8378 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:52:41.9339 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:74)
+
+2018-10-15 15:52:42.3060 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:52:42.4370 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:80)
+
+2018-10-15 15:52:42.6381 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:52:42.7621 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:92)
+
+2018-10-15 15:52:43.0522 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:52:43.1782 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:86)
+
+2018-10-15 15:52:43.3632 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:52:43.4713 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:80)
+
+2018-10-15 15:52:43.6404 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:52:43.7674 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:86)
+
+2018-10-15 15:52:43.9425 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:52:44.0445 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:74)
+
+2018-10-15 15:52:44.2315 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:52:44.3566 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:92)
+
+2018-10-15 15:52:44.6332 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:52:44.7712 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:74)
+
+2018-10-15 15:52:44.9913 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:52:45.1103 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:92)
+
+2018-10-15 15:52:45.3364 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:52:45.4424 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:80)
+
+2018-10-15 15:52:45.5774 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:52:45.7455 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:86)
+
+2018-10-15 15:52:47.3896 [DEBUG] Play mode: False
+2018-10-15 15:54:29.6951 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 15:54:30.0172 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 15:54:32.0255 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:32.1326 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:32.4227 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:32.6428 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:32.7538 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:32.8478 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:33.0395 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:33.1715 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:33.2145 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:33.3366 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:33.5162 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:33.6262 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:33.8343 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:33.9603 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:34.2200 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:34.3680 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:34.4030 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:34.5296 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:34.7612 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:34.9062 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:35.0222 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:35.1473 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:35.3323 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:35.4323 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:35.6319 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:35.7390 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:35.9760 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:36.0770 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:36.2671 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:36.3651 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:36.4961 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:36.5842 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:36.7572 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:36.8962 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:37.0343 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:37.1373 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:37.4214 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:37.5444 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:37.6724 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:37.7845 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:37.8845 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:37.9841 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:38.1472 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:38.2592 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:38.4583 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:38.5619 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:38.7375 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:38.8605 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:38.9401 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:39.0691 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:39.1752 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:39.2732 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:39.3872 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:39.4602 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:39.8364 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:39.9535 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:40.1285 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:40.2465 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:40.3532 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:40.4932 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:40.5753 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:40.6878 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:40.7418 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:40.8528 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:40.9739 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:41.0369 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:41.3050 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:41.3870 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:41.5902 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:41.7088 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:41.9079 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:41.9760 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:43.8997 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:44.0017 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:44.0537 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:44.1077 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:44.5554 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:44.6905 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:45.1906 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:45.3192 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:45.5292 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:45.6764 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:45.9440 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:46.1040 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:46.2281 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:46.3271 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:46.8893 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:47.0229 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:47.1239 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:47.2529 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:47.5260 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:47.6760 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:47.7260 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:47.8890 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:48.4483 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:48.5493 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:48.6623 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:48.7743 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:48.8754 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:48.9784 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:49.0740 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:49.2406 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:49.3196 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:49.4646 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:49.6167 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:49.7107 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:49.8888 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:50.0108 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:50.2058 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:50.3499 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:50.4599 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:50.5269 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:50.8761 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:50.9571 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:51.2002 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:51.2803 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:51.5014 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:51.6434 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:51.8561 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:52.0211 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:52.1392 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:52.2632 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:52.4232 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:52.5533 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:53.0996 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:54:53.2436 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:54:53.5122 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:53.6482 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:53.8974 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:53.9634 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:54.3250 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:54.4821 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:54.6111 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:54:54.7501 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:54:55.5323 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:54:55.6554 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:54:55.8174 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:54:55.9375 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:54:58.4834 [DEBUG] Play mode: False
+2018-10-15 15:55:54.2624 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 15:55:54.8966 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 15:55:56.9365 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:55:57.1546 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:55:57.6162 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:55:57.8433 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:55:58.1534 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:55:58.3274 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:55:58.5805 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:55:58.8262 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:55:59.1203 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:55:59.4549 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:55:59.6859 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:55:59.8100 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:56:00.0410 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:56:00.1831 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:56:00.7112 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:56:00.7482 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:56:01.2525 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:56:01.3135 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:56:01.7366 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:56:01.8006 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:56:02.0267 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:56:02.4353 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:56:02.9654 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 15:56:02.9994 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:79)
+
+2018-10-15 15:56:03.2865 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 15:56:03.6066 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:97)
+
+2018-10-15 15:56:03.6826 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 15:56:03.8616 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:85)
+
+2018-10-15 15:56:04.0437 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 15:56:04.1587 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:91)
+
+2018-10-15 15:56:07.7124 [DEBUG] Play mode: False
+2018-10-15 15:57:52.2353 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 16:10:21.2608 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 16:10:21.7260 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 16:10:25.9396 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 16:10:26.0297 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:93)
+
+2018-10-15 16:10:26.5399 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 16:10:26.6489 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:93)
+
+2018-10-15 16:10:27.0616 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 16:10:27.1987 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:88)
+
+2018-10-15 16:10:27.4973 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 16:10:27.5623 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:88)
+
+2018-10-15 16:10:27.9325 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:10:28.0135 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:83)
+
+2018-10-15 16:10:28.3086 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:10:28.4056 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:83)
+
+2018-10-15 16:10:28.5046 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:10:28.7107 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:78)
+
+2018-10-15 16:10:28.7437 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:10:28.8367 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:78)
+
+2018-10-15 16:10:28.8997 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:10:28.9917 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:78)
+
+2018-10-15 16:10:29.0958 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:10:29.2248 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:78)
+
+2018-10-15 16:10:29.4119 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:10:29.5109 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:83)
+
+2018-10-15 16:10:29.5905 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:10:29.7015 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:83)
+
+2018-10-15 16:10:29.7475 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:10:29.8551 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:83)
+
+2018-10-15 16:10:29.9701 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:10:30.1052 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:78)
+
+2018-10-15 16:10:30.1722 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:10:30.2372 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:78)
+
+2018-10-15 16:10:30.3533 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:10:30.4213 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:78)
+
+2018-10-15 16:10:30.6494 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:10:30.7664 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:83)
+
+2018-10-15 16:10:30.8025 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:10:30.8915 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:83)
+
+2018-10-15 16:10:30.9705 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:10:31.1568 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:83)
+
+2018-10-15 16:12:37.2868 [DEBUG] Play mode: False
+2018-10-15 16:14:50.3269 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 16:14:51.5651 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 16:15:02.0767 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:15:02.7245 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:15:03.0255 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:15:03.4196 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:15:03.8417 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:15:04.3274 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:15:11.2028 [DEBUG] Play mode: False
+2018-10-15 16:25:32.0465 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 16:25:32.3350 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 16:25:36.7584 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 16:25:37.2585 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 16:25:37.7356 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:52)
+
+2018-10-15 16:25:38.1288 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 16:25:38.3279 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 16:25:38.8815 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 16:25:39.3766 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 16:25:39.8833 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 16:25:40.4145 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:45)
+
+2018-10-15 16:25:40.9192 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:25:41.4013 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:25:41.8200 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:59)
+
+2018-10-15 16:25:42.1951 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:25:42.6262 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:25:42.9953 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:25:43.3469 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:66)
+
+2018-10-15 16:25:45.9122 [DEBUG] Play mode: False
+2018-10-15 16:37:47.5070 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 16:37:47.9732 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 16:37:51.0608 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:71)
+
+2018-10-15 16:37:51.5269 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 16:37:51.9116 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 16:37:52.2062 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 16:37:52.6063 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:78)
+
+2018-10-15 16:37:53.0875 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 16:37:53.3882 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 16:37:53.7242 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 16:37:54.2444 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 16:37:54.5575 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 16:37:54.7876 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 16:37:55.3202 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 16:37:55.7834 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:71)
+
+2018-10-15 16:37:56.2195 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 16:37:56.4875 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 16:40:12.2324 [DEBUG] Play mode: False
+2018-10-15 16:41:09.9302 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 16:41:10.3239 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 16:41:12.1567 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:71)
+
+2018-10-15 16:41:12.6668 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:71)
+
+2018-10-15 16:41:13.0455 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:78)
+
+2018-10-15 16:41:13.2071 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:78)
+
+2018-10-15 16:41:14.1304 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 16:41:14.6801 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 16:41:15.1118 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 16:41:15.3328 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:40)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 16:41:17.6009 [DEBUG] Play mode: False
+2018-10-15 16:53:56.4826 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 16:53:57.0078 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 16:54:17.8618 [DEBUG] Play mode: False
+2018-10-15 16:56:54.9270 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 16:56:55.4923 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 16:57:06.5638 [DEBUG] Play mode: False
+2018-10-15 16:58:20.5790 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 16:58:20.8951 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 16:58:27.6820 [DEBUG] Play mode: False
+2018-10-15 16:59:20.7986 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 16:59:21.4484 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 17:00:05.0839 [DEBUG] Play mode: False
+2018-10-15 17:09:15.0029 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 17:09:15.8361 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 17:09:24.8437 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 17:09:25.4004 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:71)
+
+2018-10-15 17:09:25.8637 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:71)
+
+2018-10-15 17:09:26.2308 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:71)
+
+2018-10-15 17:09:26.7749 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:50)
+
+2018-10-15 17:09:27.9334 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:50)
+
+2018-10-15 17:09:28.4821 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:50)
+
+2018-10-15 17:09:28.9664 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:50)
+
+2018-10-15 17:09:29.4765 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:50)
+
+2018-10-15 17:09:30.1007 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 17:09:30.3858 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 17:09:30.8085 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 17:09:31.2991 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 17:09:31.8463 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 17:09:32.4124 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 17:09:32.6941 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:71)
+
+2018-10-15 17:09:33.1242 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 17:09:33.5353 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 17:09:34.0421 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 17:09:34.2811 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 17:09:34.6292 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:57)
+
+2018-10-15 17:09:35.1313 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:64)
+
+2018-10-15 17:09:35.6405 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:50)
+
+2018-10-15 17:09:36.0246 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:50)
+
+2018-10-15 17:09:36.3737 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.getSprite (UnityEngine.Sprite[] sprites, System.String name) (at Assets/Movement.cs:33)
+Movement.Update () (at Assets/Movement.cs:71)
+
+2018-10-15 17:09:38.7207 [DEBUG] Play mode: False
+2018-10-15 17:11:26.9675 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 17:22:24.9667 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 17:22:51.3594 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 17:22:51.8677 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 17:22:58.7335 [DEBUG] Play mode: False
+2018-10-15 17:25:31.3928 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 17:25:31.9270 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 17:25:57.8792 [DEBUG] Play mode: False
+2018-10-15 17:43:38.1210 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 17:43:38.8002 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 17:44:00.3752 [DEBUG] Play mode: False
+2018-10-15 17:52:02.5837 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 17:52:03.3049 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 17:52:33.3558 [DEBUG] Play mode: False
+2018-10-15 18:04:56.5238 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 18:04:57.0930 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 18:05:02.3920 [DEBUG] Play mode: False
+2018-10-15 18:10:22.0216 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 18:10:22.7114 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 18:10:32.2327 [DEBUG] Play mode: False
+2018-10-15 18:14:54.3923 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 18:14:54.7893 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 18:15:00.7683 [DEBUG] Play mode: False
+2018-10-15 18:18:39.3158 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 18:18:39.8850 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 18:19:00.9176 [DEBUG] Play mode: False
+2018-10-15 18:27:23.8703 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 18:43:28.6060 [DEBUG] Refresh token (doWdlxFJHeiGQFnac0L6Set3gp6gYKjp20MbtJOpSiuGL1rfg8lilXZYfC2XbUYH0tnzbkAahx4JbJAycI6hP9ymJLWIYdHfqULLup5uFooCkRKdwdJdX2sz3E07sofp97WIkoRhAO4t7hklSIY56I2beI6y0aQnqHihsRDoMqGUzOZ3cJra5McDaOhY9EHQk4wlU2ya7eL8aqgZH6yiQ3YifrDniUIKtTbOUKf19dDcHAaUGEB4o3uRyWGbEda) error: {"err":"Error getting response stream (ReadDone2): ReceiveFailure"}
+2018-10-15 18:45:29.1724 [DEBUG] Refresh token () error: {"err":"Error getting response stream (ReadDone2): ReceiveFailure"}
+2018-10-15 18:58:20.1695 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 18:58:20.5531 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 18:58:25.5351 [DEBUG] Play mode: False
+2018-10-15 19:00:00.6902 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 19:00:00.9823 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 19:00:23.6709 [DEBUG] Play mode: False
+2018-10-15 19:02:03.9102 [DEBUG] Refresh token (doWdlxFJHeiGQFnac0L6Set3gp6gYKjp20MbtJOpSiuGL1rfg8lilXZYfC2XbUYH0tnzbkAahx4JbJAycI6hP9ymJLWIYdHfqULLup5uFooCkRKdwdJdX2sz3E07sofp97WIkoRhAO4t7hklSIY56I2beI6y0aQnqHihsRDoMqGUzOZ3cJra5McDaOhY9EHQk4wlU2ya7eL8aqgZH6yiQ3YifrDniUIKtTbOUKf19dDcHAaUGEB4o3uRyWGbEda) error: {"err":"Error getting response stream (ReadDone2): ReceiveFailure"}
+2018-10-15 19:04:04.2801 [DEBUG] Refresh token () error: {"err":"Error getting response stream (ReadDone2): ReceiveFailure"}
+2018-10-15 19:06:54.4214 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 19:06:54.8532 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 19:08:11.6344 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:08:12.3227 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:08:12.7578 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:08:13.1380 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:08:13.5561 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:08:13.9702 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:08:14.3938 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:08:14.8465 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:08:19.7330 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:08:20.0813 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:08:20.3414 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:08:20.8295 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:08:21.2986 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:08:21.7679 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:08:22.1575 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:08:22.6377 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:08:23.1323 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:08:23.5755 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:08:24.1087 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:08:24.6359 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:08:25.3302 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:08:25.7803 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:08:31.1375 [DEBUG] Play mode: False
+2018-10-15 19:09:03.8272 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 19:09:04.3470 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 19:09:06.4981 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:07.1984 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:09:07.7185 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:08.2037 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:09:08.6979 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:09:09.1865 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:09:09.6238 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:10.0909 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:10.5886 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:09:11.0162 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:09:11.4740 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:11.9736 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:12.5518 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:09:13.0415 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:09:13.6202 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:26.2997 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:27.1225 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:09:27.6736 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:28.2378 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:09:28.6504 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:09:29.1175 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:29.6547 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:30.2088 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:09:30.6679 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:09:31.1976 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:31.6218 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:09:31.9139 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:09:32.4630 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:09:32.9792 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:09:34.1026 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:09:34.9808 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:09:35.8596 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:09:37.0585 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:09:37.8807 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:09:38.3588 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:09:38.7429 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:09:39.1620 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:09:39.6211 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:09:40.0918 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:09:40.5059 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:09:41.0560 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:10:29.6553 [DEBUG] Play mode: False
+2018-10-15 19:11:06.7637 [DEBUG] Refresh token (doWdlxFJHeiGQFnac0L6Set3gp6gYKjp20MbtJOpSiuGL1rfg8lilXZYfC2XbUYH0tnzbkAahx4JbJAycI6hP9ymJLWIYdHfqULLup5uFooCkRKdwdJdX2sz3E07sofp97WIkoRhAO4t7hklSIY56I2beI6y0aQnqHihsRDoMqGUzOZ3cJra5McDaOhY9EHQk4wlU2ya7eL8aqgZH6yiQ3YifrDniUIKtTbOUKf19dDcHAaUGEB4o3uRyWGbEda) error: {"err":"Error getting response stream (ReadDone2): ReceiveFailure"}
+2018-10-15 19:11:54.3933 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 19:11:54.7784 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 19:12:03.1190 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:12:03.7162 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:12:04.1273 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:12:04.5765 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:12:05.5882 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:12:06.0094 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:12:06.3346 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:12:07.5005 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:12:07.7846 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:12:10.6736 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:12:11.1257 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:12:11.5708 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:12:12.0296 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:12:12.4098 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:12:12.9955 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:12:13.3596 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:12:13.6922 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:12:14.0713 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:12:14.5494 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:12:15.1176 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:13:57.2086 [DEBUG] Refresh token (doWdlxFJHeiGQFnac0L6Set3gp6gYKjp20MbtJOpSiuGL1rfg8lilXZYfC2XbUYH0tnzbkAahx4JbJAycI6hP9ymJLWIYdHfqULLup5uFooCkRKdwdJdX2sz3E07sofp97WIkoRhAO4t7hklSIY56I2beI6y0aQnqHihsRDoMqGUzOZ3cJra5McDaOhY9EHQk4wlU2ya7eL8aqgZH6yiQ3YifrDniUIKtTbOUKf19dDcHAaUGEB4o3uRyWGbEda) error: {"err":"Error getting response stream (ReadDone2): ReceiveFailure"}
+2018-10-15 19:14:23.1715 [DEBUG] Refresh token () error: {"err":"Invalid token"}
+2018-10-15 19:20:03.1881 [DEBUG] Play mode: False
+2018-10-15 19:20:35.9618 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 19:20:36.4681 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 19:20:40.1891 [DEBUG] Refresh token () error: {"err":"Invalid token"}
+2018-10-15 19:20:41.4822 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:20:41.9469 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:20:42.5267 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:20:42.9559 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:20:43.3075 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:20:43.6986 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:20:44.0278 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:20:44.4410 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:20:45.0172 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:20:45.3413 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:20:45.8685 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:20:46.3292 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:20:46.9891 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:20:47.5082 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:20:48.0470 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:20:48.7703 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:20:50.2989 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:20:50.9161 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:20:51.4512 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:20:51.9510 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:20:52.5343 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:20:53.0479 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:20:55.6144 [DEBUG] Play mode: False
+2018-10-15 19:21:27.7758 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 19:21:28.3754 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 19:21:31.9201 [DEBUG] Refresh token () error: {"err":"Invalid token"}
+2018-10-15 19:21:35.2071 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:21:35.7008 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:21:57.0881 [DEBUG] Play mode: False
+2018-10-15 19:25:28.5868 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 19:25:49.4595 [DEBUG] Refresh token () error: {"err":"Invalid token"}
+2018-10-15 19:34:04.5270 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 19:34:05.5904 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 19:34:18.4164 [DEBUG] Refresh token () error: {"err":"Invalid token"}
+2018-10-15 19:35:07.1927 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:42)
+
+2018-10-15 19:35:07.9344 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:35:08.6357 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:49)
+
+2018-10-15 19:35:09.4174 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:35:10.9416 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:35:11.6363 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:35:12.1599 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:63)
+
+2018-10-15 19:35:12.6837 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:35:13.3028 [ERROR] IndexOutOfRangeException: Array index is out of range.
+Movement.Update () (at Assets/Movement.cs:56)
+
+2018-10-15 19:35:26.7249 [DEBUG] Play mode: False
+2018-10-15 19:37:21.2008 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 19:37:45.6050 [DEBUG] Refresh token () error: {"err":"Invalid token"}
+2018-10-15 19:40:27.2127 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 19:40:28.0417 [DEBUG] Play mode: True, sync in play mode: True
+2018-10-15 19:40:31.3320 [DEBUG] Refresh token () error: {"err":"Invalid token"}
+2018-10-15 19:40:48.0803 [DEBUG] Play mode: False
+2018-10-15 19:59:32.0638 [DEBUG] Scene Fusion version 1.8.1-0
+2018-10-15 19:59:50.9738 [DEBUG] Refresh token () error: {"err":"Invalid token"}
+2018-10-15 20:17:18.7275 [DEBUG] Scene Fusion version 1.8.1-0
