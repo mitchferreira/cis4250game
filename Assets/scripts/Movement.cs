@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Movement : MonoBehaviour {
 
@@ -9,7 +10,7 @@ public class Movement : MonoBehaviour {
     public SpriteRenderer spriteR;
 
     public Sprite [] up;
-    public Sprite [] down;  
+    public Sprite [] down;
     public Sprite [] left;
     public Sprite [] right;
 
@@ -32,11 +33,14 @@ public class Movement : MonoBehaviour {
     {
         if(c.gameObject.CompareTag("Enemy"))
         {
-            print("KJAFHJKJFDDFSKJA"); 
-            SceneManager.LoadScene("BattleUI"); 
+            c.gameObject.GetComponent<EnemyScript>().defeated = true;
+            GameObject db = GameObject.Find("_mysql");
+            db.GetComponent<DatabaseHandler>().SaveGame();
+
+            SceneManager.LoadScene("BattleUI");
         }
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -49,7 +53,7 @@ public class Movement : MonoBehaviour {
         {
             rb2d.MovePosition(new Vector2(rb2d.position.x + tile_size, rb2d.position.y));
             spriteR.sprite = right[walk_cycle++];
-        } 
+        }
         else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + tile_size));

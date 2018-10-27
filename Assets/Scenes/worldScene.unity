@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 20795794}
   - component: {fileID: 20795793}
   - component: {fileID: 20795792}
+  - component: {fileID: 20795795}
   m_Layer: 0
   m_Name: opossum-2
   m_TagString: Enemy
@@ -235,6 +236,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &20795795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20795790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56a3d36b6eea456790cb478fa5bf669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defeated: 0
 --- !u!1 &217900516 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1945062983128778, guid: d96dfd61801c64875ae9f9b737898caf,
@@ -668,7 +681,7 @@ GameObject:
   - component: {fileID: 588546080}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
@@ -993,6 +1006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 789296925}
   - component: {fileID: 789296924}
+  - component: {fileID: 789296926}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1025,6 +1039,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &789296926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 789296923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dab4d371ef254944a8fff4fc6ce9677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &806428935
 GameObject:
   m_ObjectHideFlags: 0
@@ -3088,6 +3113,8 @@ GameObject:
   - component: {fileID: 2122093719}
   - component: {fileID: 2122093721}
   - component: {fileID: 2122093718}
+  - component: {fileID: 2122093723}
+  - component: {fileID: 2122093722}
   m_Layer: 0
   m_Name: frog-idle-1
   m_TagString: Enemy
@@ -3213,3 +3240,28 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   s: {fileID: 0}
   g_obj: {fileID: 0}
+  defeated: 0
+--- !u!114 &2122093722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122093716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56a3d36b6eea456790cb478fa5bf669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defeated: 0
+--- !u!114 &2122093723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122093716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4106f0feb752d4d5dae11bba15ff21d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack_panel: {fileID: 0}

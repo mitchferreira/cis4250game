@@ -10,7 +10,7 @@ public class ChestScript : MonoBehaviour {
 	public bool opened;
 	public SpriteRenderer render;
 
-	void Start()
+	void Awake()
 	{
 			render = chest.AddComponent<SpriteRenderer>();
 			render.sortingOrder = 1;
@@ -46,7 +46,6 @@ public class ChestScript : MonoBehaviour {
     }
 
 		public void UpdateChest(bool state) {
-			Debug.Log("updating chest state hopefully");
 			opened = state;
 			render.sprite = opened ? open : closed;
 		}
