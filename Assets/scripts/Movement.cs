@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Movement : MonoBehaviour {
 
@@ -9,12 +10,15 @@ public class Movement : MonoBehaviour {
     public SpriteRenderer spriteR;
 
     public Sprite [] up;
-    public Sprite [] down;  
+    public Sprite [] down;
     public Sprite [] left;
     public Sprite [] right;
 
     public int walk_cycle = 0;
     public float tile_size = 0.16f;
+
+    public int speed = 10;
+    public int frame = 0;
 
     // Use this for initialization
     void Start()
@@ -32,38 +36,40 @@ public class Movement : MonoBehaviour {
     {
         if(c.gameObject.CompareTag("Enemy"))
         {
-            print("KJAFHJKJFDDFSKJA"); 
-            SceneManager.LoadScene("BattleUI"); 
+            c.gameObject.GetComponent<EnemyScript>().defeated = true;
+            GameObject db = GameObject.Find("_mysql");
+            db.GetComponent<DatabaseHandler>().SaveGame();
+
+            SceneManager.LoadScene("BattleUI");
         }
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        if (Input.anyKey && frame++ % speed == 0)
         {
-            rb2d.MovePosition(new Vector2(rb2d.position.x - tile_size, rb2d.position.y));
-            spriteR.sprite = left[walk_cycle++];
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
-        {
-            rb2d.MovePosition(new Vector2(rb2d.position.x + tile_size, rb2d.position.y));
-            spriteR.sprite = right[walk_cycle++];
-        } 
-        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-        {
-            rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + tile_size));
-            spriteR.sprite = up[walk_cycle++];
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-        {
-            rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - tile_size));
-            spriteR.sprite = down[walk_cycle++];
-        }
-
-        if (walk_cycle == 6)
-        {
-            walk_cycle = 0;
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            {
+                rb2d.MovePosition(new Vector2(rb2d.position.x - tile_size, rb2d.position.y));
+                spriteR.sprite = left[walk_cycle++];
+            }
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            {
+                rb2d.MovePosition(new Vector2(rb2d.position.x + tile_size, rb2d.position.y));
+                spriteR.sprite = right[walk_cycle++];
+            }
+            else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            {
+                rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + tile_size));
+                spriteR.sprite = up[walk_cycle++];
+            }
+            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            {
+                rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - tile_size));
+                spriteR.sprite = down[walk_cycle++];
+            }
+            walk_cycle = walk_cycle % 6; 
         }
     }
 }

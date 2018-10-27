@@ -1,4 +1,4 @@
-﻿/*using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Data;
@@ -8,12 +8,17 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using UnityEngine.SceneManagement;
 
 public class DatabaseHandler : MonoBehaviour
 {
 
     public string host, database, user, password;
     public bool pooling = true;
+
+    public GameObject dbObj;
+    public GameObject inGameMenu;
+    public GameObject menuCanvas;
 
     private String connectionString;
     private MySqlConnection con = null;
@@ -23,13 +28,17 @@ public class DatabaseHandler : MonoBehaviour
     private MD5 _md5Hash;
 
     private GameObject[] chests;
+    private GameObject[] enemies;
+    private GameObject player;
 
     public Button saveBtn;
     public Button loadBtn;
 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(dbObj);
+        DontDestroyOnLoad(inGameMenu);
+        DontDestroyOnLoad(menuCanvas);
         connectionString = "Server=" + host + ";Database=" + database + ";User=" + user + ";Password=" + password + ";Pooling=";
 
         saveBtn.onClick.AddListener(SaveGame);
@@ -56,12 +65,18 @@ public class DatabaseHandler : MonoBehaviour
         }
     }
 
-    void SaveGame() {
-        Debug.Log("Saving");
+    public void SaveGame() {
+        SaveChests();
+        SaveEnemies();
+        SavePlayer();
+    }
+
+    void SaveChests() {
+        Debug.Log("saving chests");
         chests = GameObject.FindGameObjectsWithTag("chest");
 
         try {
-            cmd = new MySqlCommand("TRUNCATE TABLE chests", con);
+            cmd = new MySqlCommand("TRUNCATE TABLE chests;", con);
             rdr = cmd.ExecuteReader();
             rdr.Close();
         }
@@ -72,12 +87,9 @@ public class DatabaseHandler : MonoBehaviour
         foreach(GameObject chest in chests) {
             string name = chest.GetComponent<ChestScript>().name;
             int opened = chest.GetComponent<ChestScript>().opened ? 1 : 0;
-            string truncateString = "TRUNCATE TABLE chests;";
             string insertString = $"INSERT INTO chests VALUES (\"{name}\", {opened});";
 
             try {
-                Debug.Log(truncateString);
-                Debug.Log(insertString);
                 cmd = new MySqlCommand(insertString, con);
                 rdr = cmd.ExecuteReader();
                 rdr.Close();
@@ -86,11 +98,94 @@ public class DatabaseHandler : MonoBehaviour
                 Debug.Log(e);
             }
         }
+    }
 
-        try
-        {
-            cmd = new MySqlCommand("UPDATE save_file SET data = \"new text\", data_blob = 100 where id = 1;", con);
+    void SaveEnemies() {
+        Debug.Log("saving enemies");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+
+        try {
+            cmd = new MySqlCommand("TRUNCATE TABLE enemies;", con);
             rdr = cmd.ExecuteReader();
+            rdr.Close();
+        }
+        catch (Exception e) {
+            Debug.Log(e);
+        }
+
+        foreach(GameObject enemy in enemies) {
+            string name = enemy.name;
+            int defeated = enemy.GetComponent<EnemyScript>().defeated ? 1 : 0;
+            string insertString = $"INSERT INTO enemies VALUES (\"{name}\", {defeated});";
+
+            try {
+                cmd = new MySqlCommand(insertString, con);
+                rdr = cmd.ExecuteReader();
+                rdr.Close();
+            }
+            catch (Exception e) {
+                Debug.Log(e);
+            }
+        }
+    }
+
+    void SavePlayer() {
+        Debug.Log("saving player");
+        player = GameObject.Find("player");
+        int level = player.GetComponent<PlayerScript>().level;
+        int expPoints = player.GetComponent<PlayerScript>().expPoints;
+        float xCoordinate = player.GetComponent<PlayerScript>().transform.position.x;
+        float yCoordinate = player.GetComponent<PlayerScript>().transform.position.y;
+        string[] items = player.GetComponent<PlayerScript>().items.ToArray();
+        string itemsString = "";
+        foreach(string item in items) {
+            itemsString += "," + item;
+        }
+        string insertString = $"INSERT INTO player VALUES ({xCoordinate}, {yCoordinate}, {level}, {expPoints}, \"{itemsString}\");";
+
+        try {
+            cmd = new MySqlCommand("TRUNCATE TABLE player;", con);
+            rdr = cmd.ExecuteReader();
+            rdr.Close();
+        }
+        catch (Exception e) {
+            Debug.Log(e);
+        }
+
+        try {
+            cmd = new MySqlCommand(insertString, con);
+            rdr = cmd.ExecuteReader();
+            rdr.Close();
+        }
+        catch (Exception e) {
+            Debug.Log(e);
+        }
+    }
+
+    public void LoadGame() {
+        LoadChests();
+        Debug.Log("Loading enemies");
+        LoadEnemies();
+        Debug.Log("Loading player");
+        LoadPlayer();
+    }
+
+    void LoadChests() {
+        try {
+            cmd = new MySqlCommand("SELECT * from chests;", con);
+            rdr = cmd.ExecuteReader();
+            Debug.Log("Loading chests");
+
+            if(rdr.HasRows) {
+                while(rdr.Read()) {
+                    UpdateChestState(rdr.GetString(0), rdr.GetInt32(1));
+                }
+            }
+            else
+            {
+                Debug.Log("No chests found.");
+            }
             rdr.Close();
         }
         catch (Exception e)
@@ -99,23 +194,19 @@ public class DatabaseHandler : MonoBehaviour
         }
     }
 
-    void LoadGame() {
-        Debug.Log("Loading");
-        try
-        {
-            cmd = new MySqlCommand("SELECT data, data_blob from save_file;", con);
+    void LoadEnemies() {
+        try {
+            cmd = new MySqlCommand("SELECT * from enemies;", con);
             rdr = cmd.ExecuteReader();
-            if (rdr.HasRows)
-            {
-                while (rdr.Read())
-                {
-                    Debug.Log("Text field: " + rdr.GetString(0));
-                    Debug.Log("Blob field: " + rdr.GetString(1));
+
+            if(rdr.HasRows) {
+                while(rdr.Read()) {
+                    UpdateEnemyState(rdr.GetString("name"), rdr.GetInt32("defeated"));
                 }
             }
             else
             {
-                Debug.Log("No rows found.");
+                Debug.Log("No enemies found.");
             }
             rdr.Close();
         }
@@ -123,6 +214,52 @@ public class DatabaseHandler : MonoBehaviour
         {
             Debug.Log(e);
         }
+    }
+
+    void LoadPlayer() {
+        try {
+            cmd = new MySqlCommand("SELECT * from player;", con);
+            rdr = cmd.ExecuteReader();
+
+            if(rdr.HasRows) {
+                rdr.Read();
+                UpdatePlayerState(rdr.GetFloat("xCoordinate"), rdr.GetFloat("yCoordinate"), rdr.GetInt32("level"), rdr.GetInt32("experiencePoints"), rdr.GetString("items"));
+            }
+            else
+            {
+                Debug.Log("No player found.");
+            }
+            rdr.Close();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+    }
+
+    void UpdatePlayerState(float x, float y, int lvl, int exp, string items) {
+        player = GameObject.Find("player");
+        player.GetComponent<PlayerScript>().UpdatePlayerState(x, y, lvl, exp, items);
+    }
+
+    void UpdateChestState(string chestName, int chestOpen) {
+        bool open = true;
+        if(chestOpen == 0) {
+            open = false;
+        }
+
+        GameObject chest = GameObject.Find(chestName);
+        chest.GetComponent<ChestScript>().UpdateChest(open);
+    }
+
+    void UpdateEnemyState(string enemyName, int enemyDefeated) {
+        bool alive = true;
+        if(enemyDefeated == 1) {
+            alive = false;
+        }
+
+        GameObject enemy = GameObject.Find(enemyName);
+        enemy.GetComponent<EnemyScript>().UpdateEnemy(alive);
     }
 
     void OnApplicationQuit()
@@ -143,4 +280,3 @@ public class DatabaseHandler : MonoBehaviour
         return con.State.ToString();
     }
 }
-*/
