@@ -2106,6 +2106,8 @@ MonoBehaviour:
   right: []
   walk_cycle: 0
   tile_size: 0.16
+  speed: 5
+  frame: 0
 --- !u!114 &1625645225
 MonoBehaviour:
   m_ObjectHideFlags: 0
