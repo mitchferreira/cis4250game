@@ -137,7 +137,12 @@ public class DatabaseHandler : MonoBehaviour
         int expPoints = player.GetComponent<PlayerScript>().expPoints;
         float xCoordinate = player.GetComponent<PlayerScript>().transform.position.x;
         float yCoordinate = player.GetComponent<PlayerScript>().transform.position.y;
-        string insertString = $"INSERT INTO player VALUES ({xCoordinate}, {yCoordinate}, {level}, {expPoints});";
+        string[] items = player.GetComponent<PlayerScript>().items;
+        string itemsString = "";
+        foreach(string item in items) {
+            itemsString += "," + item;
+        }
+        string insertString = $"INSERT INTO player VALUES ({xCoordinate}, {yCoordinate}, {level}, {expPoints}, \"{itemsString}\");";
 
         try {
             cmd = new MySqlCommand("TRUNCATE TABLE player;", con);
@@ -218,11 +223,11 @@ public class DatabaseHandler : MonoBehaviour
 
             if(rdr.HasRows) {
                 rdr.Read();
-                UpdatePlayerState(rdr.GetFloat("xCoordinate"), rdr.GetFloat("yCoordinate"), rdr.GetInt32("level"), rdr.GetInt32("experiencePoints"));
+                UpdatePlayerState(rdr.GetFloat("xCoordinate"), rdr.GetFloat("yCoordinate"), rdr.GetInt32("level"), rdr.GetInt32("experiencePoints"), rdr.GetString("items"));
             }
             else
             {
-                Debug.Log("No chests found.");
+                Debug.Log("No player found.");
             }
             rdr.Close();
         }
@@ -232,9 +237,9 @@ public class DatabaseHandler : MonoBehaviour
         }
     }
 
-    void UpdatePlayerState(float x, float y, int lvl, int exp) {
+    void UpdatePlayerState(float x, float y, int lvl, int exp, string items) {
         player = GameObject.Find("player");
-        player.GetComponent<PlayerScript>().UpdatePlayerState(x, y, lvl, exp);
+        player.GetComponent<PlayerScript>().UpdatePlayerState(x, y, lvl, exp, items);
     }
 
     void UpdateChestState(string chestName, int chestOpen) {

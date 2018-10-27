@@ -2122,6 +2122,12 @@ MonoBehaviour:
   xCoordinate: 0
   yCoordinate: 0
   player: {fileID: 1625645219}
+  items:
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!1 &1664658704
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,7 +3246,6 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   s: {fileID: 0}
   g_obj: {fileID: 0}
-  defeated: 0
 --- !u!114 &2122093722
 MonoBehaviour:
   m_ObjectHideFlags: 0
