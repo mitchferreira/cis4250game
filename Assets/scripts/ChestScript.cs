@@ -15,18 +15,18 @@ public class ChestScript : MonoBehaviour {
 
 	void Awake()
 	{
-			render = chest.AddComponent<SpriteRenderer>();
-			render.sortingOrder = 1;
+		render = chest.AddComponent<SpriteRenderer>();
+		render.sortingOrder = 1;
 
-			BoxCollider2D collider = chest.AddComponent<BoxCollider2D>();
+		BoxCollider2D collider = chest.AddComponent<BoxCollider2D>();
 
-			/*NOTE:: the box collider size is based on a transform scale of 0.2 for the X and Y values,
-				* if the transform scale changes, the box collider size WILL NEED to change as well,
-				*  (Kent, 10/23/2018)
-				*/
-			collider.size = new Vector2(1.2f, 1.2f);
+		/*NOTE:: the box collider size is based on a transform scale of 0.2 for the X and Y values,
+			* if the transform scale changes, the box collider size WILL NEED to change as well,
+			*  (Kent, 10/23/2018)
+			*/
+		collider.size = new Vector2(1.2f, 1.2f);
 
-			render.sprite = opened ? open : closed;
+		render.sprite = opened ? open : closed;
 	}
 
     void OnCollisionEnter2D(Collision2D c)
@@ -39,24 +39,22 @@ public class ChestScript : MonoBehaviour {
          *  if the size of the sprite changes, these values WILL NEED to change as well. - (Kent, 10/23/2018)
          */
         if(c.gameObject.CompareTag("Player") &&
-					c.gameObject.transform.position.x > chest.transform.position.x - 0.25 &&
-					c.gameObject.transform.position.x < chest.transform.position.x + 0.25 &&
-					c.gameObject.transform.position.y < chest.transform.position.y)
+			c.gameObject.transform.position.x > chest.transform.position.x - 0.25 &&
+			c.gameObject.transform.position.x < chest.transform.position.x + 0.25 &&
+			c.gameObject.transform.position.y < chest.transform.position.y && !opened)
         {
 			opened = true;
 			render.sprite = open;
             PlayerScript player = GameObject.Find("player").GetComponent<PlayerScript>();
 
-            items = player.items;
-            items.Add(item_name);
-            items.Add(ability);
-            Debug.Log(name);
+            player.items.Add(item_name + ":" + ability);
+            Debug.Log(item_name);
             Debug.Log(ability);
         }
     }
 
-		public void UpdateChest(bool state) {
-			opened = state;
-			render.sprite = opened ? open : closed;
-		}
+	public void UpdateChest(bool state) {
+		opened = state;
+		render.sprite = opened ? open : closed;
+	}
 }
