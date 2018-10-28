@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,8 +39,8 @@ public class ChestScript : MonoBehaviour {
          *  if the size of the sprite changes, these values WILL NEED to change as well. - (Kent, 10/23/2018)
          */
         if(c.gameObject.CompareTag("Player") &&
-			c.gameObject.transform.position.x > chest.transform.position.x - 0.25 &&
-			c.gameObject.transform.position.x < chest.transform.position.x + 0.25 &&
+			c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
+			c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
 			c.gameObject.transform.position.y < chest.transform.position.y && !opened)
         {
 			opened = true;
