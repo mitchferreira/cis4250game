@@ -9,17 +9,19 @@ public class PlayerScript : MonoBehaviour {
 	public float xCoordinate;
 	public float yCoordinate;
 	public GameObject player;
-	public string[] items;
+	public List <string> items;
 
 	public void UpdatePlayerState(float x, float y, int lvl, int exp, string itemsToAdd) {
 		level = lvl;
 		expPoints = exp;
 		xCoordinate = x;
 		yCoordinate = y;
-		items = itemsToAdd.Split(',');
-		Debug.Log(items.Length);
-		items = items.Where(elm => !string.IsNullOrEmpty(elm)).ToArray();
-		Debug.Log(items.Length);
+		items = itemsToAdd.Split(',').ToList();
+        Debug.Log(items.Count);
+
+		items = items.Where(elm => !string.IsNullOrEmpty(elm)).ToList();
+		Debug.Log(items.Count);
+
 		foreach(string item in items) {
 			Debug.Log(item);
 		}
