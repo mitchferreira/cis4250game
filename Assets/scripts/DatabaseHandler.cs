@@ -137,8 +137,10 @@ public class DatabaseHandler : MonoBehaviour
         int expPoints = player.GetComponent<PlayerScript>().expPoints;
         float xCoordinate = player.GetComponent<PlayerScript>().transform.position.x;
         float yCoordinate = player.GetComponent<PlayerScript>().transform.position.y;
+
         string[] items = player.GetComponent<PlayerScript>().items.ToArray();
         string itemsString = "";
+        
         foreach(string item in items) {
             itemsString += "," + item;
         }
