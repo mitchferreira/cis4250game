@@ -9,6 +9,9 @@ public class ChestScript : MonoBehaviour {
 	public GameObject chest;
 	public bool opened;
 	public SpriteRenderer render;
+    public List <string> items;
+    public string item_name;
+    public string ability; 
 
 	void Awake()
 	{
@@ -40,13 +43,20 @@ public class ChestScript : MonoBehaviour {
 					c.gameObject.transform.position.x < chest.transform.position.x + 0.25 &&
 					c.gameObject.transform.position.y < chest.transform.position.y)
         {
-					opened = true;
-					render.sprite = open;
+			opened = true;
+			render.sprite = open;
+            PlayerScript player = GameObject.Find("player").GetComponent<PlayerScript>();
+
+            items = player.items;
+            items.Add(item_name);
+            items.Add(ability);
+            Debug.Log(name);
+            Debug.Log(ability);
         }
     }
 
-		public void UpdateChest(bool state) {
-			opened = state;
-			render.sprite = opened ? open : closed;
-		}
+	public void UpdateChest(bool state) {
+		opened = state;
+		render.sprite = opened ? open : closed;
+	}
 }
