@@ -75,6 +75,10 @@ public class PlayerScript : MonoBehaviour {
                 rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - tile_size));
                 spriteR.sprite = down[walk_cycle++];
             }
+            else if (Input.GetKey(KeyCode.I))
+            {
+                SceneManager.LoadScene("InventoryScene");
+            }
             walk_cycle = walk_cycle % 6;
         }
     }

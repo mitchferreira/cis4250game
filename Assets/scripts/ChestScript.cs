@@ -9,24 +9,27 @@ public class ChestScript : MonoBehaviour {
 	public GameObject chest;
 	public bool opened;
 	public SpriteRenderer render;
-    public List <string> items;
+
     public string item_name;
-    public string ability; 
+    public string item_mod;
+    public string item_type;
+    public int dice_num;
+    public int dice_type; 
 
 	void Awake()
 	{
-		render = chest.AddComponent<SpriteRenderer>();
-		render.sortingOrder = 1;
+			render = chest.AddComponent<SpriteRenderer>();
+			render.sortingOrder = 1;
 
-		BoxCollider2D collider = chest.AddComponent<BoxCollider2D>();
+			BoxCollider2D collider = chest.AddComponent<BoxCollider2D>();
 
-		/*NOTE:: the box collider size is based on a transform scale of 0.2 for the X and Y values,
-			* if the transform scale changes, the box collider size WILL NEED to change as well,
-			*  (Kent, 10/23/2018)
-			*/
-		collider.size = new Vector2(1.2f, 1.2f);
+			/*NOTE:: the box collider size is based on a transform scale of 0.2 for the X and Y values,
+				* if the transform scale changes, the box collider size WILL NEED to change as well,
+				*  (Kent, 10/23/2018)
+				*/
+			collider.size = new Vector2(1.2f, 1.2f);
 
-		render.sprite = opened ? open : closed;
+			render.sprite = opened ? open : closed;
 	}
 
     void OnCollisionEnter2D(Collision2D c)
@@ -39,17 +42,17 @@ public class ChestScript : MonoBehaviour {
          *  if the size of the sprite changes, these values WILL NEED to change as well. - (Kent, 10/23/2018)
          */
         if(c.gameObject.CompareTag("Player") &&
-			c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
-			c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
-			c.gameObject.transform.position.y < chest.transform.position.y && !opened)
+					c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
+					c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
+					c.gameObject.transform.position.y < chest.transform.position.y && !opened)
         {
 			opened = true;
 			render.sprite = open;
-            PlayerScript player = GameObject.Find("player").GetComponent<PlayerScript>();
+            List <string> items = GameObject.Find("player").GetComponent<PlayerScript>().items;
 
-            player.items.Add(item_name + ":" + ability);
-            Debug.Log(item_name);
-            Debug.Log(ability);
+            string item = item_name + ":" + item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":False";
+            items.Add(item); 
+            Debug.Log(item);
         }
     }
 

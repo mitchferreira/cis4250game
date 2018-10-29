@@ -11,8 +11,6 @@ public class Items : MonoBehaviour {
 
     public static StructsClass.Armor Leather;
 
-
-
     public void defineWeapons()
     {
         Longsword.name = "Longsword";
