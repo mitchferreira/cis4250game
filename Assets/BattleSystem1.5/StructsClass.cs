@@ -19,6 +19,7 @@ public class StructsClass : MonoBehaviour {
 
         public int hitDiceValue;
         public int maxHealth;
+        public int currentHealth;
 
         //public string statusEffects;
 
@@ -92,6 +93,13 @@ public class StructsClass : MonoBehaviour {
         public int addedDamage;
         public string damageType;
 
+    }
+
+
+    public struct InitiativeArray
+    {
+        public StructsClass.Character[] characters;
+        public StructsClass.Enemy[] enemies;
     }
 
 }

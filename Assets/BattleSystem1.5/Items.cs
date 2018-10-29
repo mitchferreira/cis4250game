@@ -13,7 +13,7 @@ public class Items : MonoBehaviour {
 
 
 
-    public void defineWeapons()
+    public static void defineWeapons()
     {
         Longsword.name = "Longsword";
         Longsword.diceType = 8;
@@ -40,7 +40,7 @@ public class Items : MonoBehaviour {
         Mace.damageType = "bash";
     }
 
-    public void defineArmor()
+    public static void defineArmor()
     {
         Leather.name = "Leather Armor";
         Leather.armorValue = 11;
