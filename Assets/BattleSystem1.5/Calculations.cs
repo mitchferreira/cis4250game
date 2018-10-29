@@ -106,7 +106,7 @@ public class Calculations : MonoBehaviour
     }
 
 
-    public static string CalculatePlayerHit(StructsClass.Character player, StructsClass.Enemy enemy, StructsClass.Ability attack)
+    public static int CalculatePlayerHit(StructsClass.Character player, StructsClass.Enemy enemy, StructsClass.Ability attack)
     {
         int dice = 0;
 
@@ -116,27 +116,28 @@ public class Calculations : MonoBehaviour
 
         if(dice == 20)
         {
-            return "critHit";
+            return 2;
         }
 
         if (dice == 1)
         {
-            return "critMiss";
+            return -1;
         }
 
         dice = dice + getModifier(attack.modifier, player);
 
         if (dice >= enemy.armor)
         {
-            return "hit";
+            return 1;
         }
         else
         {
-            return "miss";
+            return 0;
         }
     }
 
-    public static string CalculateEnemyHit(StructsClass.Character player, StructsClass.EnemyAbility attack)
+
+    public static int CalculatePlayerWeaponHit(StructsClass.Character player, StructsClass.Enemy enemy)
     {
         int dice = 0;
 
@@ -146,37 +147,74 @@ public class Calculations : MonoBehaviour
 
         if (dice == 20)
         {
-            return "critHit";
+            return 2;
         }
 
         if (dice == 1)
         {
-            return "critMiss";
+            return -1;
+        }
+
+        dice = dice + getModifier(player.weapon.modifier, player);
+
+        if (dice >= enemy.armor)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+
+
+    public static int CalculateEnemyHit(StructsClass.Character player, StructsClass.EnemyAbility attack)
+    {
+        int dice = 0;
+
+        System.Random rand = new System.Random();
+
+        dice = (rand.Next(1, 20));
+
+        if (dice == 20)
+        {
+            return 2;
+        }
+
+        if (dice == 1)
+        {
+            return -1;
         }
 
         dice = dice + attack.addedHit;
 
         if (dice >= player.armor.armorValue)
         {
-            return "hit";
+            return 1;
         }
         else
         {
-            return "miss";
+            return 0;
         }
     }
 
 
 
-    public static int CalculatePlayerDamage(StructsClass.Ability attack, Boolean crit, StructsClass.Enemy enemy)
+    public static int CalculatePlayerDamage(StructsClass.Ability attack, int crit, StructsClass.Enemy enemy)
     {
         int damage = 0;
         int i = 0;
 
-        if (crit == true)
+        if (crit == 2)
         {
             damage = 2 * (attack.diceType * attack.numOfDice);
         }
+        else if (crit == -1)
+        {
+            return 0;
+        }
+
         else
         {
             System.Random rand = new System.Random();
@@ -211,16 +249,70 @@ public class Calculations : MonoBehaviour
     }
 
 
+    public static int WeaponAttack(StructsClass.Character player, int crit, StructsClass.Enemy enemy)
+    {
+        int damage = 0;
+        int i = 0;
+        int forVar = 0;
+        System.Random rand = new System.Random();
+
+        if (crit == 2)
+        {
+            damage = 2 * (player.weapon.diceType * player.weapon.numOfDice);
+        }
+        else if (crit == -1)
+        {
+            return 0;
+        }
+
+        else
+        {
+            damage = (rand.Next(1, player.weapon.diceType));
+            damage = damage * player.weapon.numOfDice;
+        }
+
+        forVar = enemy.weaknesses.Length;
+        if (forVar != 0)
+        {
+            for (i = 0; i < forVar; i++)
+            {
+                if (player.weapon.damageType == enemy.weaknesses[i])
+                {
+                    damage = damage * 2;
+                }
+            }
+        }
+
+        for (i = 0; i < enemy.resistances.Length; i++)
+        {
+            if (player.weapon.damageType == enemy.resistances[i])
+            {
+                damage = damage / 2;
+            }
+        }
+        for (i = 0; i < enemy.immunities.Length; i++)
+        {
+            if (player.weapon.damageType == enemy.immunities[i])
+            {
+                damage = 0;
+            }
+        }
+        return damage;
+    }
 
 
-    public static int CalculateEnemyDamage(StructsClass.EnemyAbility attack, Boolean crit)
+    public static int CalculateEnemyDamage(StructsClass.EnemyAbility attack, int crit)
     {
         int damage = 0;
         int i = 0;
 
-        if (crit == true)
+        if (crit == 2)
         {
             damage = 2 * (attack.diceType * attack.numOfDice);
+        }
+        else if (crit == -1)
+        {
+            return 0;
         }
         else
         {
@@ -232,4 +324,50 @@ public class Calculations : MonoBehaviour
     }
 
 
+
+
+    public static string[] determineInitiative(StructsClass.InitiativeArray initA)
+    {
+        int i, j = 0;
+        int initiative;
+        int totalParticipants = 0;
+
+
+        totalParticipants = initA.characters.Length + initA.enemies.Length;
+
+        int[] initNumArray = new int[totalParticipants];
+        string[] initiativeReferenceArray = new string[totalParticipants];
+
+        System.Random rand = new System.Random();
+
+
+        for (i = 0; i < initA.characters.Length; i++)
+        {
+            initiativeReferenceArray[j] = initA.characters[i].name;
+            initiative = (rand.Next(1, 20)) + Calculations.numberConvert(initA.characters[i].dex);
+            initNumArray[j] = initiative;
+
+            j = j + 1;
+        }
+        for (i = 0; i < initA.enemies.Length; i++)
+        {
+            initiativeReferenceArray[j] = initA.enemies[i].name;
+            initiative = (rand.Next(1, 20)) + Calculations.numberConvert(initA.enemies[i].dex);
+            initNumArray[j] = initiative;
+
+            j = j + 1;
+        }
+
+        Array.Sort(initNumArray, initiativeReferenceArray);
+
+        return initiativeReferenceArray;
+    }
+
+
+
 }
+
+
+
+
+

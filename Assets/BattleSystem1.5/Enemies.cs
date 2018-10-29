@@ -16,8 +16,38 @@ public class Enemies : MonoBehaviour
     public static StructsClass.EnemyAbility Greataxe;
     public static StructsClass.EnemyAbility Horns;
 
+    public static StructsClass.Enemy defineGoblin()
+    {
+        StructsClass.Enemy GoblinVar;
 
-    public void defineEnemies()
+        GoblinVar.name = "Goblin";
+        GoblinVar.str = 8;
+        GoblinVar.dex = 14;
+        GoblinVar.con = 10;
+        GoblinVar.inte = 10;
+        GoblinVar.wis = 8;
+        GoblinVar.chr = 8;
+
+        GoblinVar.health = 7;
+        GoblinVar.armor = 13;
+        GoblinVar.rewardExp = 100;
+        GoblinVar.rewardGold = 100;
+
+        GoblinVar.weaknesses = new string[1];
+        GoblinVar.resistances = new string[1];
+        GoblinVar.immunities = new string[1];
+
+        GoblinVar.weaknesses[0] = "none";
+        GoblinVar.resistances[0] = "none";
+        GoblinVar.immunities[0] = "none";
+
+        GoblinVar.actions = new StructsClass.EnemyAbility[1];
+        GoblinVar.actions[0] = SwordAttack;
+
+        return GoblinVar;
+    }
+
+    public static void defineEnemies()
     {
         Goblin.name = "Goblin";
         Goblin.str = 8;
@@ -136,7 +166,7 @@ public class Enemies : MonoBehaviour
 
 
 
-    public void defineEnemyActions()
+    public static void defineEnemyActions()
     {
         SwordAttack.name = "Sword Attack";
         SwordAttack.diceType = 6;
