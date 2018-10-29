@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Definitions : MonoBehaviour {
@@ -9,10 +10,10 @@ public class Definitions : MonoBehaviour {
     public static StructsClass.Character Cleric;
 
 /*
- *
+ * 
  *   Level 1 Characters
- *
- *
+ * 
+ * 
  */
 
 
@@ -34,6 +35,7 @@ public class Definitions : MonoBehaviour {
         Warrior.hitDiceValue = 6;
         Warrior.maxHealth = (Warrior.level * Warrior.hitDiceValue) + Calculations.numberConvert(Warrior.con);
         Warrior.currentHealth = Warrior.maxHealth;
+        Warrior.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
 
@@ -63,6 +65,7 @@ public class Definitions : MonoBehaviour {
         Rogue.hitDiceValue = 5;
         Rogue.maxHealth = (Rogue.level * Rogue.hitDiceValue) + Calculations.numberConvert(Rogue.con);
         Rogue.currentHealth = Rogue.maxHealth;
+        Rogue.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
 
@@ -92,6 +95,7 @@ public class Definitions : MonoBehaviour {
         Wizard.hitDiceValue = 4;
         Wizard.maxHealth = (Wizard.level * Wizard.hitDiceValue) + Calculations.numberConvert(Wizard.con);
         Wizard.currentHealth = Wizard.maxHealth;
+        Wizard.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
 
@@ -100,7 +104,7 @@ public class Definitions : MonoBehaviour {
 
         Wizard.actions = new StructsClass.Ability[3];
         Wizard.actions[0] = Abilities.AcidSplash;
-        Wizard.actions[1] = Abilities.EldrictchBlast;
+        Wizard.actions[1] = Abilities.EldritchBlast;
         Wizard.actions[2] = Abilities.PoisonSpray;
 
         return Wizard;
@@ -123,6 +127,7 @@ public class Definitions : MonoBehaviour {
         Cleric.hitDiceValue = 5;
         Cleric.maxHealth = (Cleric.level * Cleric.hitDiceValue) + Calculations.numberConvert(Cleric.con);
         Cleric.currentHealth = Cleric.maxHealth;
+        Cleric.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
 
@@ -141,10 +146,10 @@ public class Definitions : MonoBehaviour {
 
 
     /*
-     *
+     * 
      *   Level 2 Characters
-     *
-     *
+     * 
+     * 
      */
 
 
@@ -156,10 +161,18 @@ public class Definitions : MonoBehaviour {
         Warrior.con = 18;
 
         Warrior.maxHealth = (Warrior.level * Warrior.hitDiceValue) + Calculations.numberConvert(Warrior.con);
+        Warrior.currentHealth = Warrior.maxHealth;
 
         Warrior.actions = new StructsClass.Ability[2];
         Warrior.actions[0] = Abilities.ShieldBash;
         Warrior.actions[1] = Abilities.Thrust;
+
+        print("Warrior " + Warrior.name + " leveled up");
+        print("Strength +2");
+        print("Constitution +2");
+        print("Health went up");
+        print("Learned 'Thrust' skill");
+
 
         return Warrior;
     }
@@ -172,10 +185,17 @@ public class Definitions : MonoBehaviour {
         Rogue.con = 14;
 
         Rogue.maxHealth = (Rogue.level * Rogue.hitDiceValue) + Calculations.numberConvert(Rogue.con);
+        Rogue.currentHealth = Rogue.maxHealth;
 
         Rogue.actions = new StructsClass.Ability[2];
         Rogue.actions[0] = Abilities.SwiftCut;
         Rogue.actions[1] = Abilities.PoisonKnife;
+
+        print("Rogue " + Rogue.name + " leveled up");
+        print("Strength +2");
+        print("Constitution +2");
+        print("Health went up");
+        print("Learned 'Poison Knife' skill");
 
         return Rogue;
     }
@@ -188,12 +208,19 @@ public class Definitions : MonoBehaviour {
         Wizard.con = 14;
 
         Wizard.maxHealth = (Wizard.level * Wizard.hitDiceValue) + Calculations.numberConvert(Wizard.con);
+        Wizard.currentHealth = Wizard.maxHealth;
 
         Wizard.actions = new StructsClass.Ability[4];
         Wizard.actions[0] = Abilities.AcidSplash;
-        Wizard.actions[1] = Abilities.EldrictchBlast;
+        Wizard.actions[1] = Abilities.EldritchBlast;
         Wizard.actions[2] = Abilities.PoisonSpray;
         Wizard.actions[3] = Abilities.MagicMissile;
+
+        print("Wizard " + Wizard.name + " leveled up");
+        print("Strength +2");
+        print("Constitution +2");
+        print("Health went up");
+        print("Learned 'Magic Missile' skill");
 
         return Wizard;
     }
@@ -206,10 +233,17 @@ public class Definitions : MonoBehaviour {
         Cleric.wis = 18;
 
         Cleric.maxHealth = (Cleric.level * Cleric.hitDiceValue) + Calculations.numberConvert(Cleric.con);
+        Cleric.currentHealth = Cleric.maxHealth;
 
         Cleric.actions = new StructsClass.Ability[2];
         Cleric.actions[0] = Abilities.SacredFlame;
         Cleric.actions[1] = Abilities.CureWounds;
+
+        print("Cleric " + Cleric.name + " leveled up");
+        print("Strength +2");
+        print("Wisdom +2");
+        print("Health went up");
+        print("Learned 'Cure Wounds' skill");
 
         return Cleric;
     }
@@ -217,10 +251,10 @@ public class Definitions : MonoBehaviour {
 
 
     /*
- *
+ * 
  *   Level 3 Characters
- *
- *
+ * 
+ * 
  */
 
 
@@ -232,11 +266,18 @@ public class Definitions : MonoBehaviour {
         Warrior.dex = 16;
 
         Warrior.maxHealth = (Warrior.level * Warrior.hitDiceValue) + Calculations.numberConvert(Warrior.con);
+        Warrior.currentHealth = Warrior.maxHealth;
 
         Warrior.actions = new StructsClass.Ability[3];
         Warrior.actions[0] = Abilities.ShieldBash;
         Warrior.actions[1] = Abilities.Thrust;
         Warrior.actions[2] = Abilities.PowerSlash;
+
+        print("Warrior " + Warrior.name + " leveled up");
+        print("Strength +2");
+        print("Dexterity +2");
+        print("Health went up");
+        print("Learned 'Power Slash' skill");
 
         return Warrior;
     }
@@ -249,11 +290,18 @@ public class Definitions : MonoBehaviour {
         Rogue.con = 16;
 
         Rogue.maxHealth = (Rogue.level * Rogue.hitDiceValue) + Calculations.numberConvert(Rogue.con);
+        Rogue.currentHealth = Rogue.maxHealth;
 
         Rogue.actions = new StructsClass.Ability[3];
         Rogue.actions[0] = Abilities.SwiftCut;
         Rogue.actions[1] = Abilities.PoisonKnife;
         Rogue.actions[2] = Abilities.MultiStab;
+
+        print("Rogue " + Rogue.name + " leveled up");
+        print("Dexterity +2");
+        print("Constitution +2");
+        print("Health went up");
+        print("Learned 'Multi-Stab' skill");
 
         return Rogue;
     }
@@ -266,13 +314,20 @@ public class Definitions : MonoBehaviour {
         Wizard.inte = 20;
 
         Wizard.maxHealth = (Wizard.level * Wizard.hitDiceValue) + Calculations.numberConvert(Wizard.con);
+        Wizard.currentHealth = Wizard.maxHealth;
 
         Wizard.actions = new StructsClass.Ability[5];
         Wizard.actions[0] = Abilities.AcidSplash;
-        Wizard.actions[1] = Abilities.EldrictchBlast;
+        Wizard.actions[1] = Abilities.EldritchBlast;
         Wizard.actions[2] = Abilities.PoisonSpray;
         Wizard.actions[3] = Abilities.MagicMissile;
         Wizard.actions[4] = Abilities.FlamingSphere;
+
+        print("Wizard " + Wizard.name + " leveled up");
+        print("Strength +2");
+        print("Intelligence +2");
+        print("Health went up");
+        print("Learned 'FlamingSphere' skill");
 
         return Wizard;
     }
@@ -285,11 +340,18 @@ public class Definitions : MonoBehaviour {
         Cleric.wis = 20;
 
         Cleric.maxHealth = (Cleric.level * Cleric.hitDiceValue) + Calculations.numberConvert(Cleric.con);
+        Cleric.currentHealth = Cleric.maxHealth;
 
         Cleric.actions = new StructsClass.Ability[3];
         Cleric.actions[0] = Abilities.SacredFlame;
         Cleric.actions[1] = Abilities.CureWounds;
         Cleric.actions[2] = Abilities.SpiritualWeapon;
+
+        print("Cleric " + Cleric.name + " leveled up");
+        print("Constitution +2");
+        print("Wisdom +2");
+        print("Health went up");
+        print("Learned 'Spiritual Weapon' skill");
 
         return Cleric;
     }

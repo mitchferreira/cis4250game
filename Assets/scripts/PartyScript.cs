@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PartyScript : MonoBehaviour {
+
+	public Text blorg;
 
 	public StructsClass.Character member1;
 	public StructsClass.Character member2;
@@ -29,7 +32,7 @@ public class PartyScript : MonoBehaviour {
 
 	}
 
-	public void SetPartyMember(string name, int str, int dex, int con, int inte, int wis, int chr, int level, int hitDiceValue, int maxHealth, int currentHealth, string className, int member) {
+	public void SetPartyMember(string name, int str, int dex, int con, int inte, int wis, int chr, int level, int hitDiceValue, int maxHealth, int currentHealth, string className, int member, int mp) {
 		StructsClass.Character insertMember = Definitions.defineStartingWarrior(); // just to have some starting character
 		insertMember.name = name;
 		insertMember.str = str;
@@ -43,6 +46,7 @@ public class PartyScript : MonoBehaviour {
 		insertMember.maxHealth = maxHealth;
 		insertMember.currentHealth = currentHealth;
 		insertMember.charClass = className;
+		insertMember.magicPoints = mp;
 		members[member-1] = insertMember;
 	}
 
