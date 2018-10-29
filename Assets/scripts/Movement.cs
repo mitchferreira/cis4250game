@@ -69,7 +69,7 @@ public class Movement : MonoBehaviour {
                 rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - tile_size));
                 spriteR.sprite = down[walk_cycle++];
             }
-            walk_cycle = walk_cycle % 6; 
+            walk_cycle = walk_cycle % 6;
         }
     }
 }

@@ -18,6 +18,7 @@ public class EnemyScript : MonoBehaviour {
 
 	public void UpdateEnemy(bool state) {
 		defeated = !state;
-		this.gameObject.SetActive(state);
+		this.GetComponent<Renderer>().enabled = state;
+		this.GetComponent<BoxCollider2D>().enabled = state;
 	}
 }
