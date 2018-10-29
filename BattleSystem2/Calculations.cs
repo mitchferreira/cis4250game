@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -516,6 +516,10 @@ public class Calculations : MonoBehaviour
             case 1:
                 print(player.name + " attacks with their " + player.weapon.name);
                 hitStatus = Calculations.CalculatePlayerWeaponHit(player, enemy);
+                if (hitStatus == 0)
+                {
+                    return 0;
+                }
                 damage = Calculations.WeaponAttack(player, hitStatus, enemy);
                 return damage;
 
@@ -525,6 +529,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Shield Bash");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.ShieldBash);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.ShieldBash, hitStatus, enemy);
                 }
                 return damage;
@@ -534,6 +542,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Thrust");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.Thrust);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.Thrust, hitStatus, enemy);
                 }
                 return damage;
@@ -543,6 +555,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Power Slash");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.PowerSlash);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.PowerSlash, hitStatus, enemy);
                 }
                 return damage;
@@ -553,6 +569,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Swift Cut");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.SwiftCut);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.SwiftCut, hitStatus, enemy);
                 }
                 return damage;
@@ -562,6 +582,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Poison Knife");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.PoisonKnife);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.PoisonKnife, hitStatus, enemy);
                 }
                 return damage;
@@ -571,6 +595,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Multi-Stab");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.MultiStab);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.MultiStab, hitStatus, enemy);
                 }
                 return damage;
@@ -581,6 +609,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Acid Splash");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.AcidSplash);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.AcidSplash, hitStatus, enemy);
                 }
                 return damage;
@@ -590,6 +622,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Eldritch Blash");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.EldritchBlast);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.EldritchBlast, hitStatus, enemy);
                 }
                 return damage;
@@ -599,6 +635,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Poison Spray");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.PoisonSpray);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.PoisonSpray, hitStatus, enemy);
                 }
                 return damage;
@@ -622,6 +662,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Flaming Sphere");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.FlamingSphere);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.FlamingSphere, hitStatus, enemy);
                 }
                 return damage;
@@ -632,6 +676,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Sacred Flame");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.SacredFlame);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.SacredFlame, hitStatus, enemy);
                 }
                 return damage;
@@ -641,6 +689,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Cure Wounds");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.CureWounds);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.CureWounds, hitStatus, enemy);
                 }
                 return damage;
@@ -650,6 +702,10 @@ public class Calculations : MonoBehaviour
                 {
                     print(player.name + " uses Spiritual Weapon");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.SpiritualWeapon);
+                    if (hitStatus == 0)
+                    {
+                        return 0;
+                    }
                     damage = CalculatePlayerDamage(Abilities.SpiritualWeapon, hitStatus, enemy);
                 }
                 return damage;
@@ -673,20 +729,7 @@ public class Calculations : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
 
 
 
