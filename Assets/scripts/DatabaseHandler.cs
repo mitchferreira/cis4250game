@@ -30,6 +30,7 @@ public class DatabaseHandler : MonoBehaviour
     private GameObject[] chests;
     private GameObject[] enemies;
     private GameObject player;
+    private StructsClass.Character[] party;
 
     public Button saveBtn;
     public Button loadBtn;
@@ -69,6 +70,7 @@ public class DatabaseHandler : MonoBehaviour
         SaveChests();
         SaveEnemies();
         SavePlayer();
+        SaveParty();
     }
 
     void SaveChests() {
@@ -165,19 +167,41 @@ public class DatabaseHandler : MonoBehaviour
         }
     }
 
+    public void SaveParty() {
+        party = GameObject.Find("player").GetComponent<PartyScript>().GetPartyMembers();
+        try {
+            cmd = new MySqlCommand("TRUNCATE TABLE party;", con);
+            rdr = cmd.ExecuteReader();
+            rdr.Close();
+        }
+        catch (Exception e) {
+            Debug.Log(e);
+        }
+
+        foreach(StructsClass.Character member in party) {
+            string insertString = $"INSERT INTO party VALUES (\"{member.name}\", {member.str}, {member.dex}, {member.con}, {member.inte}, {member.wis}, {member.chr}, {member.level}, {member.hitDiceValue}, {member.maxHealth}, {member.currentHealth}, \"{member.charClass}\", {member.magicPoints});";
+            try {
+                cmd = new MySqlCommand(insertString, con);
+                rdr = cmd.ExecuteReader();
+                rdr.Close();
+            }
+            catch (Exception e) {
+                Debug.Log(e);
+            }
+        }
+    }
+
     public void LoadGame() {
         LoadChests();
-        Debug.Log("Loading enemies");
         LoadEnemies();
-        Debug.Log("Loading player");
         LoadPlayer();
+        LoadParty();
     }
 
     void LoadChests() {
         try {
             cmd = new MySqlCommand("SELECT * from chests;", con);
             rdr = cmd.ExecuteReader();
-            Debug.Log("Loading chests");
 
             if(rdr.HasRows) {
                 while(rdr.Read()) {
@@ -239,6 +263,31 @@ public class DatabaseHandler : MonoBehaviour
         }
     }
 
+    void LoadParty() {
+        int member = 1;
+
+        try {
+            cmd = new MySqlCommand("SELECT * from party;", con);
+            rdr = cmd.ExecuteReader();
+
+            if(rdr.HasRows) {
+                while(rdr.Read()) {
+                    UpdatePartyState(rdr.GetString("name"), rdr.GetInt32("str"), rdr.GetInt32("dex"), rdr.GetInt32("con"), rdr.GetInt32("inte"), rdr.GetInt32("wis"), rdr.GetInt32("chr"), rdr.GetInt32("level"), rdr.GetInt32("hitDiceValue"), rdr.GetInt32("maxHealth"), rdr.GetInt32("currentHealth"), rdr.GetString("class"), member, rdr.GetInt32("mp"));
+                    member++;
+                }
+            }
+            else
+            {
+                Debug.Log("No party found.");
+            }
+            rdr.Close();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+    }
+
     void UpdatePlayerState(float x, float y, int lvl, int exp, string items) {
         player = GameObject.Find("player");
         player.GetComponent<PlayerScript>().UpdatePlayerState(x, y, lvl, exp, items);
@@ -264,6 +313,10 @@ public class DatabaseHandler : MonoBehaviour
         enemy.GetComponent<EnemyScript>().UpdateEnemy(alive);
     }
 
+    void UpdatePartyState(string name, int str, int dex, int con, int inte, int wis, int chr, int level, int hitDiceValue, int maxHealth, int currentHealth, string className, int member, int mp) {
+        GameObject partyScript = GameObject.Find("player");
+        partyScript.GetComponent<PartyScript>().SetPartyMember(name, str, dex, con, inte, wis, chr, level, hitDiceValue, maxHealth, currentHealth, className, member, mp);
+    }
     void OnApplicationQuit()
     {
         if (con != null)
