@@ -13,7 +13,7 @@ public class Abilities : MonoBehaviour {
     public static StructsClass.Ability MultiStab;
 
     public static StructsClass.Ability AcidSplash;
-    public static StructsClass.Ability EldrictchBlast;
+    public static StructsClass.Ability EldritchBlast;
     public static StructsClass.Ability PoisonSpray;
     public static StructsClass.Ability MagicMissile;
     public static StructsClass.Ability FlamingSphere;
@@ -22,7 +22,7 @@ public class Abilities : MonoBehaviour {
     public static StructsClass.Ability CureWounds;
     public static StructsClass.Ability SpiritualWeapon;
 
-    public void defineActions()
+    public static void defineActions()
     {
         ShieldBash.name = "Shield Bash";
         ShieldBash.cost = 1;
@@ -83,12 +83,12 @@ public class Abilities : MonoBehaviour {
         AcidSplash.modifier = "intellidence";
         AcidSplash.damageType = "acid";
 
-        EldrictchBlast.name = "Eldricth Blast";
-        EldrictchBlast.cost = 1;
-        EldrictchBlast.diceType = 10;
-        EldrictchBlast.numOfDice = 1;
-        EldrictchBlast.modifier = "intellidence";
-        EldrictchBlast.damageType = "magic";
+        EldritchBlast.name = "Eldritch Blast";
+        EldritchBlast.cost = 1;
+        EldritchBlast.diceType = 10;
+        EldritchBlast.numOfDice = 1;
+        EldritchBlast.modifier = "intellidence";
+        EldritchBlast.damageType = "magic";
 
         PoisonSpray.name = "Poison Spray";
         PoisonSpray.cost = 2;

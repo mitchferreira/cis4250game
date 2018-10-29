@@ -142,7 +142,7 @@ public class DatabaseHandler : MonoBehaviour
 
         string[] items = player.GetComponent<PlayerScript>().items.ToArray();
         string itemsString = "";
-        
+
         foreach(string item in items) {
             itemsString += "," + item;
         }
@@ -179,8 +179,7 @@ public class DatabaseHandler : MonoBehaviour
         }
 
         foreach(StructsClass.Character member in party) {
-            string insertString = $"INSERT INTO party VALUES (\"{member.name}\", {member.str}, {member.dex}, {member.con}, {member.inte}, {member.wis}, {member.chr}, {member.level}, {member.hitDiceValue}, {member.maxHealth}, {member.currentHealth}, \"{member.charClass}\");";
-            Debug.Log(insertString);
+            string insertString = $"INSERT INTO party VALUES (\"{member.name}\", {member.str}, {member.dex}, {member.con}, {member.inte}, {member.wis}, {member.chr}, {member.level}, {member.hitDiceValue}, {member.maxHealth}, {member.currentHealth}, \"{member.charClass}\", {member.magicPoints});";
             try {
                 cmd = new MySqlCommand(insertString, con);
                 rdr = cmd.ExecuteReader();
@@ -203,7 +202,6 @@ public class DatabaseHandler : MonoBehaviour
         try {
             cmd = new MySqlCommand("SELECT * from chests;", con);
             rdr = cmd.ExecuteReader();
-            Debug.Log("Loading chests");
 
             if(rdr.HasRows) {
                 while(rdr.Read()) {
@@ -274,7 +272,7 @@ public class DatabaseHandler : MonoBehaviour
 
             if(rdr.HasRows) {
                 while(rdr.Read()) {
-                    UpdatePartyState(rdr.GetString("name"), rdr.GetInt32("str"), rdr.GetInt32("dex"), rdr.GetInt32("con"), rdr.GetInt32("inte"), rdr.GetInt32("wis"), rdr.GetInt32("chr"), rdr.GetInt32("level"), rdr.GetInt32("hitDiceValue"), rdr.GetInt32("maxHealth"), rdr.GetInt32("currentHealth"), rdr.GetString("class"), member);
+                    UpdatePartyState(rdr.GetString("name"), rdr.GetInt32("str"), rdr.GetInt32("dex"), rdr.GetInt32("con"), rdr.GetInt32("inte"), rdr.GetInt32("wis"), rdr.GetInt32("chr"), rdr.GetInt32("level"), rdr.GetInt32("hitDiceValue"), rdr.GetInt32("maxHealth"), rdr.GetInt32("currentHealth"), rdr.GetString("class"), member, rdr.GetInt32("mp"));
                     member++;
                 }
             }
@@ -315,10 +313,9 @@ public class DatabaseHandler : MonoBehaviour
         enemy.GetComponent<EnemyScript>().UpdateEnemy(alive);
     }
 
-    void UpdatePartyState(string name, int str, int dex, int con, int inte, int wis, int chr, int level, int hitDiceValue, int maxHealth, int currentHealth, string className, int member) {
-        Debug.Log("Member: " + member);
+    void UpdatePartyState(string name, int str, int dex, int con, int inte, int wis, int chr, int level, int hitDiceValue, int maxHealth, int currentHealth, string className, int member, int mp) {
         GameObject partyScript = GameObject.Find("player");
-        partyScript.GetComponent<PartyScript>().SetPartyMember(name, str, dex, con, inte, wis, chr, level, hitDiceValue, maxHealth, currentHealth, className, member);
+        partyScript.GetComponent<PartyScript>().SetPartyMember(name, str, dex, con, inte, wis, chr, level, hitDiceValue, maxHealth, currentHealth, className, member, mp);
     }
     void OnApplicationQuit()
     {
