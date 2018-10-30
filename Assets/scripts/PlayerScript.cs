@@ -20,6 +20,8 @@ public class PlayerScript : MonoBehaviour {
     public Sprite[] left;
     public Sprite[] right;
 
+    public Sprite prev_sprite;
+
     public int walk_cycle = 0;
     public float tile_size = 0.16f;
 
@@ -46,6 +48,7 @@ public class PlayerScript : MonoBehaviour {
             GameObject db = GameObject.Find("_mysql");
             db.GetComponent<DatabaseHandler>().SaveGame();
 
+            DontDestroyOnLoad(this);
             SceneManager.LoadScene("BattleUI");
         }
     }
@@ -77,6 +80,13 @@ public class PlayerScript : MonoBehaviour {
             }
             else if (Input.GetKey(KeyCode.I))
             {
+                PlayerPrefs.SetInt("inventory_size", items.Count);
+
+                for(int i = 0; i < items.Count; i++)
+                {
+                    PlayerPrefs.SetString("item #" + i, items[i]);
+                }
+
                 SceneManager.LoadScene("InventoryScene");
             }
             walk_cycle = walk_cycle % 6;

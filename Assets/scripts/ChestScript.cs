@@ -48,11 +48,15 @@ public class ChestScript : MonoBehaviour {
         {
 			opened = true;
 			render.sprite = open;
-            List <string> items = GameObject.Find("player").GetComponent<PlayerScript>().items;
 
-            string item = item_name + ":" + item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":False";
-            items.Add(item); 
-            Debug.Log(item);
+            if (string.IsNullOrEmpty(item_name) == false)
+            {
+                List<string> items = GameObject.Find("player").GetComponent<PlayerScript>().items;
+
+                string item = item_name + ":" + item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":False";
+                items.Add(item);
+                Debug.Log(item);
+            }
         }
     }
 

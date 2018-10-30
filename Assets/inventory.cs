@@ -9,22 +9,26 @@ public class inventory : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        player = GameObject.Find("player");
-
-        List <string> items = player.GetComponent<PlayerScript>().GetComponent < List<string> > ();
         Text text = GameObject.Find("inventory_text").GetComponent<Text>();
 
+        text.text = "";
+
         Debug.Log("HALLLLO");
-        Debug.Log(items[5]);
-        Debug.Log(items);
 
-        foreach (string item in items)
+        int size = PlayerPrefs.GetInt("inventory_size");
+
+        Debug.Log(size);
+
+        for (int i = 0; i < size; i++)
         {
-            string [] values = item.Split(","[0]);
+            string item = PlayerPrefs.GetString("item #" + i);
 
+            Debug.Log(item);
+
+            string [] values = item.Split(":"[0]);
             Debug.Log(values);
 
-            text.text = "name: " + values[0] + "\ntype: " + values[1] + "\ndescription: " + values[2] +"\nEquipped: ";
+            text.text += "Name: " + values[0] + "\nType: " + values[1] + "\nDescription: " + values[2] +"\nEquipped: ";
 
             if (values[3][0] == 'T')
             {
