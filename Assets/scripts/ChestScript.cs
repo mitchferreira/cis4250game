@@ -53,7 +53,7 @@ public class ChestScript : MonoBehaviour {
             {
                 List<string> items = GameObject.Find("player").GetComponent<PlayerScript>().items;
 
-                string item = item_name + ":" + item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":False";
+                string item = item_name + ":" + item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":True";
                 items.Add(item);
                 Debug.Log(item);
             }
