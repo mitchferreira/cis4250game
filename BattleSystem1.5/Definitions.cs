@@ -1,24 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Definitions : MonoBehaviour
-{
+public class Definitions : MonoBehaviour {
 
-    /*
-     *
-     *   Level 1 Characters
-     *
-     *
-     */
-    public static Battle battle = new Battle();
+    public static StructsClass.Character Rogue;
+    public static StructsClass.Character Wizard;
+    public static StructsClass.Character Cleric;
 
-    public void Update()
-    {
-        battle.outputText = GameObject.Find("BattleText").GetComponent<Text>();
-    }
+/*
+ * 
+ *   Level 1 Characters
+ * 
+ * 
+ */
+
 
     public static StructsClass.Character defineStartingWarrior()
     {
@@ -38,7 +34,6 @@ public class Definitions : MonoBehaviour
         Warrior.hitDiceValue = 6;
         Warrior.maxHealth = (Warrior.level * Warrior.hitDiceValue) + Calculations.numberConvert(Warrior.con);
         Warrior.currentHealth = Warrior.maxHealth;
-        Warrior.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
 
@@ -68,7 +63,6 @@ public class Definitions : MonoBehaviour
         Rogue.hitDiceValue = 5;
         Rogue.maxHealth = (Rogue.level * Rogue.hitDiceValue) + Calculations.numberConvert(Rogue.con);
         Rogue.currentHealth = Rogue.maxHealth;
-        Rogue.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
 
@@ -98,7 +92,6 @@ public class Definitions : MonoBehaviour
         Wizard.hitDiceValue = 4;
         Wizard.maxHealth = (Wizard.level * Wizard.hitDiceValue) + Calculations.numberConvert(Wizard.con);
         Wizard.currentHealth = Wizard.maxHealth;
-        Wizard.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
 
@@ -107,7 +100,7 @@ public class Definitions : MonoBehaviour
 
         Wizard.actions = new StructsClass.Ability[3];
         Wizard.actions[0] = Abilities.AcidSplash;
-        Wizard.actions[1] = Abilities.EldritchBlast;
+        Wizard.actions[1] = Abilities.EldrictchBlast;
         Wizard.actions[2] = Abilities.PoisonSpray;
 
         return Wizard;
@@ -130,7 +123,6 @@ public class Definitions : MonoBehaviour
         Cleric.hitDiceValue = 5;
         Cleric.maxHealth = (Cleric.level * Cleric.hitDiceValue) + Calculations.numberConvert(Cleric.con);
         Cleric.currentHealth = Cleric.maxHealth;
-        Cleric.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
 
@@ -149,10 +141,10 @@ public class Definitions : MonoBehaviour
 
 
     /*
-     *
+     * 
      *   Level 2 Characters
-     *
-     *
+     * 
+     * 
      */
 
 
@@ -164,18 +156,10 @@ public class Definitions : MonoBehaviour
         Warrior.con = 18;
 
         Warrior.maxHealth = (Warrior.level * Warrior.hitDiceValue) + Calculations.numberConvert(Warrior.con);
-        Warrior.currentHealth = Warrior.maxHealth;
 
         Warrior.actions = new StructsClass.Ability[2];
         Warrior.actions[0] = Abilities.ShieldBash;
         Warrior.actions[1] = Abilities.Thrust;
-
-        battle.outputText.text += ("Warrior " + Warrior.name + " leveled up\n");
-        battle.outputText.text += ("Strength +2\n");
-        battle.outputText.text += ("Constitution +2\n");
-        battle.outputText.text += ("Health went up\n");
-        battle.outputText.text += ("Learned 'Thrust' skill\n");
-
 
         return Warrior;
     }
@@ -188,17 +172,10 @@ public class Definitions : MonoBehaviour
         Rogue.con = 14;
 
         Rogue.maxHealth = (Rogue.level * Rogue.hitDiceValue) + Calculations.numberConvert(Rogue.con);
-        Rogue.currentHealth = Rogue.maxHealth;
 
         Rogue.actions = new StructsClass.Ability[2];
         Rogue.actions[0] = Abilities.SwiftCut;
         Rogue.actions[1] = Abilities.PoisonKnife;
-
-        battle.outputText.text += ("Rogue " + Rogue.name + " leveled up\n");
-        battle.outputText.text += ("Strength +2\n");
-        battle.outputText.text += ("Constitution +2\n");
-        battle.outputText.text += ("Health went up\n");
-        battle.outputText.text += ("Learned 'Poison Knife' skill\n");
 
         return Rogue;
     }
@@ -211,19 +188,12 @@ public class Definitions : MonoBehaviour
         Wizard.con = 14;
 
         Wizard.maxHealth = (Wizard.level * Wizard.hitDiceValue) + Calculations.numberConvert(Wizard.con);
-        Wizard.currentHealth = Wizard.maxHealth;
 
         Wizard.actions = new StructsClass.Ability[4];
         Wizard.actions[0] = Abilities.AcidSplash;
-        Wizard.actions[1] = Abilities.EldritchBlast;
+        Wizard.actions[1] = Abilities.EldrictchBlast;
         Wizard.actions[2] = Abilities.PoisonSpray;
         Wizard.actions[3] = Abilities.MagicMissile;
-
-        battle.outputText.text += ("Wizard " + Wizard.name + " leveled up\n");
-        battle.outputText.text += ("Strength +2\n");
-        battle.outputText.text += ("Constitution +2\n");
-        battle.outputText.text += ("Health went up\n");
-        battle.outputText.text += ("Learned 'Magic Missile' skill\n");
 
         return Wizard;
     }
@@ -236,17 +206,10 @@ public class Definitions : MonoBehaviour
         Cleric.wis = 18;
 
         Cleric.maxHealth = (Cleric.level * Cleric.hitDiceValue) + Calculations.numberConvert(Cleric.con);
-        Cleric.currentHealth = Cleric.maxHealth;
 
         Cleric.actions = new StructsClass.Ability[2];
         Cleric.actions[0] = Abilities.SacredFlame;
         Cleric.actions[1] = Abilities.CureWounds;
-
-        battle.outputText.text += ("Cleric " + Cleric.name + " leveled up\n");
-        battle.outputText.text += ("Strength +2\n");
-        battle.outputText.text += ("Wisdom +2\n");
-        battle.outputText.text += ("Health went up\n");
-        battle.outputText.text += ("Learned 'Cure Wounds' skill\n");
 
         return Cleric;
     }
@@ -254,10 +217,10 @@ public class Definitions : MonoBehaviour
 
 
     /*
- *
+ * 
  *   Level 3 Characters
- *
- *
+ * 
+ * 
  */
 
 
@@ -269,18 +232,11 @@ public class Definitions : MonoBehaviour
         Warrior.dex = 16;
 
         Warrior.maxHealth = (Warrior.level * Warrior.hitDiceValue) + Calculations.numberConvert(Warrior.con);
-        Warrior.currentHealth = Warrior.maxHealth;
 
         Warrior.actions = new StructsClass.Ability[3];
         Warrior.actions[0] = Abilities.ShieldBash;
         Warrior.actions[1] = Abilities.Thrust;
         Warrior.actions[2] = Abilities.PowerSlash;
-
-        battle.outputText.text += ("Warrior " + Warrior.name + " leveled up\n");
-        battle.outputText.text += ("Strength +2\n");
-        battle.outputText.text += ("Dexterity +2\n");
-        battle.outputText.text += ("Health went up\n");
-        battle.outputText.text += ("Learned 'Power Slash' skill\n");
 
         return Warrior;
     }
@@ -293,18 +249,11 @@ public class Definitions : MonoBehaviour
         Rogue.con = 16;
 
         Rogue.maxHealth = (Rogue.level * Rogue.hitDiceValue) + Calculations.numberConvert(Rogue.con);
-        Rogue.currentHealth = Rogue.maxHealth;
 
         Rogue.actions = new StructsClass.Ability[3];
         Rogue.actions[0] = Abilities.SwiftCut;
         Rogue.actions[1] = Abilities.PoisonKnife;
         Rogue.actions[2] = Abilities.MultiStab;
-
-        battle.outputText.text += ("Rogue " + Rogue.name + " leveled up\n");
-        battle.outputText.text += ("Dexterity +2\n");
-        battle.outputText.text += ("Constitution +2\n");
-        battle.outputText.text += ("Health went up\n");
-        battle.outputText.text += ("Learned 'Multi-Stab' skill\n");
 
         return Rogue;
     }
@@ -317,20 +266,13 @@ public class Definitions : MonoBehaviour
         Wizard.inte = 20;
 
         Wizard.maxHealth = (Wizard.level * Wizard.hitDiceValue) + Calculations.numberConvert(Wizard.con);
-        Wizard.currentHealth = Wizard.maxHealth;
 
         Wizard.actions = new StructsClass.Ability[5];
         Wizard.actions[0] = Abilities.AcidSplash;
-        Wizard.actions[1] = Abilities.EldritchBlast;
+        Wizard.actions[1] = Abilities.EldrictchBlast;
         Wizard.actions[2] = Abilities.PoisonSpray;
         Wizard.actions[3] = Abilities.MagicMissile;
         Wizard.actions[4] = Abilities.FlamingSphere;
-
-        battle.outputText.text += ("Wizard " + Wizard.name + " leveled up\n");
-        battle.outputText.text += ("Strength +2\n");
-        battle.outputText.text += ("Intelligence +2\n");
-        battle.outputText.text += ("Health went up\n");
-        battle.outputText.text += ("Learned 'FlamingSphere' skill\n");
 
         return Wizard;
     }
@@ -343,18 +285,11 @@ public class Definitions : MonoBehaviour
         Cleric.wis = 20;
 
         Cleric.maxHealth = (Cleric.level * Cleric.hitDiceValue) + Calculations.numberConvert(Cleric.con);
-        Cleric.currentHealth = Cleric.maxHealth;
 
         Cleric.actions = new StructsClass.Ability[3];
         Cleric.actions[0] = Abilities.SacredFlame;
         Cleric.actions[1] = Abilities.CureWounds;
         Cleric.actions[2] = Abilities.SpiritualWeapon;
-
-        battle.outputText.text += ("Cleric " + Cleric.name + " leveled up\n");
-        battle.outputText.text += ("Constitution +2\n");
-        battle.outputText.text += ("Wisdom +2\n");
-        battle.outputText.text += ("Health went up\n");
-        battle.outputText.text += ("Learned 'Spiritual Weapon' skill\n");
 
         return Cleric;
     }

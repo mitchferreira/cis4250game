@@ -11,65 +11,71 @@ public class Battle : MonoBehaviour {
 
     public Text outputText;
 
-    void Start()
-    {
-        int i,j = 0;
+    // void Start()
+    // {
+    //     int i,j = 0;
 
-        Items.defineWeapons();
-        Items.defineArmor();
-        Enemies.defineEnemyActions();
-        Abilities.defineActions();
+    //     Items.defineWeapons();
+    //     Items.defineArmor();
+    //     Enemies.defineEnemyActions();
+    //     Abilities.defineActions();
 
-        StructsClass.Character Warrior;
-        StructsClass.Character Rogue;
-        StructsClass.Character Wizard;
-        StructsClass.Character Cleric;
+    //     StructsClass.Character Warrior;
+    //     StructsClass.Character Rogue;
+    //     StructsClass.Character Wizard;
+    //     StructsClass.Character Cleric;
 
-        StructsClass.Enemy Goblin1;
-        StructsClass.Enemy Goblin2;
+    //     StructsClass.Enemy Goblin1;
+    //     StructsClass.Enemy Goblin2;
 
-        Warrior = Definitions.defineStartingWarrior();
-        Rogue = Definitions.defineStartingRogue();
-        Wizard = Definitions.defineStartingWizard();
-        Cleric = Definitions.defineStartingCleric();
-        Warrior.weapon = Items.Longsword;
-        Warrior.armor = Items.Leather;
-        Rogue.weapon = Items.Dagger;
-        Rogue.armor = Items.Leather;
-        Wizard.weapon = Items.Staff;
-        Wizard.armor = Items.Leather;
-        Cleric.weapon = Items.Mace;
-        Cleric.armor = Items.Leather;
+    //     Warrior = Definitions.defineStartingWarrior();
+    //     Rogue = Definitions.defineStartingRogue();
+    //     Wizard = Definitions.defineStartingWizard();
+    //     Cleric = Definitions.defineStartingCleric();
+    //     Warrior.weapon = Items.Longsword;
+    //     Warrior.armor = Items.Leather;
+    //     Rogue.weapon = Items.Dagger;
+    //     Rogue.armor = Items.Leather;
+    //     Wizard.weapon = Items.Staff;
+    //     Wizard.armor = Items.Leather;
+    //     Cleric.weapon = Items.Mace;
+    //     Cleric.armor = Items.Leather;
 
-        Goblin1 = Enemies.defineGoblin();
-        Goblin2 = Enemies.defineGoblin();
+    //     Goblin1 = Enemies.defineGoblin();
+    //     Goblin2 = Enemies.defineGoblin();
 
-        Goblin1.name = "Goblin1";
-        Goblin2.name = "Goblin2";
-        Goblin1.actions[0] = Enemies.SwordAttack;
-        Goblin2.actions[0] = Enemies.SwordAttack;
-
-
-        StructsClass.InitiativeArray initA;
-        initA.characters = new StructsClass.Character[4];
-        initA.enemies = new StructsClass.Enemy[2];
-
-        initA.characters[0] = Warrior;
-        initA.characters[1] = Rogue;
-        initA.characters[2] = Wizard;
-        initA.characters[3] = Cleric;
-
-        initA.enemies[0] = Goblin1;
-        initA.enemies[1] = Goblin2;
+    //     Goblin1.name = "Goblin1";
+    //     Goblin2.name = "Goblin2";
+    //     Goblin1.actions[0] = Enemies.SwordAttack;
+    //     Goblin2.actions[0] = Enemies.SwordAttack;
 
 
+    //     StructsClass.InitiativeArray initA;
+    //     initA.characters = new StructsClass.Character[4];
+    //     initA.enemies = new StructsClass.Enemy[2];
+
+    //     initA.characters[0] = Warrior;
+    //     initA.characters[1] = Rogue;
+    //     initA.characters[2] = Wizard;
+    //     initA.characters[3] = Cleric;
+
+    //     initA.enemies[0] = Goblin1;
+    //     initA.enemies[1] = Goblin2;
 
 
 
 
 
 
-        StartCoroutine(simulateBattle(initA.characters, initA.enemies));
+
+
+    //     StartCoroutine(simulateBattle(initA.characters, initA.enemies));
+    // }
+
+    void Start() {
+        GameObject player = GameObject.Find("player");
+
+        StartCoroutine(simulateBattle(player.GetComponent<Movement>().players, player.GetComponent<Movement>().enemies));
     }
 
 
@@ -143,7 +149,7 @@ public class Battle : MonoBehaviour {
                 {
                     if ((initA.characters[j].name == initiativeReferenceArray[i]) && (initA.characters[j].currentHealth != 0))
                     {
-                        
+
                         enemySelector = (rand.Next(0, initA.enemies.Length));
                         outputText.text +=("It's " + initiativeReferenceArray[i] + "'s turn.\n");
 
@@ -151,7 +157,6 @@ public class Battle : MonoBehaviour {
                         while (playerAttack == 0)
                         {
                             yield return null;
-
 
 
                             if(playerAttack == 14)
@@ -186,7 +191,7 @@ public class Battle : MonoBehaviour {
                                 damage = Calculations.DeterminePlayerAction(playerAttack, initA.characters[j], initA.enemies[enemySelector]);
                             }
 
-                            
+
 
                             if ((damage == -1) && (playerAttack != 0))
                             {
@@ -198,7 +203,7 @@ public class Battle : MonoBehaviour {
 
 
 
-                        
+
 
                         initA.enemies[enemySelector].health = initA.enemies[enemySelector].health - damage;
                         if (initA.enemies[enemySelector].health < 0)
@@ -207,7 +212,7 @@ public class Battle : MonoBehaviour {
                             numAliveEnemies = numAliveEnemies - 1;
                             outputText.text += (initA.enemies[enemySelector].name + " has died\n");
                         }
-                        
+
 
                         break;
                     }
@@ -244,7 +249,7 @@ public class Battle : MonoBehaviour {
                                 outputText.text += (initA.characters[enemySelector].name + " has died\n");
                             }
                         }
-                        
+
 
                         break;
                     }
@@ -276,6 +281,9 @@ public class Battle : MonoBehaviour {
 
 
             initA.characters = Calculations.levelUp(initA.characters);
+
+            GameObject player = GameObject.Find("player");
+            player.GetComponent<PartyScript>().LevelUpParty(initA.characters);
 
         }
         else

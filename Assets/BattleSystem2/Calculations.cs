@@ -438,10 +438,10 @@ public class Calculations : MonoBehaviour
     public static StructsClass.Character[] levelUp(StructsClass.Character[] players)
     {
         int i = 0;
-        
+
         for (i=0; i<players.Length; i++)
         {
-            
+
             if (players[i].charClass == "Warrior")
             {
                 if ((players[i].level == 1) && (players[i].exp >= 200))
@@ -491,9 +491,9 @@ public class Calculations : MonoBehaviour
                 }
             }
 
-            
+
         }
-        
+
 
         return players;
     }

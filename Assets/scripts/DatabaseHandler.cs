@@ -19,6 +19,7 @@ public class DatabaseHandler : MonoBehaviour
     public GameObject dbObj;
     public GameObject inGameMenu;
     public GameObject menuCanvas;
+    public GameObject partyCanvas;
 
     private String connectionString;
     private MySqlConnection con = null;
@@ -40,6 +41,7 @@ public class DatabaseHandler : MonoBehaviour
         DontDestroyOnLoad(dbObj);
         DontDestroyOnLoad(inGameMenu);
         DontDestroyOnLoad(menuCanvas);
+        DontDestroyOnLoad(partyCanvas);
         connectionString = "Server=" + host + ";Database=" + database + ";User=" + user + ";Password=" + password + ";Pooling=";
 
         saveBtn.onClick.AddListener(SaveGame);
@@ -64,6 +66,11 @@ public class DatabaseHandler : MonoBehaviour
         {
             Debug.Log(e);
         }
+
+        Items.defineWeapons();
+        Items.defineArmor();
+        Enemies.defineEnemyActions();
+        Abilities.defineActions();
     }
 
     public void SaveGame() {
@@ -179,7 +186,8 @@ public class DatabaseHandler : MonoBehaviour
         }
 
         foreach(StructsClass.Character member in party) {
-            string insertString = $"INSERT INTO party VALUES (\"{member.name}\", {member.str}, {member.dex}, {member.con}, {member.inte}, {member.wis}, {member.chr}, {member.level}, {member.hitDiceValue}, {member.maxHealth}, {member.currentHealth}, \"{member.charClass}\", {member.magicPoints});";
+            Debug.Log("level: " + member.level);
+            string insertString = $"INSERT INTO party VALUES (\"{member.name}\", {member.str}, {member.dex}, {member.con}, {member.inte}, {member.wis}, {member.chr}, {member.level}, {member.hitDiceValue}, {member.maxHealth}, {member.currentHealth}, \"{member.charClass}\", {member.magicPoints}, {member.exp});";
             try {
                 cmd = new MySqlCommand(insertString, con);
                 rdr = cmd.ExecuteReader();
@@ -272,7 +280,7 @@ public class DatabaseHandler : MonoBehaviour
 
             if(rdr.HasRows) {
                 while(rdr.Read()) {
-                    UpdatePartyState(rdr.GetString("name"), rdr.GetInt32("str"), rdr.GetInt32("dex"), rdr.GetInt32("con"), rdr.GetInt32("inte"), rdr.GetInt32("wis"), rdr.GetInt32("chr"), rdr.GetInt32("level"), rdr.GetInt32("hitDiceValue"), rdr.GetInt32("maxHealth"), rdr.GetInt32("currentHealth"), rdr.GetString("class"), member, rdr.GetInt32("mp"));
+                    UpdatePartyState(rdr.GetString("name"), rdr.GetInt32("str"), rdr.GetInt32("dex"), rdr.GetInt32("con"), rdr.GetInt32("inte"), rdr.GetInt32("wis"), rdr.GetInt32("chr"), rdr.GetInt32("level"), rdr.GetInt32("hitDiceValue"), rdr.GetInt32("maxHealth"), rdr.GetInt32("currentHealth"), rdr.GetString("class"), member, rdr.GetInt32("mp"), rdr.GetInt32("exp"));
                     member++;
                 }
             }
@@ -313,9 +321,9 @@ public class DatabaseHandler : MonoBehaviour
         enemy.GetComponent<EnemyScript>().UpdateEnemy(alive);
     }
 
-    void UpdatePartyState(string name, int str, int dex, int con, int inte, int wis, int chr, int level, int hitDiceValue, int maxHealth, int currentHealth, string className, int member, int mp) {
+    void UpdatePartyState(string name, int str, int dex, int con, int inte, int wis, int chr, int level, int hitDiceValue, int maxHealth, int currentHealth, string className, int member, int mp, int exp) {
         GameObject partyScript = GameObject.Find("player");
-        partyScript.GetComponent<PartyScript>().SetPartyMember(name, str, dex, con, inte, wis, chr, level, hitDiceValue, maxHealth, currentHealth, className, member, mp);
+        partyScript.GetComponent<PartyScript>().SetPartyMember(name, str, dex, con, inte, wis, chr, level, hitDiceValue, maxHealth, currentHealth, className, member, mp, exp);
     }
     void OnApplicationQuit()
     {
