@@ -53,18 +53,10 @@ public class PartyScript : MonoBehaviour {
 	}
 
 	public void LevelUpParty(StructsClass.Character[] newMembers) {
-		Debug.Log("member 1 before: " + members[0].level);
-		Debug.Log("member 1 before: " + members[1].level);
-		Debug.Log("member 1 before: " + members[2].level);
-		Debug.Log("member 1 before: " + members[3].level);
 		members[0] = newMembers[0];
 		members[1] = newMembers[1];
 		members[2] = newMembers[2];
 		members[3] = newMembers[3];
-		Debug.Log("member 1 after: " + members[0].level);
-		Debug.Log("member 1 after: " + members[1].level);
-		Debug.Log("member 1 after: " + members[2].level);
-		Debug.Log("member 1 after: " + members[3].level);
 
 		GameObject db = GameObject.Find("_mysql");
 		db.GetComponent<DatabaseHandler>().SaveGame();

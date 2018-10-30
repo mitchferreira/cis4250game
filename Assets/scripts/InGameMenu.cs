@@ -15,6 +15,7 @@ public class InGameMenu : MonoBehaviour {
 		save_menu_panel.SetActive(false);
 		menu_hidden = true;
 		statsButton.onClick.AddListener(OpenStatsMenu);
+		party_panel.GetComponent<Canvas>().enabled = false;
 	}
 
 	void Update() {
