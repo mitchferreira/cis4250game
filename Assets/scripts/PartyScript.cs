@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PartyScript : MonoBehaviour {
-
-	public Text blorg;
-
 	public StructsClass.Character member1;
 	public StructsClass.Character member2;
 	public StructsClass.Character member3;
@@ -32,7 +29,7 @@ public class PartyScript : MonoBehaviour {
 
 	}
 
-	public void SetPartyMember(string name, int str, int dex, int con, int inte, int wis, int chr, int level, int hitDiceValue, int maxHealth, int currentHealth, string className, int member, int mp) {
+	public void SetPartyMember(string name, int str, int dex, int con, int inte, int wis, int chr, int level, int hitDiceValue, int maxHealth, int currentHealth, string className, int member, int mp, int exp) {
 		StructsClass.Character insertMember = Definitions.defineStartingWarrior(); // just to have some starting character
 		insertMember.name = name;
 		insertMember.str = str;
@@ -47,6 +44,7 @@ public class PartyScript : MonoBehaviour {
 		insertMember.currentHealth = currentHealth;
 		insertMember.charClass = className;
 		insertMember.magicPoints = mp;
+		insertMember.exp = exp;
 		members[member-1] = insertMember;
 	}
 
