@@ -14,7 +14,7 @@ public class ChestScript : MonoBehaviour {
     public string item_mod;
     public string item_type;
     public int dice_num;
-    public int dice_type; 
+    public int dice_type;
 
 	void Awake()
 	{

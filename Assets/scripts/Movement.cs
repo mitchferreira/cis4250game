@@ -20,6 +20,14 @@ public class Movement : MonoBehaviour {
     public int speed = 10;
     public int frame = 0;
 
+    public StructsClass.Enemy Hobgoblin1;
+    public StructsClass.Enemy Hobgoblin2;
+    public StructsClass.Enemy goblin1;
+    public StructsClass.Enemy goblin2;
+    public StructsClass.Enemy[] enemies;
+    public StructsClass.Enemy[] battleEnemies;
+    public StructsClass.Character[] players;
+
     // Use this for initialization
     void Start()
     {
@@ -39,10 +47,36 @@ public class Movement : MonoBehaviour {
             c.gameObject.GetComponent<EnemyScript>().defeated = true;
             GameObject db = GameObject.Find("_mysql");
             db.GetComponent<DatabaseHandler>().SaveGame();
+            GameObject player = GameObject.Find("player");
 
-            SceneManager.LoadScene("BattleUI");
+            Enemies.defineEnemies();
+            Hobgoblin1 = Enemies.Hobgoblin;
+            Hobgoblin2 = Enemies.Hobgoblin;
+            goblin1 = Enemies.Goblin;
+            goblin2 = Enemies.Goblin;
+
+            battleEnemies = new StructsClass.Enemy[4];
+            battleEnemies[0] = Hobgoblin1;
+            battleEnemies[1] = Hobgoblin2;
+            battleEnemies[2] = goblin1;
+            battleEnemies[3] = goblin2;
+
+            enemies = new StructsClass.Enemy[2];
+            System.Random rand = new System.Random();
+            int dice = (rand.Next(0, 3));
+            enemies[0] = battleEnemies[dice];
+
+            dice = (rand.Next(0, 3));
+            enemies[1] = battleEnemies[dice];
+
+
+            players = player.GetComponent<PartyScript>().GetPartyMembers();
+
+            // GameObject.Find("WorldCamera").SetActive(false);
+            SceneManager.LoadScene("BattleUI", LoadSceneMode.Additive);
         }
     }
+
 
     // Update is called once per frame
     void Update()
