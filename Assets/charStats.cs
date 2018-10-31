@@ -11,7 +11,7 @@ public class charStats : MonoBehaviour {
 	public StructsClass.Character[] members;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		GameObject player = GameObject.Find("player");
 		members = player.GetComponent<PartyScript>().GetPartyMembers();
 		SetStatsMenu();
