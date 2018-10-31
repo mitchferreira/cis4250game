@@ -40,18 +40,6 @@ public class PlayerScript : MonoBehaviour {
         right = Resources.LoadAll<Sprite>("walk_right");
     }
 
-    void OnCollisionEnter2D(Collision2D c)
-    {
-        if (c.gameObject.CompareTag("Enemy"))
-        {
-            c.gameObject.GetComponent<EnemyScript>().defeated = true;
-            GameObject db = GameObject.Find("_mysql");
-            db.GetComponent<DatabaseHandler>().SaveGame();
-
-            SceneManager.LoadScene("BattleUI");
-        }
-    }
-
     // Update is called once per frame
     void Update()
     {
