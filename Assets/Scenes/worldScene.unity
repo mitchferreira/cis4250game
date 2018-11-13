@@ -1348,6 +1348,31 @@ Prefab:
       propertyPath: m_Name
       value: chest (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_name
+      value: Mace
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_mod
+      value: strength
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_type
+      value: bash
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_num
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_type
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
   m_IsPrefabAsset: 0
@@ -1583,6 +1608,31 @@ Prefab:
     - target: {fileID: 1945062983128778, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
       propertyPath: m_Name
       value: chest (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_name
+      value: Longsword
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_mod
+      value: strength
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_type
+      value: slashing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_num
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_type
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
@@ -2535,6 +2585,31 @@ Prefab:
     - target: {fileID: 1945062983128778, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
       propertyPath: m_Name
       value: chest (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_name
+      value: Staff
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_mod
+      value: strength
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_type
+      value: bash
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_num
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_type
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
