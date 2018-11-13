@@ -149,7 +149,6 @@ public class DatabaseHandler : MonoBehaviour
 
         string[] items = player.GetComponent<PlayerScript>().items.ToArray();
         string itemsString = "";
-
         foreach(string item in items) {
             itemsString += "," + item;
         }

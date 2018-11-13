@@ -9,9 +9,12 @@ public class ChestScript : MonoBehaviour {
 	public GameObject chest;
 	public bool opened;
 	public SpriteRenderer render;
-    public List <string> items;
+
     public string item_name;
-    public string ability; 
+    public string item_mod;
+    public string item_type;
+    public int dice_num;
+    public int dice_type;
 
 	void Awake()
 	{
@@ -39,19 +42,21 @@ public class ChestScript : MonoBehaviour {
          *  if the size of the sprite changes, these values WILL NEED to change as well. - (Kent, 10/23/2018)
          */
         if(c.gameObject.CompareTag("Player") &&
-					c.gameObject.transform.position.x > chest.transform.position.x - 0.25 &&
-					c.gameObject.transform.position.x < chest.transform.position.x + 0.25 &&
-					c.gameObject.transform.position.y < chest.transform.position.y)
+					c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
+					c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
+					c.gameObject.transform.position.y < chest.transform.position.y && !opened)
         {
 			opened = true;
 			render.sprite = open;
-            PlayerScript player = GameObject.Find("player").GetComponent<PlayerScript>();
 
-            items = player.items;
-            items.Add(item_name);
-            items.Add(ability);
-            Debug.Log(name);
-            Debug.Log(ability);
+            if (string.IsNullOrEmpty(item_name) == false)
+            {
+                List<string> items = GameObject.Find("player").GetComponent<PlayerScript>().items;
+
+                string item = item_name + ":" + item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":True";
+                items.Add(item);
+                Debug.Log(item);
+            }
         }
     }
 
