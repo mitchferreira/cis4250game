@@ -16,8 +16,9 @@ public class SkillPanel : MonoBehaviour {
 		skillList.Add("skill1");
 		skillList.Add("skill2");
 		skillList.Add("skill3");
-	}
 
+		
+	}
 	// Use this for initialization
 	public void displaySkills () {
 		foreach(string msg in skillList)
@@ -27,5 +28,5 @@ public class SkillPanel : MonoBehaviour {
          skillText.text = display;
 
 	}
-	
+
 }
