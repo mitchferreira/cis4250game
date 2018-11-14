@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         rb2d = GetComponent<Rigidbody2D>();
         spriteR = GetComponent<SpriteRenderer>();
 
@@ -43,6 +44,10 @@ public class PlayerScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        /*to remove any items in player's inventory, it checks for a message from playerprefs*/
+
+
+        /*to move around the player*/
         if (Input.anyKey && frame++ % speed == 0)
         {
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
@@ -65,10 +70,13 @@ public class PlayerScript : MonoBehaviour {
                 rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - tile_size));
                 spriteR.sprite = down[walk_cycle++];
             }
-            else if (Input.GetKey(KeyCode.Escape))
-            {
-                PlayerPrefs.SetInt("inventory_size", items.Count);
 
+            /*to check the inventory*/
+            else if (Input.GetKey(KeyCode.Escape))
+            { 
+                items.RemoveAll( x => x == PlayerPrefs.GetString("Remove"));
+
+                PlayerPrefs.SetInt("inventory_size", items.Count);
                 for(int i = 0; i < items.Count; i++)
                 {
                     PlayerPrefs.SetString("item #" + i, items[i]);
