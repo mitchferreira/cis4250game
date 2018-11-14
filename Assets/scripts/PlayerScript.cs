@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour {
     public Sprite[] left;
     public Sprite[] right;
 
+    /*this is probably not used anywhere*/
     public Sprite prev_sprite;
 
     public int walk_cycle = 0;
@@ -44,9 +45,6 @@ public class PlayerScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        /*to remove any items in player's inventory, it checks for a message from playerprefs*/
-
-
         /*to move around the player*/
         if (Input.anyKey && frame++ % speed == 0)
         {
@@ -69,18 +67,6 @@ public class PlayerScript : MonoBehaviour {
             {
                 rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - tile_size));
                 spriteR.sprite = down[walk_cycle++];
-            }
-
-            /*to check the inventory*/
-            else if (Input.GetKey(KeyCode.Escape))
-            { 
-                items.RemoveAll( x => x == PlayerPrefs.GetString("Remove"));
-
-                PlayerPrefs.SetInt("inventory_size", items.Count);
-                for(int i = 0; i < items.Count; i++)
-                {
-                    PlayerPrefs.SetString("item #" + i, items[i]);
-                }
             }
             walk_cycle = walk_cycle % 6;
         }

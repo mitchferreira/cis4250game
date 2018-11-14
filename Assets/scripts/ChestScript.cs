@@ -28,7 +28,6 @@ public class ChestScript : MonoBehaviour {
 				*  (Kent, 10/23/2018)
 				*/
 			collider.size = new Vector2(1.2f, 1.2f);
-
 			render.sprite = opened ? open : closed;
 	}
 
@@ -42,22 +41,25 @@ public class ChestScript : MonoBehaviour {
          *  if the size of the sprite changes, these values WILL NEED to change as well. - (Kent, 10/23/2018)
          */
         if(c.gameObject.CompareTag("Player") &&
-					c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
-					c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
-					c.gameObject.transform.position.y < chest.transform.position.y && !opened)
-        {
-			opened = true;
-			render.sprite = open;
-
+			c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
+			c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
+			c.gameObject.transform.position.y < chest.transform.position.y && !opened)
+        { 
             if (string.IsNullOrEmpty(item_name) == false)
             {
                 List<string> items = GameObject.Find("player").GetComponent<PlayerScript>().items;
 
+                /*The chest will not open unless you have sufficient space:
+                 * less than or equal 18 items in your inventory*/
                 if (items.Count <= 18)
                 {
-                    string item = item_name + ":" + item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":True";
+                    string item = item_name + ":" + 
+                        item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":True";
+
                     items.Add(item);
-                    Debug.Log(item);
+
+                    opened = true;
+                    render.sprite = open;
                 }
             }
         }
