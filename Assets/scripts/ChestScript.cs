@@ -16,6 +16,30 @@ public class ChestScript : MonoBehaviour {
     public int dice_num;
     public int dice_type;
 
+    string getSpriteName()
+    {
+        if(item_name == "Mace")
+        {
+            return "more_weapons_0";
+        }
+        else if(item_name == "Dagger")
+        {
+            return "more_weapons_1";
+        }
+        else if(item_name == "Longsword")
+        {
+            return "more_weapons_2";
+        }
+        else if(item_name == "Staff")
+        {
+            return "more_weapons_3";
+        }
+        else
+        {
+            return "notification_types_0";
+        }
+    }
+
 	void Awake()
 	{
 			render = chest.AddComponent<SpriteRenderer>();
@@ -43,7 +67,7 @@ public class ChestScript : MonoBehaviour {
         if(c.gameObject.CompareTag("Player") &&
 			c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
 			c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
-			c.gameObject.transform.position.y < chest.transform.position.y && !opened)
+			c.gameObject.transform.position.y < chest.transform.position.y + 0.10 && !opened)
         { 
             if (string.IsNullOrEmpty(item_name) == false)
             {
@@ -54,12 +78,33 @@ public class ChestScript : MonoBehaviour {
                 if (items.Count <= 18)
                 {
                     string item = item_name + ":" + 
-                        item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":True";
+                        item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":False";
 
                     items.Add(item);
 
                     opened = true;
                     render.sprite = open;
+
+                    /*the rest of the code in this if, is to show the item on screen*/
+                    /*calls getSprite() which choose the sprite based on the weapon name*/
+                    GameObject alert = new GameObject();
+                    alert.AddComponent<SpriteRenderer>();
+
+                    alert.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
+                    /*name is the sprite name*/
+                    string name = getSpriteName();
+                    int len = name.Length;
+                    int slice = name[len-1] - '0';
+                    
+                    alert.GetComponent<SpriteRenderer>().sprite = 
+                        Resources.LoadAll<Sprite>(name.Substring(0, len-2))[slice];
+
+                    alert.transform.position = 
+                        new Vector3(chest.transform.position.x, chest.transform.position.y, 0);
+
+                    alert.transform.localScale = new Vector3(1.5f, 0.9f, 1);
+                    Destroy(alert, 0.25f);
                 }
             }
         }
