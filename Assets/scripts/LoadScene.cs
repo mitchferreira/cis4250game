@@ -9,10 +9,11 @@ public class LoadScene : MonoBehaviour {
         SceneManager.LoadScene(sceneName);
     }
 
-    public void changeSceneAndLoad(string sceneName){
+    public void changeSceneAndLoad(){
         DontDestroyOnLoad(this.gameObject);
         SceneManager.activeSceneChanged += ChangedActiveScene;
 
+        string sceneName = GameObject.Find("_mysql").GetComponent<DatabaseHandler>().GetLevel();
         SceneManager.LoadScene(sceneName);
     }
 

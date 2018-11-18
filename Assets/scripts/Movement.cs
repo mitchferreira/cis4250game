@@ -20,13 +20,17 @@ public class Movement : MonoBehaviour {
     public int speed = 10;
     public int frame = 0;
 
+    public string nextLevel;
+
     public StructsClass.Enemy Hobgoblin1;
     public StructsClass.Enemy Hobgoblin2;
     public StructsClass.Enemy goblin1;
     public StructsClass.Enemy goblin2;
+    public StructsClass.Enemy boss;
     public StructsClass.Enemy[] enemies;
     public StructsClass.Enemy[] battleEnemies;
     public StructsClass.Character[] players;
+    public string encounteredEnemy;
 
     // Use this for initialization
     void Start()
@@ -44,9 +48,12 @@ public class Movement : MonoBehaviour {
     {
         if(c.gameObject.CompareTag("Enemy"))
         {
-            c.gameObject.GetComponent<EnemyScript>().defeated = true;
-            GameObject db = GameObject.Find("_mysql");
-            db.GetComponent<DatabaseHandler>().SaveGame();
+            // c.gameObject.GetComponent<EnemyScript>().defeated = true;
+            // GameObject db = GameObject.Find("_mysql");
+            // db.GetComponent<DatabaseHandler>().SaveGame();
+            encounteredEnemy = c.gameObject.name;
+            Debug.Log(encounteredEnemy);
+
             GameObject player = GameObject.Find("player");
 
             Enemies.defineEnemies();
@@ -69,11 +76,35 @@ public class Movement : MonoBehaviour {
             dice = (rand.Next(0, 3));
             enemies[1] = battleEnemies[dice];
 
+            players = player.GetComponent<PartyScript>().GetPartyMembers();
+
+            SceneManager.LoadScene("BattleUI", LoadSceneMode.Additive);
+        }
+
+        if(c.gameObject.CompareTag("Boss")) {
+            //start boss battle
+            c.gameObject.GetComponent<EnemyScript>().defeated = true;
+            GameObject db = GameObject.Find("_mysql");
+            db.GetComponent<DatabaseHandler>().SaveGame();
+            GameObject player = GameObject.Find("player");
+
+            Enemies.defineEnemies();
+            boss = Enemies.Hobgoblin; // change to boss eney
+
+            battleEnemies = new StructsClass.Enemy[1];
+            battleEnemies[0] = boss;
+
+            enemies = new StructsClass.Enemy[2];
+            enemies[0] = battleEnemies[0];
 
             players = player.GetComponent<PartyScript>().GetPartyMembers();
 
-            // GameObject.Find("WorldCamera").SetActive(false);
             SceneManager.LoadScene("BattleUI", LoadSceneMode.Additive);
+        }
+
+        if(c.gameObject.CompareTag("Stairs")) {
+            Debug.Log("Next level");
+            c.gameObject.GetComponent<LoadScene>().changeScene(nextLevel);
         }
     }
 

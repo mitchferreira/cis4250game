@@ -30,6 +30,7 @@ public class DatabaseHandler : MonoBehaviour
 
     private GameObject[] chests;
     private GameObject[] enemies;
+    private GameObject boss;
     private GameObject player;
     private StructsClass.Character[] party;
 
@@ -112,6 +113,7 @@ public class DatabaseHandler : MonoBehaviour
     void SaveEnemies() {
         Debug.Log("saving enemies");
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        boss = GameObject.Find("boss");
 
 
         try {
@@ -137,6 +139,16 @@ public class DatabaseHandler : MonoBehaviour
                 Debug.Log(e);
             }
         }
+
+        try {
+            int defeated = boss.GetComponent<EnemyScript>().defeated ? 1 : 0;
+            cmd = new MySqlCommand($"INSERT INTO enemies VALUES (\"boss\", {defeated});", con);
+            rdr = cmd.ExecuteReader();
+            rdr.Close();
+            }
+            catch (Exception e) {
+                Debug.Log(e);
+            }
     }
 
     void SavePlayer() {
@@ -146,13 +158,14 @@ public class DatabaseHandler : MonoBehaviour
         int expPoints = player.GetComponent<PlayerScript>().expPoints;
         float xCoordinate = player.GetComponent<PlayerScript>().transform.position.x;
         float yCoordinate = player.GetComponent<PlayerScript>().transform.position.y;
+        string gameLevel = player.scene.name;
 
         string[] items = player.GetComponent<PlayerScript>().items.ToArray();
         string itemsString = "";
         foreach(string item in items) {
             itemsString += "," + item;
         }
-        string insertString = $"INSERT INTO player VALUES ({xCoordinate}, {yCoordinate}, {level}, {expPoints}, \"{itemsString}\");";
+        string insertString = $"INSERT INTO player VALUES ({xCoordinate}, {yCoordinate}, {level}, {expPoints}, \"{itemsString}\", \"{gameLevel}\");";
 
         try {
             cmd = new MySqlCommand("TRUNCATE TABLE player;", con);
@@ -340,5 +353,29 @@ public class DatabaseHandler : MonoBehaviour
     public string GetConnectionState()
     {
         return con.State.ToString();
+    }
+
+    public string GetLevel() {
+        string level = "";
+        try {
+            cmd = new MySqlCommand("SELECT * from player;", con);
+            rdr = cmd.ExecuteReader();
+
+            if(rdr.HasRows) {
+                while(rdr.Read()) {
+                    level = rdr.GetString("gamelevel");
+                }
+            }
+            else
+            {
+                Debug.Log("No party found.");
+            }
+            rdr.Close();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+        return level;
     }
 }
