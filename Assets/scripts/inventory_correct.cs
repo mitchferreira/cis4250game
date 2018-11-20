@@ -79,7 +79,7 @@ public class inventory_correct : MonoBehaviour
             Toggle[] btns = other_slot.GetComponentsInChildren<Toggle>();
             if (other_slot.name != slot_name)
             {
-                Debug.Log("slot:" + (j + 1) + "  equip_slot:  " + equip_slot);
+                /*Debug.Log("slot:" + (j + 1) + "  equip_slot:  " + equip_slot);*/
                 if (btns.Length > 0 && btns[equip_slot] != null)
                 {
                     btns[equip_slot].interactable = active;
@@ -100,17 +100,10 @@ public class inventory_correct : MonoBehaviour
         }
     }
 
-    StructsClass.Character get_party_member(PartyScript members, int member_number)
+    StructsClass.Character get_party_member(PartyScript party, int member_number)
     {
-        switch(member_number)
-        {
-            case 1: return members.member1;
-            case 2: return members.member2;
-            case 3: return members.member3;
-            default: return members.member4;
-        }
+        return party.members[member_number];
     }
-
 
     void equip_weapon(string slot_name, int equip_slot)
     {
@@ -142,12 +135,16 @@ public class inventory_correct : MonoBehaviour
 
             disable_radio_btns(slot_name, equip_slot, active);
 
-            PartyScript members = GameObject.Find("player").GetComponentInChildren<PartyScript>();
-            StructsClass.Character character = get_party_member(members, equip_slot); 
+            StructsClass.Character character = get_party_member(
+                player.GetComponentInChildren<PartyScript>(), equip_slot);
 
-            /*I tried to base this on the order that they are assigned in, in the file party script:
+            Debug.Log(character.name);
+            Debug.Log(character.charClass);
+            
+            /*I tried to base the item equips on the order that party members are added
+             * in the file party script:
              * member1 -> warrior, member2 -> rogue, member3 -> wizard, member4 -> cleric
-             NOTE:: THIS IS A HARD-CODED ORDER, stay fresh/woke/aware of this*/
+             * WRWC is the order (Warrior, Rogue, Wizard, Cleric)*/
 
             if (new_bool == ":True")
             {
@@ -190,11 +187,11 @@ public class inventory_correct : MonoBehaviour
                         if (values.Length >= 8)
                         {
                             equip_slot = values[7][0] - '0';
-                            PartyScript members = player.GetComponent<PartyScript>();
 
                             if (equip_slot != -1)
                             {
-                                StructsClass.Character character = get_party_member(members, equip_slot);
+                                StructsClass.Character character = get_party_member(
+                                    player.GetComponent<PartyScript>(), equip_slot);
                                 character.weapon = Weapon("", "", "", 0, 0);
                             }
                         }
