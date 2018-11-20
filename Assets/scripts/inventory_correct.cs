@@ -100,6 +100,17 @@ public class inventory_correct : MonoBehaviour
         }
     }
 
+    StructsClass.Character get_party_member(PartyScript members, int member_number)
+    {
+        switch(member_number)
+        {
+            case 1: return members.member1;
+            case 2: return members.member2;
+            case 3: return members.member3;
+            default: return members.member4;
+        }
+    }
+
 
     void equip_weapon(string slot_name, int equip_slot)
     {
@@ -132,18 +143,11 @@ public class inventory_correct : MonoBehaviour
             disable_radio_btns(slot_name, equip_slot, active);
 
             PartyScript members = GameObject.Find("player").GetComponentInChildren<PartyScript>();
-            StructsClass.Character character; 
+            StructsClass.Character character = get_party_member(members, equip_slot); 
 
             /*I tried to base this on the order that they are assigned in, in the file party script:
              * member1 -> warrior, member2 -> rogue, member3 -> wizard, member4 -> cleric
              NOTE:: THIS IS A HARD-CODED ORDER, stay fresh/woke/aware of this*/
-            switch(equip_slot)
-            {
-                case 1: character = members.member1; break;
-                case 2: character = members.member2; break;
-                case 3: character = members.member3; break;
-                case 4: character = members.member4; break;
-            }
 
             if (new_bool == ":True")
             {
@@ -176,7 +180,26 @@ public class inventory_correct : MonoBehaviour
                         /*the +1 is to count the fact that slots are 1-indexed, 
                          * items are 0-indexed*/
                         int slot_number = last_char(slot.name) - ('0' + 1);
-                 
+
+                        /*-1 is not an equip_slot, this so we can know if none exist*/
+                        int equip_slot = -1;
+
+                        /*to unequip weapon, if it is equipped to a party member*/
+                        string [] values = items[slot_number].Split(':');
+
+                        if (values.Length >= 8)
+                        {
+                            equip_slot = values[7][0] - '0';
+                            PartyScript members = player.GetComponent<PartyScript>();
+
+                            if (equip_slot != -1)
+                            {
+                                StructsClass.Character character = get_party_member(members, equip_slot);
+                                character.weapon = Weapon("", "", "", 0, 0);
+                            }
+                        }
+                        
+                        /*remove the item from the inventory*/
                         if (slot_number < items.Count)
                         {
                             items.RemoveAt(slot_number);
