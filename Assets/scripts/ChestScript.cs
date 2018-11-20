@@ -16,28 +16,34 @@ public class ChestScript : MonoBehaviour {
     public int dice_num;
     public int dice_type;
 
-    string getSpriteName()
+    public static Sprite getSpriteName(string s)
     {
-        if(item_name == "Mace")
+        string sprite;
+        if(s == "Mace")
         {
-            return "more_weapons_0";
+            sprite = "more_weapons_0";
         }
-        else if(item_name == "Dagger")
+        else if(s == "Dagger")
         {
-            return "more_weapons_1";
+            sprite = "more_weapons_1";
         }
-        else if(item_name == "Longsword")
+        else if(s == "Longsword")
         {
-            return "more_weapons_2";
+            sprite = "more_weapons_2";
         }
-        else if(item_name == "Staff")
+        else if(s == "Staff")
         {
-            return "more_weapons_3";
+            sprite = "more_weapons_3";
         }
         else
         {
-            return "notification_types_0";
+            sprite =  "notification_types_0";
         }
+
+        int len = sprite.Length;
+        int slice = sprite[len - 1] - '0';
+
+        return Resources.LoadAll<Sprite>(sprite.Substring(0, len - 2))[slice];
     }
 
 	void Awake()
@@ -51,7 +57,7 @@ public class ChestScript : MonoBehaviour {
 				* if the transform scale changes, the box collider size WILL NEED to change as well,
 				*  (Kent, 10/23/2018)
 				*/
-			collider.size = new Vector2(1.2f, 1.2f);
+		    collider.size = new Vector2(1.2f, 1.4f);
 			render.sprite = opened ? open : closed;
 	}
 
@@ -67,8 +73,9 @@ public class ChestScript : MonoBehaviour {
         if(c.gameObject.CompareTag("Player") &&
 			c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
 			c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
-			c.gameObject.transform.position.y < chest.transform.position.y + 0.10 && !opened)
+            c.gameObject.transform.position.y < chest.transform.position.y && !opened)
         { 
+
             if (string.IsNullOrEmpty(item_name) == false)
             {
                 List<string> items = GameObject.Find("player").GetComponent<PlayerScript>().items;
@@ -92,13 +99,7 @@ public class ChestScript : MonoBehaviour {
 
                     alert.GetComponent<SpriteRenderer>().sortingOrder = 2;
 
-                    /*name is the sprite name*/
-                    string name = getSpriteName();
-                    int len = name.Length;
-                    int slice = name[len-1] - '0';
-                    
-                    alert.GetComponent<SpriteRenderer>().sprite = 
-                        Resources.LoadAll<Sprite>(name.Substring(0, len-2))[slice];
+                    alert.GetComponent<SpriteRenderer>().sprite = getSpriteName(item_name);
 
                     alert.transform.position = 
                         new Vector3(chest.transform.position.x, chest.transform.position.y, 0);
