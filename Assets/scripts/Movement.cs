@@ -48,9 +48,6 @@ public class Movement : MonoBehaviour {
     {
         if(c.gameObject.CompareTag("Enemy"))
         {
-            // c.gameObject.GetComponent<EnemyScript>().defeated = true;
-            // GameObject db = GameObject.Find("_mysql");
-            // db.GetComponent<DatabaseHandler>().SaveGame();
             encounteredEnemy = c.gameObject.name;
             Debug.Log(encounteredEnemy);
 
@@ -82,14 +79,13 @@ public class Movement : MonoBehaviour {
         }
 
         if(c.gameObject.CompareTag("Boss")) {
-            //start boss battle
             c.gameObject.GetComponent<EnemyScript>().defeated = true;
             GameObject db = GameObject.Find("_mysql");
             db.GetComponent<DatabaseHandler>().SaveGame();
             GameObject player = GameObject.Find("player");
 
             Enemies.defineEnemies();
-            boss = Enemies.Hobgoblin; // change to boss eney
+            boss = Enemies.Hobgoblin; // change to boss enemy
 
             battleEnemies = new StructsClass.Enemy[1];
             battleEnemies[0] = boss;
@@ -103,7 +99,6 @@ public class Movement : MonoBehaviour {
         }
 
         if(c.gameObject.CompareTag("Stairs")) {
-            Debug.Log("Next level");
             c.gameObject.GetComponent<LoadScene>().changeScene(nextLevel);
         }
     }

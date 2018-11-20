@@ -17,6 +17,8 @@ public class PartyScript : MonoBehaviour {
 		member3 = Definitions.defineStartingWizard();
 		member4 = Definitions.defineStartingCleric();
 
+		Debug.Log(member1.weapon.name);
+
 		members = new List<StructsClass.Character>();
 		members.Add(member1);
 		members.Add(member2);
