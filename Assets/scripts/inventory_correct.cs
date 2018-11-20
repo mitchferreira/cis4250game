@@ -6,9 +6,6 @@ using UnityEditor;
 
 public class inventory_correct : MonoBehaviour
 {
-    public string text;
-
-
     void hide_radio_btn(GameObject g, string name)
     {
         g.transform.Find(name + "/Label").GetComponent<Text>().text = "";
@@ -21,6 +18,18 @@ public class inventory_correct : MonoBehaviour
         g.transform.Find(name + "/Label").GetComponent<Text>().text = label_text;
         g.transform.Find(name + "/Background").GetComponent<Image>().enabled = true;
         g.transform.Find(name + "/Background/Checkmark").GetComponent<Image>().enabled = true;
+    }
+
+    void hide_item_slot(GameObject item_slot)
+    {
+        item_slot.GetComponent<Text>().text = "";
+        hide_radio_btn(item_slot, "is_equipped");
+        hide_radio_btn(item_slot, "delete");
+    }
+
+    char last_char(string s)
+    {
+        return s[s.Length - 1];
     }
 
     /*Setting up the listeners for the radio buttons*/
@@ -37,48 +46,47 @@ public class inventory_correct : MonoBehaviour
                 {
                     radio_button.onValueChanged.AddListener(delegate 
                     {
-                        string item = PlayerPrefs.GetString("item #" + i);
+                        GameObject player = GameObject.Find("player");
+                        List <string> items = player.GetComponent<PlayerScript>().items;
 
-                        PlayerPrefs.DeleteKey("item #" + i);
-
-                        item = PlayerPrefs.GetString("item #" + i);
-
-                        int size = PlayerPrefs.GetInt("inventory_size");
-
-                        GameObject slot1;
-                        GameObject slot2;
-                        for(int j = i; j < size - 2; j++)
+                        /*the +1 is to count the fact that slots are 1-indexed, 
+                         * items are 0-indexed*/
+                        int slot_number = last_char(slot.name) - ('0' + 1);
+                 
+                        if (slot_number < items.Count)
                         {
-                            slot1 = GameObject.Find("slot_" + j);
-                            slot2 = GameObject.Find("slot_" + (j + 1));
-
-                            slot1.GetComponent<Text>().text = slot2.GetComponent<Text>().text;
+                            items.RemoveAt(slot_number);
                         }
-
-                        slot2 = GameObject.Find("slot_" + size);
-                        slot2.GetComponent<Text>().text = "";
-                        hide_radio_btn(slot2, "is_equipped");
-                        hide_radio_btn(slot2, "delete");
-
-                        Debug.Log(size);
-                        size = size - 1;
-                        PlayerPrefs.SetInt("inventory_size", size);
+                        hide_item_slot(slot);
                     });
                 }
                 else if(radio_button.name == "is_equipped")
                 {
                     radio_button.onValueChanged.AddListener(delegate
                     {
-                        string[] values = PlayerPrefs.GetString("item #" + i).Split(':');
+                        GameObject player = GameObject.Find("player");
+
+                        int slot_number = last_char(slot.name) - '1';
+
+                        List <string> items = player.GetComponent<PlayerScript>().items;
+
+                        string item = items[slot_number];
+
+                        string[] values = item.Split(':');
 
                         if (values.Length > 0 && values[5] != null)
                         {
+                            Debug.Log(values[5][0]);
                             string new_bool = (values[5][0] == 'T') ? ":False" : ":True";
+                            Debug.Log(new_bool);
 
                             string new_item = values[0] + ":" + values[1] + ":" + values[2] + ":" +
                                 values[3] + ":" + values[4] + new_bool;
-                            PlayerPrefs.DeleteKey("item #" + i);
-                            PlayerPrefs.SetString(new_item, "item #" + i);
+
+                            Debug.Log(new_item + " vs. " + item);
+
+                            items.RemoveAt(slot_number);
+                            items.Insert(slot_number, new_item);
                         }
                     });
                 }
@@ -90,47 +98,27 @@ public class inventory_correct : MonoBehaviour
     //On Update 
     void Update ()
     {
-        int size = PlayerPrefs.GetInt("inventory_size");
-        /*Debug.Log(size);*/
+        GameObject player = GameObject.Find("player");
+
+        List <string> items = player.GetComponent<PlayerScript>().items;
+        int size = items.Count;
 
         for (int i = 0; i < size; i++)
         {
             GameObject slot = GameObject.Find("slot_" + (i + 1));
-
             show_radio_btn(slot, "is_equipped", "Equipped:");
             show_radio_btn(slot, "delete", "Remove?:");
 
-            /*Debug.Log(slot.gameObject.name);*/
+            string[] values = items[i].Split(':');
 
-            string item = PlayerPrefs.GetString("item #" + i);
-            /*Debug.Log("hit da blunt");
-            Debug.Log(item);*/
-
-            string[] values = item.Split(':');
-            /*Debug.Log(values);*/
-
-            text = "Name: " + values[0] + "\nType: " + values[1] + "\nDescription: " + values[2];
-
-            /*Debug.Log(text);*/
-            slot.GetComponent<Text>().text = text;
-
-            /*Debug.Log(descr.text);*/
+            slot.GetComponent<Text>().text = "Name: " + values[0] + 
+                "\nType: " + values[1] + "\nDescription: " + values[2];
 
             foreach (Toggle radio_button in slot.gameObject.GetComponents<Toggle>())
             {
-                Debug.Log("FAFSBJADSABS");
-                Debug.Log(radio_button.name);
                 if (radio_button.name == "is_equipped")
                 {
-                    if (values[5][0] == 'T')
-                    {
-                        radio_button.isOn = true;
-                    }
-                    else
-                    {
-                        radio_button.isOn = false;
-                    }
-
+                    radio_button.isOn = (values[5][0] == 'T') ? true : false;
                 }
                 else if (radio_button.name == "delete")
                 {
@@ -141,15 +129,9 @@ public class inventory_correct : MonoBehaviour
         }
 
         /*Do not show the other item slots, if they are empty*/
-        
         for(int i = size; i < 18; i++)
         {
-            GameObject slot = GameObject.Find("slot_" + (i + 1));
-            slot.GetComponent<Text>().text = "";
-            hide_radio_btn(slot, "is_equipped");
-            hide_radio_btn(slot, "delete");
-
-            /*to get the checkmark to be hidden as well*/
+            hide_item_slot(GameObject.Find("slot_" + (i + 1)));
         }
     }
 }

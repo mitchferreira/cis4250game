@@ -16,6 +16,30 @@ public class ChestScript : MonoBehaviour {
     public int dice_num;
     public int dice_type;
 
+    string getSpriteName()
+    {
+        if(item_name == "Mace")
+        {
+            return "more_weapons_0";
+        }
+        else if(item_name == "Dagger")
+        {
+            return "more_weapons_1";
+        }
+        else if(item_name == "Longsword")
+        {
+            return "more_weapons_2";
+        }
+        else if(item_name == "Staff")
+        {
+            return "more_weapons_3";
+        }
+        else
+        {
+            return "notification_types_0";
+        }
+    }
+
 	void Awake()
 	{
 			render = chest.AddComponent<SpriteRenderer>();
@@ -28,7 +52,6 @@ public class ChestScript : MonoBehaviour {
 				*  (Kent, 10/23/2018)
 				*/
 			collider.size = new Vector2(1.2f, 1.2f);
-
 			render.sprite = opened ? open : closed;
 	}
 
@@ -42,22 +65,46 @@ public class ChestScript : MonoBehaviour {
          *  if the size of the sprite changes, these values WILL NEED to change as well. - (Kent, 10/23/2018)
          */
         if(c.gameObject.CompareTag("Player") &&
-					c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
-					c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
-					c.gameObject.transform.position.y < chest.transform.position.y && !opened)
-        {
-			opened = true;
-			render.sprite = open;
-
+			c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
+			c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
+			c.gameObject.transform.position.y < chest.transform.position.y + 0.10 && !opened)
+        { 
             if (string.IsNullOrEmpty(item_name) == false)
             {
                 List<string> items = GameObject.Find("player").GetComponent<PlayerScript>().items;
 
+                /*The chest will not open unless you have sufficient space:
+                 * less than or equal 18 items in your inventory*/
                 if (items.Count <= 18)
                 {
-                    string item = item_name + ":" + item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":True";
+                    string item = item_name + ":" + 
+                        item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":False";
+
                     items.Add(item);
-                    Debug.Log(item);
+
+                    opened = true;
+                    render.sprite = open;
+
+                    /*the rest of the code in this if, is to show the item on screen*/
+                    /*calls getSprite() which choose the sprite based on the weapon name*/
+                    GameObject alert = new GameObject();
+                    alert.AddComponent<SpriteRenderer>();
+
+                    alert.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
+                    /*name is the sprite name*/
+                    string name = getSpriteName();
+                    int len = name.Length;
+                    int slice = name[len-1] - '0';
+                    
+                    alert.GetComponent<SpriteRenderer>().sprite = 
+                        Resources.LoadAll<Sprite>(name.Substring(0, len-2))[slice];
+
+                    alert.transform.position = 
+                        new Vector3(chest.transform.position.x, chest.transform.position.y, 0);
+
+                    alert.transform.localScale = new Vector3(1.5f, 0.9f, 1);
+                    Destroy(alert, 0.25f);
                 }
             }
         }
