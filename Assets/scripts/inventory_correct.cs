@@ -13,20 +13,20 @@ public class inventory_correct : MonoBehaviour
         g.transform.Find(name).GetComponent<Toggle>().enabled = toggle;
     }
 
-    void hide_text(Text text)
+    void toggle_text(Text text, bool active, string content)
     {
         text.enabled = false;
-        text.text = "";
+        text.text = content;
     }
 
     void hide_item_slot(GameObject item_slot)
     {
         Transform t = item_slot.transform;
 
-        hide_text(t.Find("Name").GetComponent<Text>());
-        hide_text(t.Find("Modifier").GetComponent<Text>());
-        hide_text(t.Find("Type").GetComponent<Text>());
-        hide_text(t.Find("Amount").GetComponent<Text>());
+        toggle_text(t.Find("Name").GetComponent<Text>(), false, "");
+        toggle_text(t.Find("Modifier").GetComponent<Text>(), false, "");
+        toggle_text(t.Find("Type").GetComponent<Text>(), false, "");
+        toggle_text(t.Find("Amount").GetComponent<Text>(), false, "");
 
         t.Find("Image").GetComponent<Image>().enabled = false;
 
@@ -43,11 +43,6 @@ public class inventory_correct : MonoBehaviour
         {
             hide_item_slot(GameObject.Find("slot_" + (i + 1)));
         }
-    }
-    void set_text(Text text, string content)
-    {
-        text.enabled = true;
-        text.text = content;
     }
 
     char last_char(string s)
@@ -261,10 +256,10 @@ public class inventory_correct : MonoBehaviour
 
             Transform t = slot.transform;
 
-            set_text(t.Find("Name").GetComponent<Text>(), values[0]);
-            set_text(t.Find("Modifier").GetComponent<Text>(), values[1]);
-            set_text(t.Find("Type").GetComponent<Text>(), values[2]);
-            set_text(t.Find("Amount").GetComponent<Text>(), values[3] + "-" + values[4]);
+            toggle_text(t.Find("Name").GetComponent<Text>(), true, values[0]);
+            toggle_text(t.Find("Modifier").GetComponent<Text>(), true, values[1]);
+            toggle_text(t.Find("Type").GetComponent<Text>(), true, values[2]);
+            toggle_text(t.Find("Amount").GetComponent<Text>(), true, values[3] + "-" + values[4]);
         }
 
         hide_item_slots(size, 18);
