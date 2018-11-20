@@ -10,7 +10,6 @@ public class inventory_correct : MonoBehaviour
     {
         g.transform.Find(name + "/Background/Checkmark").GetComponent<Image>().enabled = toggle;
         g.transform.Find(name + "/Background").GetComponent<Image>().enabled = toggle;
-        g.transform.Find(name).GetComponent<Toggle>().enabled = toggle;
     }
 
     void hide_text(Text text)
@@ -225,10 +224,17 @@ public class inventory_correct : MonoBehaviour
         List <string> items = player.GetComponent<PlayerScript>().items;
         int size = items.Count;
 
+
+
         for (int i = 0; i < size; i++)
         {
             GameObject slot = GameObject.Find("slot_" + (i + 1));
-            toggle_radio_btn(slot, "is_equipped_" + (i % 4), true);
+
+            for (int j = 0; j < 4; j++)
+            {
+                toggle_radio_btn(slot, "is_equipped_" + j, true);
+            }
+
             toggle_radio_btn(slot, "delete", true);
 
             string[] values = items[i].Split(':');
