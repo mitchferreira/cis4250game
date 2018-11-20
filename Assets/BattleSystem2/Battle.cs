@@ -8,6 +8,11 @@ public class Battle : MonoBehaviour {
     public static int playerGold;
     public static int playerExp;
     public static int playerAttack;
+    static Battle instance;
+    public Text healthBar1;
+    public Text healthBar2;
+    public Text healthBar3;
+    public Text healthBar4;
 
     public Text outputText;
 
@@ -71,7 +76,7 @@ public class Battle : MonoBehaviour {
 
     //     StartCoroutine(simulateBattle(initA.characters, initA.enemies));
     // }
-
+    
     void Start() {
         GameObject player = GameObject.Find("player");
 
@@ -117,17 +122,10 @@ public class Battle : MonoBehaviour {
             initiativeReferenceArray[i] = initA.enemies[j].name;
             j = j + 1;
         }
-
+    
+        
 
         initiativeReferenceArray = Calculations.determineInitiative(initA);
-
-
-
-
-
-
-
-
 
         //print("Beginning Battle.");
         outputText.text = ("Beginning Battle.\n");
@@ -147,6 +145,11 @@ public class Battle : MonoBehaviour {
 
                 for (j = 0; j < initA.characters.Length; j++)
                 {
+                    healthBar1.text = initA.characters[0].currentHealth + "/" + initA.characters[0].maxHealth;
+                    healthBar2.text = initA.characters[1].currentHealth + "/" + initA.characters[1].maxHealth;
+                    healthBar3.text = initA.characters[2].currentHealth + "/" + initA.characters[2].maxHealth;
+                    healthBar4.text = initA.characters[3].currentHealth + "/" + initA.characters[3].maxHealth;
+
                     if ((initA.characters[j].name == initiativeReferenceArray[i]) && (initA.characters[j].currentHealth != 0))
                     {
 
@@ -216,6 +219,7 @@ public class Battle : MonoBehaviour {
 
                         break;
                     }
+                    
                 }
 
 
@@ -242,19 +246,20 @@ public class Battle : MonoBehaviour {
                             //print(initA.enemies[j].name + " hit for " + damage + " damage");
 
                             initA.characters[enemySelector].currentHealth = initA.characters[enemySelector].currentHealth - damage;
+                            
                             if (initA.characters[enemySelector].currentHealth < 0)
                             {
                                 initA.characters[enemySelector].currentHealth = 0;
                                 numAlivePlayers = numAlivePlayers - 1;
                                 outputText.text += (initA.characters[enemySelector].name + " has died\n");
                             }
+                            //healthBar.UpdateBar(initA.characters[j].currentHealth,initA.characters[j].maxHealth);
                         }
 
 
                         break;
                     }
                 }
-
                 if ((numAliveEnemies == 0) || (numAlivePlayers == 0))
                 {
                     break;
