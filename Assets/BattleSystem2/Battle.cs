@@ -10,6 +10,10 @@ public class Battle : MonoBehaviour {
     public static int playerAttack;
 
     public Text outputText;
+    public Text healthBar1;
+    public Text healthBar2;
+    public Text healthBar3;
+    public Text healthBar4;
 
     public static int whoseTurnIsIt;
 
@@ -174,7 +178,7 @@ public class Battle : MonoBehaviour {
 
 
 
-        
+
         outputText.text = ("Beginning Battle.\n");
         outputText.text += ("The initiative order for the battle is:\n");
 
@@ -193,6 +197,11 @@ public class Battle : MonoBehaviour {
                 // loop through all player characters
                 for (j = 0; j < initA.characters.Length; j++)
                 {
+                    healthBar1.text = initA.characters[0].currentHealth + "/" + initA.characters[0].maxHealth;
+                    healthBar2.text = initA.characters[1].currentHealth + "/" + initA.characters[1].maxHealth;
+                    healthBar3.text = initA.characters[2].currentHealth + "/" + initA.characters[2].maxHealth;
+                    healthBar4.text = initA.characters[3].currentHealth + "/" + initA.characters[3].maxHealth;
+
                     // if it is that player character's turn and they are not dead, commence their turn
                     if ((initA.characters[j].name == initiativeReferenceArray[i]) && (initA.characters[j].currentHealth != 0))
                     {
@@ -374,6 +383,7 @@ public class Battle : MonoBehaviour {
         {
             outputText.text += ("PLAYERS WIN\n");
 
+
             // give the player gold
             outputText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
             playerGold = playerGold + Calculations.calculateGold(initA.enemies);
@@ -391,6 +401,9 @@ public class Battle : MonoBehaviour {
             initA.characters = Calculations.levelUp(initA.characters);
 
             GameObject player = GameObject.Find("player");
+            // kill the encountered enemy
+            Debug.Log(player.GetComponent<Movement>().encounteredEnemy.name);
+            player.GetComponent<Movement>().encounteredEnemy.GetComponent<EnemyScript>().defeated = true;
             player.GetComponent<PartyScript>().LevelUpParty(initA.characters);
 
         }

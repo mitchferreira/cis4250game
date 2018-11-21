@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour {
     public StructsClass.Enemy[] enemies;
     public StructsClass.Enemy[] battleEnemies;
     public StructsClass.Character[] players;
-    public string encounteredEnemy;
+    public GameObject encounteredEnemy;
 
     // Use this for initialization
     void Start()
@@ -48,10 +48,10 @@ public class Movement : MonoBehaviour {
     {
         if(c.gameObject.CompareTag("Enemy"))
         {
-            encounteredEnemy = c.gameObject.name;
+            encounteredEnemy = c.gameObject;
             Debug.Log(encounteredEnemy);
-            c.gameObject.GetComponent<EnemyScript>().defeated = true;
-            GameObject.Find("_mysql").GetComponent<DatabaseHandler>().SaveGame();
+            // c.gameObject.GetComponent<EnemyScript>().defeated = true;
+            // GameObject.Find("_mysql").GetComponent<DatabaseHandler>().SaveGame();
 
             GameObject player = GameObject.Find("player");
 
@@ -81,9 +81,9 @@ public class Movement : MonoBehaviour {
         }
 
         if(c.gameObject.CompareTag("Boss")) {
-            c.gameObject.GetComponent<EnemyScript>().defeated = true;
-            GameObject db = GameObject.Find("_mysql");
-            db.GetComponent<DatabaseHandler>().SaveGame();
+            // c.gameObject.GetComponent<EnemyScript>().defeated = true;
+            // GameObject db = GameObject.Find("_mysql");
+            // db.GetComponent<DatabaseHandler>().SaveGame();
             GameObject player = GameObject.Find("player");
 
             Enemies.defineEnemies();

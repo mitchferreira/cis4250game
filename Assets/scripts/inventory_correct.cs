@@ -59,7 +59,7 @@ public class inventory_correct : MonoBehaviour
      Have a good one, I wonder if we'll be finished the project by the time you read this*/
     StructsClass.Weapon Weapon(string name, string mod, string type, int numOfDice, int diceType)
     {
-        StructsClass.Weapon weapon;
+        StructsClass.Weapon weapon = new StructsClass.Weapon();
 
         weapon.name = name;
         weapon.modifier = mod;
@@ -139,7 +139,7 @@ public class inventory_correct : MonoBehaviour
 
             Debug.Log(character.name);
             Debug.Log(character.charClass);
-            
+
             /*I tried to base the item equips on the order that party members are added
              * in the file party script:
              * member1 -> warrior, member2 -> rogue, member3 -> wizard, member4 -> cleric
@@ -168,12 +168,12 @@ public class inventory_correct : MonoBehaviour
             {
                 if(radio_button.name == "delete")
                 {
-                    radio_button.onValueChanged.AddListener(delegate 
+                    radio_button.onValueChanged.AddListener(delegate
                     {
                         GameObject player = GameObject.Find("player");
                         List <string> items = player.GetComponent<PlayerScript>().items;
 
-                        /*the +1 is to count the fact that slots are 1-indexed, 
+                        /*the +1 is to count the fact that slots are 1-indexed,
                          * items are 0-indexed*/
                         int slot_number = last_char(slot.name) - ('0' + 1);
 
@@ -194,7 +194,7 @@ public class inventory_correct : MonoBehaviour
                                 character.weapon = Weapon("", "", "", 0, 0);
                             }
                         }
-                        
+
                         /*remove the item from the inventory*/
                         if (slot_number < items.Count)
                         {
@@ -216,7 +216,7 @@ public class inventory_correct : MonoBehaviour
     }
 
 
-    //On Update 
+    //On Update
     void Update ()
     {
         GameObject player = GameObject.Find("player");
@@ -238,8 +238,8 @@ public class inventory_correct : MonoBehaviour
             toggle_radio_btn(slot, "delete", true);
 
             string[] values = items[i].Split(':');
-            
-            if (items[i].EndsWith("slot:0") || 
+
+            if (items[i].EndsWith("slot:0") ||
                 items[i].EndsWith("slot:1") ||
                 items[i].EndsWith("slot:2") ||
                 items[i].EndsWith("slot:3"))
