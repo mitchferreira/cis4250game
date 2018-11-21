@@ -41,8 +41,11 @@ public class Definitions : MonoBehaviour
         Warrior.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
+        Warrior.blocking = 0;
+        Warrior.attackBuff = 0;
+        Warrior.defenceBuff = 0;
 
-        Warrior.weapon = Items.Longsword;
+        Warrior.weapon = Items.ILongsword;
         Warrior.armor = Items.Leather;
 
         Warrior.actions = new StructsClass.Ability[1];
@@ -53,6 +56,7 @@ public class Definitions : MonoBehaviour
 
     public static StructsClass.Character defineStartingRogue()
     {
+
         StructsClass.Character Rogue;
 
         Rogue.name = "Joseph";
@@ -71,8 +75,11 @@ public class Definitions : MonoBehaviour
         Rogue.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
+        Rogue.blocking = 0;
+        Rogue.attackBuff = 0;
+        Rogue.defenceBuff = 0;
 
-        Rogue.weapon = Items.Dagger;
+        Rogue.weapon = Items.IDagger;
         Rogue.armor = Items.Leather;
 
         Rogue.actions = new StructsClass.Ability[1];
@@ -101,8 +108,11 @@ public class Definitions : MonoBehaviour
         Wizard.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
+        Wizard.blocking = 0;
+        Wizard.attackBuff = 0;
+        Wizard.defenceBuff = 0;
 
-        Wizard.weapon = Items.Staff;
+        Wizard.weapon = Items.OStaff;
         Wizard.armor = Items.Leather;
 
         Wizard.actions = new StructsClass.Ability[3];
@@ -133,8 +143,11 @@ public class Definitions : MonoBehaviour
         Cleric.magicPoints = 10;
 
         //Warrior.statusEffects = "none";
+        Cleric.blocking = 0;
+        Cleric.attackBuff = 0;
+        Cleric.defenceBuff = 0;
 
-        Cleric.weapon = Items.Mace;
+        Cleric.weapon = Items.IMace;
         Cleric.armor = Items.Leather;
 
         Cleric.actions = new StructsClass.Ability[1];

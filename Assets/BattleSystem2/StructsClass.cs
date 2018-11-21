@@ -22,7 +22,11 @@ public class StructsClass : MonoBehaviour {
         public int currentHealth;
         public int magicPoints;
 
-        //public string statusEffects;
+
+        //public string[] statusEffects;
+        public int blocking;
+        public int attackBuff;
+        public int defenceBuff;
 
         public Weapon weapon;
         public Armor armor;
@@ -42,6 +46,7 @@ public class StructsClass : MonoBehaviour {
         public int numOfDice;
         public string modifier;
         public string damageType;
+        public int isEquiped;
     }
 
     public struct Armor
@@ -49,6 +54,7 @@ public class StructsClass : MonoBehaviour {
         public string name;
         public int armorValue;
         public string damageResist;
+        public int isEquiped;
     }
 
     public struct Ability
@@ -59,6 +65,8 @@ public class StructsClass : MonoBehaviour {
         public int numOfDice;
         public string modifier;
         public string damageType;
+
+        public string description;
 
     }
 
@@ -81,6 +89,9 @@ public class StructsClass : MonoBehaviour {
         public string[] weaknesses;
         public string[] resistances;
         public string[] immunities;
+
+        public int poison;
+        public int stun;
 
         public EnemyAbility[] actions;
     }

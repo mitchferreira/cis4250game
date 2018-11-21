@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Calculations : MonoBehaviour
 {
-
+    // creates an instance of the battle so the functions can be used for it
     public static Battle battle = new Battle();
 
     public void Update()
@@ -14,6 +14,7 @@ public class Calculations : MonoBehaviour
         battle.outputText = GameObject.Find("BattleText").GetComponent<Text>();
     }
 
+    // takes in a stat numbers and gives a bonus number used in several calculations
     public static int numberConvert(int number)
     {
         switch (number)
@@ -83,7 +84,7 @@ public class Calculations : MonoBehaviour
         return 0;
     }
 
-
+    // calls number convert with reference to the stat the bonus is being calculated from
     public static int getModifier(String modifier, StructsClass.Character player)
     {
         int modValue = 0;
@@ -112,8 +113,8 @@ public class Calculations : MonoBehaviour
 
         return modValue;
     }
-
-
+    
+    // calculate whether the player hits with an ability
     public static int CalculatePlayerHit(StructsClass.Character player, StructsClass.Enemy enemy, StructsClass.Ability attack)
     {
         int dice = 0;
@@ -152,7 +153,7 @@ public class Calculations : MonoBehaviour
         }
     }
 
-
+    // calculate if a player hits with a weapon
     public static int CalculatePlayerWeaponHit(StructsClass.Character player, StructsClass.Enemy enemy)
     {
         int dice = 0;
@@ -176,6 +177,7 @@ public class Calculations : MonoBehaviour
 
 
         battle.outputText.text += ("You hit a " + dice + " + " + getModifier(player.weapon.modifier, player) + " against " + enemy.name + "'s armor of " + enemy.armor + "\n");
+
         dice = dice + getModifier(player.weapon.modifier, player);
 
         if (dice >= enemy.armor)
@@ -191,9 +193,10 @@ public class Calculations : MonoBehaviour
     }
 
 
-
+    // calculate if an enemy attack hits
     public static int CalculateEnemyHit(StructsClass.Character player, StructsClass.EnemyAbility attack)
     {
+
         int dice = 0;
 
         System.Random rand = new System.Random();
@@ -216,9 +219,18 @@ public class Calculations : MonoBehaviour
 
         dice = dice + attack.addedHit;
 
+
+
         if (dice >= player.armor.armorValue)
         {
             battle.outputText.text += ("They hit.\n");
+
+            if ((dice < player.armor.armorValue + 3) && (player.blocking == 1))
+            {
+                battle.outputText.text += ("The attack was blocked.\n");
+                return 0;
+            }
+
             return 1;
         }
         else
@@ -229,7 +241,7 @@ public class Calculations : MonoBehaviour
     }
 
 
-
+    // calculate player ability damage
     public static int CalculatePlayerDamage(StructsClass.Ability attack, int crit, StructsClass.Enemy enemy)
     {
         int damage = 0;
@@ -282,7 +294,7 @@ public class Calculations : MonoBehaviour
         return damage;
     }
 
-
+    // calculate player weapon attack damage
     public static int WeaponAttack(StructsClass.Character player, int crit, StructsClass.Enemy enemy)
     {
         int damage = 0;
@@ -340,7 +352,7 @@ public class Calculations : MonoBehaviour
         return damage;
     }
 
-
+    // calculate enemy attack damage
     public static int CalculateEnemyDamage(StructsClass.EnemyAbility attack, int crit)
     {
         int damage = 0;
@@ -368,7 +380,7 @@ public class Calculations : MonoBehaviour
 
 
 
-
+    // determine turn order
     public static string[] determineInitiative(StructsClass.InitiativeArray initA)
     {
         int i, j = 0;
@@ -406,7 +418,7 @@ public class Calculations : MonoBehaviour
         return initiativeReferenceArray;
     }
 
-
+    // calculate victory gold
     public static int calculateGold(StructsClass.Enemy[] enemies)
     {
         int i = 0;
@@ -420,6 +432,7 @@ public class Calculations : MonoBehaviour
         return totalGold;
     }
 
+    // calculate victory experience
     public static int calculateExperience(StructsClass.Enemy[] enemies)
     {
         int i = 0;
@@ -433,7 +446,7 @@ public class Calculations : MonoBehaviour
         return totalExp;
     }
 
-
+    // level up characters
     public static StructsClass.Character[] levelUp(StructsClass.Character[] players)
     {
         int i = 0;
@@ -505,11 +518,16 @@ public class Calculations : MonoBehaviour
 
 
 
-
+    // determines what calculations to run for every player action
     public static int DeterminePlayerAction(int action, StructsClass.Character player, StructsClass.Enemy enemy)
     {
         int damage = -1;
         int hitStatus = 0;
+        int dice = 0;
+
+        System.Random rand = new System.Random();
+
+        dice = (rand.Next(1, 20));
 
         switch (action)
         {
@@ -527,8 +545,22 @@ public class Calculations : MonoBehaviour
                     battle.outputText.text += (player.name + " uses Shield Bash\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.ShieldBash);
                     damage = CalculatePlayerDamage(Abilities.ShieldBash, hitStatus, enemy);
+
+                    dice = (rand.Next(1,4));
+                    if(dice == 4)
+                    {
+                        enemy.stun = 1;
+                    }
                 }
                 return damage;
+
+            case 201:
+                if (Abilities.AttackStance.cost <= player.magicPoints)
+                {
+                    player.attackBuff = 4;
+                }
+                return 0;
+
 
             case 3:
                 if (Abilities.Thrust.cost <= player.magicPoints)
@@ -554,9 +586,28 @@ public class Calculations : MonoBehaviour
                 {
                     battle.outputText.text += (player.name + " uses Swift Cut\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.SwiftCut);
+
+                    if(hitStatus == 1)
+                    {
+                        dice = (rand.Next(1, 2));
+                        if (dice == 2)
+                        {
+                            hitStatus = 2;
+                        }
+                    }
+
                     damage = CalculatePlayerDamage(Abilities.SwiftCut, hitStatus, enemy);
                 }
                 return damage;
+
+
+            case 202:
+                if (Abilities.EvasiveStance.cost <= player.magicPoints)
+                {
+                    player.defenceBuff = 4;
+                }
+                return 0;
+
 
             case 6:
                 if (Abilities.PoisonKnife.cost <= player.magicPoints)
@@ -660,7 +711,7 @@ public class Calculations : MonoBehaviour
         return damage;
     }
 
-
+    // unique function for cleric healing ability
     public static StructsClass.Character[] CureWounds(StructsClass.Character[] players)
     {
         int i = 0;
@@ -671,18 +722,6 @@ public class Calculations : MonoBehaviour
 
         return players;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

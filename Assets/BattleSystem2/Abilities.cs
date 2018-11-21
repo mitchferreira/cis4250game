@@ -5,10 +5,12 @@ using UnityEngine;
 public class Abilities : MonoBehaviour {
 
     public static StructsClass.Ability ShieldBash;
+    public static StructsClass.Ability AttackStance;
     public static StructsClass.Ability Thrust;
     public static StructsClass.Ability PowerSlash;
 
     public static StructsClass.Ability SwiftCut;
+    public static StructsClass.Ability EvasiveStance;
     public static StructsClass.Ability PoisonKnife;
     public static StructsClass.Ability MultiStab;
 
@@ -29,7 +31,16 @@ public class Abilities : MonoBehaviour {
         ShieldBash.diceType = 6;
         ShieldBash.numOfDice = 1;
         ShieldBash.modifier = "strength";
-        ShieldBash.damageType = "bash";
+        ShieldBash.damageType = "bashing";
+        ShieldBash.description = "Bash the enemy for a chance to stun. Cost: 1, Damage: 1d6.";
+
+        AttackStance.name = "Attacking Stance";
+        AttackStance.cost = 1;
+        AttackStance.diceType = 0;
+        AttackStance.numOfDice = 0;
+        AttackStance.modifier = "strength";
+        AttackStance.damageType = "bashing";
+        AttackStance.description = "Take a stance to increase attack for 3 turns. Cost: 1.";
 
         Thrust.name = "Thrust";
         Thrust.cost = 2;
@@ -37,6 +48,7 @@ public class Abilities : MonoBehaviour {
         Thrust.numOfDice = 1;
         Thrust.modifier = "strength";
         Thrust.damageType = "piercing";
+        Thrust.description = "Stab at the enemy. Cost: 2, Damage: 1d8.";
 
         PowerSlash.name = "Power Slash";
         PowerSlash.cost = 3;
@@ -44,7 +56,7 @@ public class Abilities : MonoBehaviour {
         PowerSlash.numOfDice = 1;
         PowerSlash.modifier = "strength";
         PowerSlash.damageType = "slashing";
-
+        PowerSlash.description = "Strike a mighty blow. Cost 3, Damage 1d12.";
 
 
 
@@ -56,6 +68,15 @@ public class Abilities : MonoBehaviour {
         SwiftCut.numOfDice = 1;
         SwiftCut.modifier = "dexterity";
         SwiftCut.damageType = "slashing";
+        SwiftCut.description = "Deliver a quick slash with increased crit chance. Cost: 1, Damage: 1d6.";
+
+        EvasiveStance.name = "Evasive Stance";
+        EvasiveStance.cost = 1;
+        EvasiveStance.diceType = 0;
+        EvasiveStance.numOfDice = 0;
+        EvasiveStance.modifier = "strength";
+        EvasiveStance.damageType = "bashing";
+        EvasiveStance.description = "Take a stance to increase defence for 3 turns. Cost: 1.";
 
         PoisonKnife.name = "Poison Knife";
         PoisonKnife.cost = 2;
@@ -63,6 +84,7 @@ public class Abilities : MonoBehaviour {
         PoisonKnife.numOfDice = 1;
         PoisonKnife.modifier = "dexterity";
         PoisonKnife.damageType = "poison";
+        PoisonKnife.description = "Stab the enemy for a chance to poison. Cost: 2, Damage: 1d8.";
 
         MultiStab.name = "Multi-Stab";
         MultiStab.cost = 3;
@@ -70,6 +92,7 @@ public class Abilities : MonoBehaviour {
         MultiStab.numOfDice = 3;
         MultiStab.modifier = "dexterity";
         MultiStab.damageType = "piercing";
+        MultiStab.description = "Deliver multiple stabs. Cost: 3, Damage 3d4.";
 
 
 
@@ -82,6 +105,7 @@ public class Abilities : MonoBehaviour {
         AcidSplash.numOfDice = 1;
         AcidSplash.modifier = "intellidence";
         AcidSplash.damageType = "acid";
+        AcidSplash.description = "Splash the enemy with acid. Cost: 1, Damage: 1d6.";
 
         EldritchBlast.name = "Eldritch Blast";
         EldritchBlast.cost = 1;
@@ -89,6 +113,7 @@ public class Abilities : MonoBehaviour {
         EldritchBlast.numOfDice = 1;
         EldritchBlast.modifier = "intellidence";
         EldritchBlast.damageType = "magic";
+        EldritchBlast.description = "Blast the enemy with eldritch energy. Cost: 1, Damage: 1d10.";
 
         PoisonSpray.name = "Poison Spray";
         PoisonSpray.cost = 2;
@@ -96,6 +121,7 @@ public class Abilities : MonoBehaviour {
         PoisonSpray.numOfDice = 1;
         PoisonSpray.modifier = "intellidence";
         PoisonSpray.damageType = "poison";
+        PoisonSpray.description = "Spray the enemy with poison. Cost: 2, Damage: 1d12.";
 
         MagicMissile.name = "Magic Missile";
         MagicMissile.cost = 2;
@@ -103,6 +129,7 @@ public class Abilities : MonoBehaviour {
         MagicMissile.numOfDice = 3;
         MagicMissile.modifier = "intellidence";
         MagicMissile.damageType = "magic";
+        MagicMissile.description = "Fire magic bolts that never miss. Cost: 2, Damage: 3d4";
 
         FlamingSphere.name = "Flaming Sphere";
         FlamingSphere.cost = 3;
@@ -110,6 +137,7 @@ public class Abilities : MonoBehaviour {
         FlamingSphere.numOfDice = 2;
         FlamingSphere.modifier = "intellidence";
         FlamingSphere.damageType = "fire";
+        FlamingSphere.description = "Unleash a flaming sphere. Cost: 3, Damage: 2d6.";
 
 
 
@@ -124,6 +152,7 @@ public class Abilities : MonoBehaviour {
         SacredFlame.numOfDice = 1;
         SacredFlame.modifier = "wisdom";
         SacredFlame.damageType = "holy";
+        SacredFlame.description = "Strike with holy fire. Cost: 1, Damage: 1d8";
 
         CureWounds.name = "Cure Wounds";
         CureWounds.cost = 2;
@@ -131,6 +160,7 @@ public class Abilities : MonoBehaviour {
         CureWounds.numOfDice = 1;
         CureWounds.modifier = "wisdom";
         CureWounds.damageType = "cure";
+        CureWounds.description = "Heal the wounds of your allies. Cost: 2, Heals fully";
 
         SpiritualWeapon.name = "Spiritual Weapon";
         SpiritualWeapon.cost = 3;
@@ -138,6 +168,7 @@ public class Abilities : MonoBehaviour {
         SpiritualWeapon.numOfDice = 10;
         SpiritualWeapon.modifier = "wisdom";
         SpiritualWeapon.damageType = "magic";
+        SpiritualWeapon.description = "Strike with a magical weapon. Cost: 3, Damage: 1d10.";
 
     }
 }
