@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/dbscene.unity
     guid: 1869a0e66709cae4cbe257c414d2fcc1
   - enabled: 1
-    path: Assets/scripts/menu.unity
+    path: Assets/Scenes/menu.unity
     guid: 21c377f433845b64d880f254d63a4371
   - enabled: 1
     path: Assets/Scenes/BattleUI.unity
@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/worldScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/level2.unity
+    guid: 7cd1b355085be47ceb7956797f7ecb11
+  - enabled: 1
+    path: Assets/Scenes/level3.unity
+    guid: c3e3cf5dd3c6b4817a2f88ab82af97e5
+  - enabled: 1
+    path: Assets/Scenes/end.unity
+    guid: df97b273bb580479d996fdb6cbb200ee
   m_configObjects: {}

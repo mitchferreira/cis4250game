@@ -32,6 +32,8 @@ public class InGameMenu : MonoBehaviour {
 	}
 
 	void OpenStatsMenu() {
+		GameObject.Find("_mysql").GetComponent<DatabaseHandler>().SaveGame();
+		GameObject.Find("_mysql").GetComponent<DatabaseHandler>().LoadGame();
 		party_panel.GetComponent<Canvas>().enabled = true;
 	}
 }

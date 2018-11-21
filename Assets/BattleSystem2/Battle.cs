@@ -296,6 +296,10 @@ public class Battle : MonoBehaviour {
             GameObject player = GameObject.Find("player");
             player.GetComponent<PartyScript>().LevelUpParty(initA.characters);
 
+            string enemyName = player.GetComponent<Movement>().encounteredEnemy;
+            GameObject.Find(enemyName).GetComponent<EnemyScript>().defeated = true;
+            GameObject.Find("_mysql").GetComponent<DatabaseHandler>().SaveGame();
+
         }
         else
         {

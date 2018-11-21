@@ -9,10 +9,11 @@ public class LoadScene : MonoBehaviour {
         SceneManager.LoadScene(sceneName);
     }
 
-    public void changeSceneAndLoad(string sceneName){
+    public void changeSceneAndLoad(){
         DontDestroyOnLoad(this.gameObject);
         SceneManager.activeSceneChanged += ChangedActiveScene;
 
+        string sceneName = GameObject.Find("_mysql").GetComponent<DatabaseHandler>().GetLevel();
         SceneManager.LoadScene(sceneName);
     }
 
@@ -21,8 +22,9 @@ public class LoadScene : MonoBehaviour {
         string currentName = current.name;
         Debug.Log("Next: " + next.name);
         Debug.Log("Current: " + current.name);
+        Debug.Log(GameObject.Find("player").transform.position.x);
 
-        if (next.name == "worldScene")
+        if (next.name == "worldScene" || next.name == "level2" || next.name == "level3")
         {
             GameObject db = GameObject.Find("_mysql");
             db.GetComponent<DatabaseHandler>().LoadGame();
