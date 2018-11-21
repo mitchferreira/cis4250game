@@ -176,7 +176,6 @@ public class Calculations : MonoBehaviour
 
 
         battle.outputText.text += ("You hit a " + dice + " + " + getModifier(player.weapon.modifier, player) + " against " + enemy.name + "'s armor of " + enemy.armor + "\n");
-
         dice = dice + getModifier(player.weapon.modifier, player);
 
         if (dice >= enemy.armor)

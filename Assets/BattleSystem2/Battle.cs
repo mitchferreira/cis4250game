@@ -13,6 +13,7 @@ public class Battle : MonoBehaviour {
     public Text healthBar2;
     public Text healthBar3;
     public Text healthBar4;
+    //public Text damageText;
 
     public Text outputText;
 
@@ -173,18 +174,22 @@ public class Battle : MonoBehaviour {
                                 if (initA.characters[j].charClass == "Warrior")
                                 {
                                     damage = Calculations.DeterminePlayerAction(2, initA.characters[j], initA.enemies[enemySelector]);
+                                    //damageText.text = "Kent does " + damage + "damage";
                                 }
                                 if (initA.characters[j].charClass == "Rogue")
                                 {
                                     damage = Calculations.DeterminePlayerAction(5, initA.characters[j], initA.enemies[enemySelector]);
+                                    //damageText.text = "Joseph does " + damage + "damage";
                                 }
                                 if (initA.characters[j].charClass == "Wizard")
                                 {
                                     damage = Calculations.DeterminePlayerAction(9, initA.characters[j], initA.enemies[enemySelector]);
+                                    //damageText.text = "Scott does " + damage + "damage";
                                 }
                                 if (initA.characters[j].charClass == "Cleric")
                                 {
                                     damage = Calculations.DeterminePlayerAction(13, initA.characters[j], initA.enemies[enemySelector]);
+                                    //damageText.text = "Mitchell does " + damage + "damage";
                                 }
 
                             }
@@ -244,6 +249,7 @@ public class Battle : MonoBehaviour {
                         {
                             damage = Calculations.CalculateEnemyDamage(Enemies.SwordAttack, hitStatus);
                             //print(initA.enemies[j].name + " hit for " + damage + " damage");
+                            
 
                             initA.characters[enemySelector].currentHealth = initA.characters[enemySelector].currentHealth - damage;
                             
