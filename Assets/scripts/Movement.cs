@@ -50,6 +50,8 @@ public class Movement : MonoBehaviour {
         {
             encounteredEnemy = c.gameObject.name;
             Debug.Log(encounteredEnemy);
+            c.gameObject.GetComponent<EnemyScript>().defeated = true;
+            GameObject.Find("_mysql").GetComponent<DatabaseHandler>().SaveGame();
 
             GameObject player = GameObject.Find("player");
 
@@ -100,6 +102,12 @@ public class Movement : MonoBehaviour {
 
         if(c.gameObject.CompareTag("Stairs")) {
             c.gameObject.GetComponent<LoadScene>().changeScene(nextLevel);
+            if(nextLevel == "level2") {
+                nextLevel = "level3";
+            }
+            else if(nextLevel == "level3") {
+                nextLevel = "end";
+            }
         }
     }
 

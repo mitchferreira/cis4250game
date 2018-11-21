@@ -92,6 +92,7 @@ public class DatabaseHandler : MonoBehaviour
         }
         catch (Exception e) {
             Debug.Log(e);
+            rdr.Close();
         }
 
         foreach(GameObject chest in chests) {
@@ -106,6 +107,7 @@ public class DatabaseHandler : MonoBehaviour
             }
             catch (Exception e) {
                 Debug.Log(e);
+                rdr.Close();
             }
         }
     }
@@ -123,6 +125,7 @@ public class DatabaseHandler : MonoBehaviour
         }
         catch (Exception e) {
             Debug.Log(e);
+            rdr.Close();
         }
 
         foreach(GameObject enemy in enemies) {
@@ -148,6 +151,7 @@ public class DatabaseHandler : MonoBehaviour
             }
             catch (Exception e) {
                 Debug.Log(e);
+                rdr.Close();
             }
     }
 
@@ -158,7 +162,7 @@ public class DatabaseHandler : MonoBehaviour
         int expPoints = player.GetComponent<PlayerScript>().expPoints;
         float xCoordinate = player.GetComponent<PlayerScript>().transform.position.x;
         float yCoordinate = player.GetComponent<PlayerScript>().transform.position.y;
-        string gameLevel = player.scene.name;
+        string gameLevel = SceneManager.GetActiveScene().name;
 
         string[] items = player.GetComponent<PlayerScript>().items.ToArray();
         string itemsString = "";
@@ -183,6 +187,7 @@ public class DatabaseHandler : MonoBehaviour
         }
         catch (Exception e) {
             Debug.Log(e);
+            rdr.Close();
         }
     }
 
@@ -195,6 +200,7 @@ public class DatabaseHandler : MonoBehaviour
         }
         catch (Exception e) {
             Debug.Log(e);
+            rdr.Close();
         }
 
         foreach(StructsClass.Character member in party) {
@@ -207,6 +213,7 @@ public class DatabaseHandler : MonoBehaviour
             }
             catch (Exception e) {
                 Debug.Log(e);
+                rdr.Close();
             }
         }
     }
@@ -237,6 +244,7 @@ public class DatabaseHandler : MonoBehaviour
         catch (Exception e)
         {
             Debug.Log(e);
+            rdr.Close();
         }
     }
 
@@ -247,6 +255,7 @@ public class DatabaseHandler : MonoBehaviour
 
             if(rdr.HasRows) {
                 while(rdr.Read()) {
+                    Debug.Log("updating state: " +rdr.GetString("name") );
                     UpdateEnemyState(rdr.GetString("name"), rdr.GetInt32("defeated"));
                 }
             }
@@ -259,6 +268,7 @@ public class DatabaseHandler : MonoBehaviour
         catch (Exception e)
         {
             Debug.Log(e);
+            rdr.Close();
         }
     }
 
@@ -280,6 +290,7 @@ public class DatabaseHandler : MonoBehaviour
         catch (Exception e)
         {
             Debug.Log(e);
+            rdr.Close();
         }
     }
 
@@ -305,6 +316,7 @@ public class DatabaseHandler : MonoBehaviour
         catch (Exception e)
         {
             Debug.Log(e);
+            rdr.Close();
         }
     }
 

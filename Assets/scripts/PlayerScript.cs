@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour {
     public Sprite[] left;
     public Sprite[] right;
 
+    /*this is probably not used anywhere*/
     public Sprite prev_sprite;
 
     public int walk_cycle = 0;
@@ -31,6 +32,7 @@ public class PlayerScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         rb2d = GetComponent<Rigidbody2D>();
         spriteR = GetComponent<SpriteRenderer>();
 
@@ -43,6 +45,7 @@ public class PlayerScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        /*to move around the player*/
         if (Input.anyKey && frame++ % speed == 0)
         {
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
@@ -64,15 +67,6 @@ public class PlayerScript : MonoBehaviour {
             {
                 rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - tile_size));
                 spriteR.sprite = down[walk_cycle++];
-            }
-            else if (Input.GetKey(KeyCode.Escape))
-            {
-                PlayerPrefs.SetInt("inventory_size", items.Count);
-
-                for(int i = 0; i < items.Count; i++)
-                {
-                    PlayerPrefs.SetString("item #" + i, items[i]);
-                }
             }
             walk_cycle = walk_cycle % 6;
         }
