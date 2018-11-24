@@ -9,11 +9,42 @@ public class Battle : MonoBehaviour {
     public static int playerExp;
     public static int playerAttack;
 
+    
+    public Text victoryText;
     public Text outputText;
     public Text healthBar1;
     public Text healthBar2;
     public Text healthBar3;
     public Text healthBar4;
+
+
+    public Button warriorSkill1;
+    public Button warriorSkill2;
+    public Button warriorSkill3;
+    public Button warriorSkill4;
+    public Button rogueSkill1;
+    public Button rogueSkill2;
+    public Button rogueSkill3;
+    public Button rogueSkill4;
+    public Button wizardSkill1;
+    public Button wizardSkill2;
+    public Button wizardSkill3;
+    public Button wizardSkill4;
+    public Button wizardSkill5;
+    public Button clericSkill1;
+    public Button clericSkill2;
+    public Button clericSkill3;
+
+	public GameObject warrior_skill_panel;
+    public GameObject rogue_skill_panel;
+    public GameObject wizard_skill_panel;
+    public GameObject cleric_skill_panel;
+    public GameObject victory_panel;  
+
+    public SimpleHealthBar c1health;
+    public SimpleHealthBar c2health;
+    public SimpleHealthBar c3health;
+    public SimpleHealthBar c4health;
 
     public static int whoseTurnIsIt;
 
@@ -93,11 +124,39 @@ public class Battle : MonoBehaviour {
 
     void Start() {
         GameObject player = GameObject.Find("player");
-
+        victory_panel.SetActive(false);
         StartCoroutine(simulateBattle(player.GetComponent<Movement>().players, player.GetComponent<Movement>().enemies));
     }
 
-
+    public void showSP(){
+        // Add checking for skills based on level
+        if(whoseTurnIsIt == 1){
+            Debug.Log("warrior");
+            warrior_skill_panel.SetActive(true);
+            rogue_skill_panel.SetActive(false);
+            wizard_skill_panel.SetActive(false);
+            cleric_skill_panel.SetActive(false);
+        }else if(whoseTurnIsIt == 2){
+            Debug.Log("Rogue");
+            warrior_skill_panel.SetActive(false);
+            rogue_skill_panel.SetActive(true);
+            wizard_skill_panel.SetActive(false);
+            cleric_skill_panel.SetActive(false);
+        }else if(whoseTurnIsIt == 3){
+            Debug.Log("Wizard");
+            warrior_skill_panel.SetActive(false);
+            rogue_skill_panel.SetActive(false);
+            wizard_skill_panel.SetActive(true);
+            cleric_skill_panel.SetActive(false);
+        }else if(whoseTurnIsIt == 4){
+            Debug.Log("Cleric");
+            warrior_skill_panel.SetActive(false);
+            rogue_skill_panel.SetActive(false);
+            wizard_skill_panel.SetActive(false);
+            cleric_skill_panel.SetActive(true);
+        }
+		//skills_panel.SetActive(true);
+	}
 
     // This function manages every part of the battle loop
     public IEnumerator simulateBattle(StructsClass.Character[] players, StructsClass.Enemy[] enemies)
@@ -164,21 +223,7 @@ public class Battle : MonoBehaviour {
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
         outputText.text = ("Beginning Battle.\n");
         outputText.text += ("The initiative order for the battle is:\n");
 
@@ -202,23 +247,32 @@ public class Battle : MonoBehaviour {
                     healthBar3.text = initA.characters[2].currentHealth + "/" + initA.characters[2].maxHealth;
                     healthBar4.text = initA.characters[3].currentHealth + "/" + initA.characters[3].maxHealth;
 
+                    c1health.UpdateBar(initA.characters[0].currentHealth, initA.characters[0].maxHealth);
+                    c2health.UpdateBar(initA.characters[1].currentHealth, initA.characters[1].maxHealth);
+                    c3health.UpdateBar(initA.characters[2].currentHealth, initA.characters[2].maxHealth);
+                    c4health.UpdateBar(initA.characters[3].currentHealth, initA.characters[3].maxHealth);
+
                     // if it is that player character's turn and they are not dead, commence their turn
                     if ((initA.characters[j].name == initiativeReferenceArray[i]) && (initA.characters[j].currentHealth != 0))
                     {
                         if(initA.characters[j].charClass == "Warrior")
                         {
+                            //Warrior max 4
                             whoseTurnIsIt = 1;
                         }
                         if (initA.characters[j].charClass == "Rogue")
                         {
+                            //2 skills max 4
                             whoseTurnIsIt = 2;
                         }
                         if (initA.characters[j].charClass == "Wizard")
                         {
+                            //3 skills max 5
                             whoseTurnIsIt = 3;
                         }
                         if (initA.characters[j].charClass == "Cleric")
                         {
+                            //1 skill max 3
                             whoseTurnIsIt = 4;
                         }
 
@@ -381,16 +435,17 @@ public class Battle : MonoBehaviour {
         // if the player won
         if(numAliveEnemies == 0)
         {
-            outputText.text += ("PLAYERS WIN\n");
+            victory_panel.SetActive(true);
+            victoryText.text += ("PLAYERS WIN\n");
 
 
             // give the player gold
-            outputText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
+            victoryText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
             playerGold = playerGold + Calculations.calculateGold(initA.enemies);
 
             // give the players experience points
             playerExp = Calculations.calculateExperience(initA.enemies);
-            outputText.text += ("You obtained " + playerExp + " experience points.\n");
+            victoryText.text += ("You obtained " + playerExp + " experience points.\n");
 
             initA.characters[0].exp = initA.characters[0].exp + playerExp;
             initA.characters[1].exp = initA.characters[1].exp + playerExp;
