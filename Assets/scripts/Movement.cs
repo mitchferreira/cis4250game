@@ -44,6 +44,14 @@ public class Movement : MonoBehaviour {
         right = Resources.LoadAll<Sprite>("walk_right");
     }
 
+    private void OnTriggerEnter2D(Collider2D c)
+    {
+        // save when you get close to the enemy, so you don't get stuck in an endless loop of loading and immediately encountering the enemy
+        if(c.gameObject.CompareTag("Enemy") || c.gameObject.CompareTag("Boss")) {
+            GameObject.Find("_mysql").GetComponent<DatabaseHandler>().SaveGame();
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D c)
     {
         if(c.gameObject.CompareTag("Enemy"))
