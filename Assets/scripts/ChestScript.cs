@@ -74,7 +74,9 @@ public class ChestScript : MonoBehaviour {
 			c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
 			c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
             c.gameObject.transform.position.y < chest.transform.position.y && !opened)
-        { 
+        {
+            opened = true;
+            render.sprite = open;
 
             if (string.IsNullOrEmpty(item_name) == false)
             {
@@ -88,9 +90,6 @@ public class ChestScript : MonoBehaviour {
                         item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":False";
 
                     items.Add(item);
-
-                    opened = true;
-                    render.sprite = open;
 
                     /*the rest of the code in this if, is to show the item on screen*/
                     /*calls getSprite() which choose the sprite based on the weapon name*/

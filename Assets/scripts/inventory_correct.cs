@@ -227,40 +227,6 @@ public class inventory_correct : MonoBehaviour
         hide_item_slot(slot);
     }
 
-    /*Setting up the listeners for the radio buttons*/
-    /*slots are 1-indexed and items are 0-indexed, will change later*/
-    void Start ()
-    {
-        for (int i = 0; i < 18; i++)
-        {
-            GameObject slot = GameObject.Find("slot_" + (i + 1));
-
-            foreach(Toggle radio_button in slot.GetComponentsInChildren<Toggle>())
-            {
-                if(radio_button.name == "delete")
-                {
-                    radio_button.onValueChanged.AddListener(delegate
-                    {
-                        delete(slot);
-                    });
-                }
-                
-                else
-                {
-                    /*
-                    int equip_slot = char_to_int(last_char(radio_button.name));
-                    radio_button.onValueChanged.AddListener(delegate
-                    {
-                        equip_weapon(slot.name, equip_slot);
-                    });
-                    */
-                }
-                
-            }
-        }
-    }
-
-
     //On Update
     void Update ()
     {
@@ -277,7 +243,6 @@ public class inventory_correct : MonoBehaviour
             {
                 toggle_radio_btn(slot, "is_equipped_" + j, true);
             }
-
             toggle_radio_btn(slot, "delete", true);
 
             string[] values = items[i].Split(':');
