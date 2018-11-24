@@ -3,29 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEngine.EventSystems;
 
 public class inventory_correct : MonoBehaviour
 {
-    void toggle_radio_btn(GameObject g, string name, bool toggle)
+
+    public static bool [,] weapons_equipped = new bool[18, 4];
+    public static bool [,] armor_equipped = new bool[18, 4];
+
+    public static bool[] rotate = new bool[18];
+
+    public static bool armor_is_on_Screen()
+    {
+        return GameObject.Find("show_armor").GetComponent<Toggle>().isOn;
+    }
+
+    public static void toggle_radio_btn(GameObject g, string name, bool toggle)
     {
         g.transform.Find(name + "/Background/Checkmark").GetComponent<Image>().enabled = toggle;
         g.transform.Find(name + "/Background").GetComponent<Image>().enabled = toggle;
     }
 
-    void hide_text(Text text)
-    {
-        text.enabled = false;
-        text.text = "";
-    }
-
-    void hide_item_slot(GameObject item_slot)
+    public static void hide_item_slot(GameObject item_slot)
     {
         Transform t = item_slot.transform;
 
-        hide_text(t.Find("Name").GetComponent<Text>());
-        hide_text(t.Find("Modifier").GetComponent<Text>());
-        hide_text(t.Find("Type").GetComponent<Text>());
-        hide_text(t.Find("Amount").GetComponent<Text>());
+        t.Find("Name").GetComponent<Text>().text = "";
+        t.Find("Modifier").GetComponent<Text>().text = "";
+        t.Find("Type").GetComponent<Text>().text = "";
+        t.Find("Amount").GetComponent<Text>().text = "";
 
         t.Find("Image").GetComponent<Image>().enabled = false;
 
@@ -36,28 +42,28 @@ public class inventory_correct : MonoBehaviour
         toggle_radio_btn(item_slot, "delete", false);
     }
 
-    void hide_item_slots(int start, int end)
+    public static void hide_item_slots(int start, int end)
     {
         for (int i = start; i < end; i++)
         {
             hide_item_slot(GameObject.Find("slot_" + (i + 1)));
         }
     }
-    void set_text(Text text, string content)
-    {
-        text.enabled = true;
-        text.text = content;
-    }
 
-    char last_char(string s)
+    public static char last_char(string s)
     {
         return s[s.Length - 1];
+    }
+
+    public static int char_to_int (char c)
+    {
+        return c - '0';
     }
 
     /*Well Scott, I made a constructor for weapon, it bothered me too much, if you want to move this to Items.cs you can.
      * I just dislike copying and pasting code, when I can build a function instead. I'm not exactly proud of this either.
      Have a good one, I wonder if we'll be finished the project by the time you read this*/
-    StructsClass.Weapon Weapon(string name, string mod, string type, int numOfDice, int diceType)
+    public static StructsClass.Weapon Weapon(string name, string mod, string type, int numOfDice, int diceType)
     {
         StructsClass.Weapon weapon = new StructsClass.Weapon();
 
@@ -69,7 +75,7 @@ public class inventory_correct : MonoBehaviour
         return weapon;
     }
 
-    void disable_radio_btns(string slot_name, int equip_slot, bool active)
+    public static void disable_radio_btns(string slot_name, int equip_slot, bool active)
     {
         /*disable other toggles in the same column*/
         for (int j = 0; j < 18; j++)
@@ -78,10 +84,18 @@ public class inventory_correct : MonoBehaviour
             Toggle[] btns = other_slot.GetComponentsInChildren<Toggle>();
             if (other_slot.name != slot_name)
             {
-                /*Debug.Log("slot:" + (j + 1) + "  equip_slot:  " + equip_slot);*/
                 if (btns.Length > 0 && btns[equip_slot] != null)
                 {
                     btns[equip_slot].interactable = active;
+
+                    if (armor_is_on_Screen())
+                    {
+                        armor_equipped[j, equip_slot] = active;
+                    }
+                    else
+                    {
+                        weapons_equipped[j, equip_slot] = active;
+                    }
                 }
             }
         }
@@ -95,20 +109,42 @@ public class inventory_correct : MonoBehaviour
             if (i != equip_slot)
             {
                 toggles[i].interactable = active;
+
+                if(armor_is_on_Screen())
+                {
+                    weapons_equipped[i, equip_slot] = active;
+                }
+                else
+                {
+                    armor_equipped[i, equip_slot] = active;
+                }
             }
         }
     }
 
-    StructsClass.Character get_party_member(PartyScript party, int member_number)
+    public static void set_equip_slots(bool [,] values)
+    {
+        for(int i = 0; i < 18; i++)
+        {
+            Toggle [] equip_slots = GameObject.Find("slot_" + i).GetComponentsInChildren<Toggle>();
+
+            for (int j = 0; j < 4; j++)
+            {
+                equip_slots[j].isOn = values[i, j];
+            }
+        }
+    }
+
+    public static StructsClass.Character get_party_member(PartyScript party, int member_number)
     {
         return party.members[member_number];
     }
 
-    void equip_weapon(string slot_name, int equip_slot)
+    public static void equip_weapon(string slot_name, int equip_slot)
     {
         GameObject player = GameObject.Find("player");
 
-        int slot_number = last_char(slot_name) - '1';
+        int slot_number = char_to_int(last_char(slot_name)) - 1;
 
         /*get the item at the item slot*/
         List<string> items = player.GetComponent<PlayerScript>().items;
@@ -156,6 +192,41 @@ public class inventory_correct : MonoBehaviour
         }
     }
 
+    public static void delete(GameObject slot)
+    {
+        GameObject player = GameObject.Find("player");
+        List<string> items = player.GetComponent<PlayerScript>().items;
+
+        /*the +1 is to count the fact that slots are 1-indexed,
+         * items are 0-indexed*/
+        int slot_number = char_to_int(last_char(slot.name)) - 1;
+
+        /*-1 is not an equip_slot, this is so we that can know if none exist*/
+        int equip_slot = -1;
+
+        /*to unequip weapon, if it is equipped to a party member*/
+        string[] values = items[slot_number].Split(':');
+
+        if (values.Length >= 8)
+        {
+            equip_slot = char_to_int(values[7][0]);
+
+            if (equip_slot != -1)
+            {
+                StructsClass.Character character = get_party_member(
+                    player.GetComponent<PartyScript>(), equip_slot);
+                character.weapon = Weapon("", "", "", 0, 0);
+            }
+        }
+
+        /*remove the item from the inventory*/
+        if (slot_number < items.Count)
+        {
+            items.RemoveAt(slot_number);
+        }
+        hide_item_slot(slot);
+    }
+
     /*Setting up the listeners for the radio buttons*/
     /*slots are 1-indexed and items are 0-indexed, will change later*/
     void Start ()
@@ -170,47 +241,21 @@ public class inventory_correct : MonoBehaviour
                 {
                     radio_button.onValueChanged.AddListener(delegate
                     {
-                        GameObject player = GameObject.Find("player");
-                        List <string> items = player.GetComponent<PlayerScript>().items;
-
-                        /*the +1 is to count the fact that slots are 1-indexed,
-                         * items are 0-indexed*/
-                        int slot_number = last_char(slot.name) - ('0' + 1);
-
-                        /*-1 is not an equip_slot, this is so we that can know if none exist*/
-                        int equip_slot = -1;
-
-                        /*to unequip weapon, if it is equipped to a party member*/
-                        string [] values = items[slot_number].Split(':');
-
-                        if (values.Length >= 8)
-                        {
-                            equip_slot = values[7][0] - '0';
-
-                            if (equip_slot != -1)
-                            {
-                                StructsClass.Character character = get_party_member(
-                                    player.GetComponent<PartyScript>(), equip_slot);
-                                character.weapon = Weapon("", "", "", 0, 0);
-                            }
-                        }
-
-                        /*remove the item from the inventory*/
-                        if (slot_number < items.Count)
-                        {
-                            items.RemoveAt(slot_number);
-                        }
-                        hide_item_slot(slot);
+                        delete(slot);
                     });
                 }
+                
                 else
                 {
-                    int equip_slot = last_char(radio_button.name) - '0';
+                    /*
+                    int equip_slot = char_to_int(last_char(radio_button.name));
                     radio_button.onValueChanged.AddListener(delegate
                     {
                         equip_weapon(slot.name, equip_slot);
                     });
+                    */
                 }
+                
             }
         }
     }
@@ -223,8 +268,6 @@ public class inventory_correct : MonoBehaviour
 
         List <string> items = player.GetComponent<PlayerScript>().items;
         int size = items.Count;
-
-
 
         for (int i = 0; i < size; i++)
         {
@@ -261,15 +304,26 @@ public class inventory_correct : MonoBehaviour
             sprite.enabled = true;
             sprite.SetNativeSize();
             sprite.sprite = ChestScript.getSpriteName(values[0]);
+            if (values[0].Contains("Staff") && rotate[i] == false)
+            {
+                sprite.transform.Rotate(new Vector3(0, 0, 45));
+                rotate[i] = true;
+            }
 
             Transform t = slot.transform;
+            t.Find("Name").GetComponent<Text>().text = values[0];
+            t.Find("Modifier").GetComponent<Text>().text = values[1];
+            t.Find("Type").GetComponent<Text>().text = values[2];
 
-            set_text(t.Find("Name").GetComponent<Text>(), values[0]);
-            set_text(t.Find("Modifier").GetComponent<Text>(), values[1]);
-            set_text(t.Find("Type").GetComponent<Text>(), values[2]);
-            set_text(t.Find("Amount").GetComponent<Text>(), values[3] + "-" + values[4]);
+            int min = char_to_int(values[3][0]);
+            int max = char_to_int(values[4][0]);
+
+            if(min > 1)
+            {
+                max = max * min;
+            }
+            t.Find("Amount").GetComponent<Text>().text = min + "-" + max;
         }
-
         hide_item_slots(size, 18);
     }
 }

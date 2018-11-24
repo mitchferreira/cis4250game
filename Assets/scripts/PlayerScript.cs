@@ -29,9 +29,28 @@ public class PlayerScript : MonoBehaviour {
     public int speed = 5;
     public int frame = 0;
 
+    string weapon_to_str(StructsClass.Weapon w)
+    {
+        return w.name + ":" + w.modifier + ":" + w.damageType + ":" + 
+            w.numOfDice + ":" + w.diceType + ":False";
+    }
+
+    string armor_to_str(StructsClass.Armor a)
+    {
+        return a.name + ":" + a.armorValue + ":" + a.damageResist + ": : :False";
+    }
+
     // Use this for initialization
     void Start()
     {
+        foreach(StructsClass.Character character in 
+            GameObject.Find("player").GetComponent<PartyScript>().members.ToArray())
+        {
+            items.Add(weapon_to_str(character.weapon));
+            items.Sort();
+            /*items.Add(armor_to_str(character.armor));*/
+        }
+
         DontDestroyOnLoad(this.gameObject);
         rb2d = GetComponent<Rigidbody2D>();
         spriteR = GetComponent<SpriteRenderer>();

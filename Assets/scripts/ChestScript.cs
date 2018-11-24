@@ -19,21 +19,21 @@ public class ChestScript : MonoBehaviour {
     public static Sprite getSpriteName(string s)
     {
         string sprite;
-        if(s == "Mace")
+        if(s == "Iron Mace")
         {
             sprite = "more_weapons_0";
         }
-        else if(s == "Dagger")
+        else if(s == "Iron Dagger")
         {
             sprite = "more_weapons_1";
         }
-        else if(s == "Longsword")
+        else if(s == "Iron Longsword")
         {
             sprite = "more_weapons_2";
         }
-        else if(s == "Staff")
+        else if(s == "Oak Staff")
         {
-            sprite = "more_weapons_3";
+            sprite = "staffs_0";
         }
         else
         {
