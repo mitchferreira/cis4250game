@@ -304,6 +304,8 @@ public class inventory_correct : MonoBehaviour
             sprite.enabled = true;
             sprite.SetNativeSize();
             sprite.sprite = ChestScript.getSpriteName(values[0]);
+
+            /*the staff sprite sheet is at a 45 degree angle, so below is my way of fixing it*/
             if (values[0].Contains("Staff") && rotate[i] == false)
             {
                 sprite.transform.Rotate(new Vector3(0, 0, 45));

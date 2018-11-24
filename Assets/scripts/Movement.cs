@@ -22,10 +22,10 @@ public class Movement : MonoBehaviour {
 
     public string nextLevel;
 
-    public StructsClass.Enemy Hobgoblin1;
-    public StructsClass.Enemy Hobgoblin2;
-    public StructsClass.Enemy goblin1;
-    public StructsClass.Enemy goblin2;
+    public StructsClass.Enemy enemy1;
+    public StructsClass.Enemy enemy2;
+    public StructsClass.Enemy enemy3;
+    public StructsClass.Enemy enemy4;
     public StructsClass.Enemy boss;
     public StructsClass.Enemy[] enemies;
     public StructsClass.Enemy[] battleEnemies;
@@ -44,6 +44,14 @@ public class Movement : MonoBehaviour {
         right = Resources.LoadAll<Sprite>("walk_right");
     }
 
+    private void OnTriggerEnter2D(Collider2D c)
+    {
+        // save when you get close to the enemy, so you don't get stuck in an endless loop of loading and immediately encountering the enemy
+        if(c.gameObject.CompareTag("Enemy") || c.gameObject.CompareTag("Boss")) {
+            GameObject.Find("_mysql").GetComponent<DatabaseHandler>().SaveGame();
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D c)
     {
         if(c.gameObject.CompareTag("Enemy"))
@@ -56,17 +64,41 @@ public class Movement : MonoBehaviour {
             GameObject player = GameObject.Find("player");
 
             Enemies.defineEnemies();
-            Hobgoblin1 = Enemies.Hobgoblin;
-            Hobgoblin2 = Enemies.Hobgoblin;
-            goblin1 = Enemies.Goblin;
-            goblin2 = Enemies.Goblin;
-
+            // Hobgoblin1 = Enemies.Hobgoblin;
+            // Hobgoblin2 = Enemies.Hobgoblin;
+            // goblin1 = Enemies.Goblin;
+            // goblin2 = Enemies.Goblin;
             battleEnemies = new StructsClass.Enemy[4];
-            battleEnemies[0] = Hobgoblin1;
-            battleEnemies[1] = Hobgoblin2;
-            battleEnemies[2] = goblin1;
-            battleEnemies[3] = goblin2;
 
+            if(SceneManager.GetActiveScene().name == "worldScene") {
+                enemy1 = Enemies.Hobgoblin;
+                enemy2 = Enemies.Hobgoblin;
+                enemy3 = Enemies.Goblin;
+                enemy4 = Enemies.Goblin;
+            }
+            else if(SceneManager.GetActiveScene().name == "level2") {
+                // change to level 2 enemies
+                // enemy1 = Enemies.Hobgoblin;
+                // enemy2 = Enemies.Hobgoblin;
+                // enemy3 = Enemies.Goblin;
+                // enemy4 = Enemies.Goblin;
+            }
+            else if(SceneManager.GetActiveScene().name == "level3") {
+                // change to level 3 enemies
+                // enemy1 = Enemies.Hobgoblin;
+                // enemy2 = Enemies.Hobgoblin;
+                // enemy3 = Enemies.Goblin;
+                // enemy4 = Enemies.Goblin;
+
+            }
+
+            // potential enemies in battle
+            battleEnemies[0] = enemy1;
+            battleEnemies[1] = enemy2;
+            battleEnemies[2] = enemy3;
+            battleEnemies[3] = enemy4;
+
+            // choose two of the potential enemies at random
             enemies = new StructsClass.Enemy[2];
             System.Random rand = new System.Random();
             int dice = (rand.Next(0, 3));
@@ -81,13 +113,18 @@ public class Movement : MonoBehaviour {
         }
 
         if(c.gameObject.CompareTag("Boss")) {
-            // c.gameObject.GetComponent<EnemyScript>().defeated = true;
-            // GameObject db = GameObject.Find("_mysql");
-            // db.GetComponent<DatabaseHandler>().SaveGame();
             GameObject player = GameObject.Find("player");
 
             Enemies.defineEnemies();
-            boss = Enemies.Hobgoblin; // change to boss enemy
+            if(SceneManager.GetActiveScene().name == "worldScene") {
+                boss = Enemies.Hobgoblin; // change to boss enemy
+            }
+            else if(SceneManager.GetActiveScene().name == "level2") {
+                boss = Enemies.Hobgoblin; // change to level 2 boss enemy
+            }
+            else if(SceneManager.GetActiveScene().name == "level3") {
+                boss = Enemies.Hobgoblin; // change to level 3 boss enemy
+            }
 
             battleEnemies = new StructsClass.Enemy[1];
             battleEnemies[0] = boss;
