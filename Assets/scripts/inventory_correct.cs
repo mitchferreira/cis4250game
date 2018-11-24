@@ -11,7 +11,12 @@ public class inventory_correct : MonoBehaviour
     public static bool [,] weapons_equipped = new bool[18, 4];
     public static bool [,] armor_equipped = new bool[18, 4];
 
+    public List<string> weapons = new List<string>();
+    public List<string> armors = new List<string>();
+
     public static bool[] rotate = new bool[18];
+
+    public static bool is_armor;
 
     public static bool armor_is_on_Screen()
     {
@@ -72,7 +77,19 @@ public class inventory_correct : MonoBehaviour
         weapon.damageType = type;
         weapon.numOfDice = numOfDice;
         weapon.diceType = diceType;
+
         return weapon;
+    }
+
+    public static StructsClass.Armor Armor(string name, int value, string resistance)
+    {
+        StructsClass.Armor armor = new StructsClass.Armor();
+        armor.name = name;
+        armor.armorValue = value;
+        armor.damageResist = resistance;
+
+        return armor;
+
     }
 
     public static void disable_radio_btns(string slot_name, int equip_slot, bool active)
@@ -88,7 +105,7 @@ public class inventory_correct : MonoBehaviour
                 {
                     btns[equip_slot].interactable = active;
 
-                    if (armor_is_on_Screen())
+                    if (is_armor)
                     {
                         armor_equipped[j, equip_slot] = active;
                     }
@@ -110,7 +127,7 @@ public class inventory_correct : MonoBehaviour
             {
                 toggles[i].interactable = active;
 
-                if(armor_is_on_Screen())
+                if(is_armor)
                 {
                     weapons_equipped[i, equip_slot] = active;
                 }
@@ -183,11 +200,25 @@ public class inventory_correct : MonoBehaviour
 
             if (new_bool == ":True")
             {
-                character.weapon = Weapon(values[0], values[1], values[2], values[3][0], values[4][0]);
+                if (is_armor)
+                {
+                    character.armor = Armor(values[0], values[1][0], values[2]);
+                }
+                else
+                {
+                    character.weapon = Weapon(values[0], values[1], values[2], values[3][0], values[4][0]);
+                }
             }
             else
             {
-                character.weapon = Weapon("", "", "", 0, 0);
+                if (is_armor)
+                {
+                    character.armor = Armor("", 0, "");
+                }
+                else
+                {
+                    character.weapon = Weapon("", "", "", 0, 0);
+                }
             }
         }
     }
@@ -215,7 +246,15 @@ public class inventory_correct : MonoBehaviour
             {
                 StructsClass.Character character = get_party_member(
                     player.GetComponent<PartyScript>(), equip_slot);
-                character.weapon = Weapon("", "", "", 0, 0);
+
+                if (is_armor)
+                {
+                    character.armor = Armor("", 0, "");
+                }
+                else
+                {
+                    character.weapon = Weapon("", "", "", 0, 0);
+                }
             }
         }
 
@@ -227,12 +266,37 @@ public class inventory_correct : MonoBehaviour
         hide_item_slot(slot);
     }
 
+    List <string> separate_the_items (List <string> inventory, int type)
+    {
+        List<string> type_items = new List<string>();
+
+        foreach(string item in inventory)
+        {
+            string[] values = item.Split(':');
+            if(type == 'A' && values[4] != " ")
+            {
+                type_items.Add(item);
+            }
+            else if(type == 'W' && values[4] == " ")
+            {
+                type_items.Add(item);
+            }
+        }
+
+        return type_items;
+    }
+
     //On Update
     void Update ()
     {
         GameObject player = GameObject.Find("player");
+        bool is_armor = armor_is_on_Screen();
 
         List <string> items = player.GetComponent<PlayerScript>().items;
+
+        armors = separate_the_items(items, 'A');
+        weapons = separate_the_items(items, 'W');
+
         int size = items.Count;
 
         for (int i = 0; i < size; i++)
@@ -247,10 +311,12 @@ public class inventory_correct : MonoBehaviour
 
             string[] values = items[i].Split(':');
 
-            if (items[i].EndsWith("slot:0") ||
-                items[i].EndsWith("slot:1") ||
-                items[i].EndsWith("slot:2") ||
-                items[i].EndsWith("slot:3"))
+            string item = items[i];
+
+            if (item.EndsWith("slot:0") ||
+                item.EndsWith("slot:1") ||
+                item.EndsWith("slot:2") ||
+                item.EndsWith("slot:3"))
             {
                 Toggle[] toggles = slot.GetComponentsInChildren<Toggle>();
 
@@ -282,14 +348,27 @@ public class inventory_correct : MonoBehaviour
             t.Find("Modifier").GetComponent<Text>().text = values[1];
             t.Find("Type").GetComponent<Text>().text = values[2];
 
-            int min = char_to_int(values[3][0]);
-            int max = char_to_int(values[4][0]);
-
-            if(min > 1)
+            string amount;
+            string modifier;
+            if (is_armor != true)
             {
-                max = max * min;
+                int min = char_to_int(values[3][0]);
+                int max = char_to_int(values[4][0]);
+
+                if (min > 1)
+                {
+                    max = max * min;
+                }
+                amount = min + "-" + max;
+                modifier = values[1];
             }
-            t.Find("Amount").GetComponent<Text>().text = min + "-" + max;
+            else
+            {
+                amount = values[1];
+                modifier = "";
+            }
+            t.Find("Amount").GetComponent<Text>().text = amount;
+            t.Find("Modifier").GetComponent<Text>().text = modifier;
         }
         hide_item_slots(size, 18);
     }
