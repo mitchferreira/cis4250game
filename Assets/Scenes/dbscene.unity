@@ -11044,7 +11044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1580191439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11409,6 +11409,7 @@ GameObject:
   - component: {fileID: 1625645221}
   - component: {fileID: 1625645225}
   - component: {fileID: 1625645226}
+  - component: {fileID: 1625645227}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -11542,7 +11543,7 @@ MonoBehaviour:
   speed: 5
   frame: 0
   nextLevel: level2
-  encounteredEnemy: 
+  encounteredEnemy: {fileID: 0}
 --- !u!114 &1625645225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11582,6 +11583,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f10aedeabbc476abba29bfeacb9e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1625645227
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625645219}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000009760261, y: -0.0020920932}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.046666667, y: 0.06666667}
+    newSize: {x: 0.14, y: 0.22}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.13719635, y: 0.14540577}
+  m_EdgeRadius: 0
 --- !u!1 &1632045522
 GameObject:
   m_ObjectHideFlags: 0
