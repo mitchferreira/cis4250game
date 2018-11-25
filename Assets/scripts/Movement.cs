@@ -109,16 +109,16 @@ public class Movement : MonoBehaviour {
 
             Enemies.defineEnemies();
             if(SceneManager.GetActiveScene().name == "worldScene") {
-                boss = Enemies.Hobgoblin; // change to boss enemy
+                boss = Enemies.GobKing; // change to boss enemy
                 enemy1 = Enemies.Hobgoblin;
             }
             else if(SceneManager.GetActiveScene().name == "level2") {
-                boss = Enemies.Hobgoblin; // change to level 2 boss enemy
-                enemy1 = Enemies.Ghast;
+                boss = Enemies.Ghast; // change to level 2 boss enemy
+                enemy1 = Enemies.Hobgoblin;
             }
             else if(SceneManager.GetActiveScene().name == "level3") {
-                boss = Enemies.Hobgoblin; // change to level 3 boss enemy
-                enemy1 = Enemies.HeckHound;
+                boss = Enemies.HeckHound; // change to level 3 boss enemy
+                enemy1 = Enemies.Hobgoblin;
             }
 
             battleEnemies = new StructsClass.Enemy[2];
