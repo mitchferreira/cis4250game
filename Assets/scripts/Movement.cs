@@ -64,10 +64,6 @@ public class Movement : MonoBehaviour {
             GameObject player = GameObject.Find("player");
 
             Enemies.defineEnemies();
-            // Hobgoblin1 = Enemies.Hobgoblin;
-            // Hobgoblin2 = Enemies.Hobgoblin;
-            // goblin1 = Enemies.Goblin;
-            // goblin2 = Enemies.Goblin;
             battleEnemies = new StructsClass.Enemy[4];
 
             if(SceneManager.GetActiveScene().name == "worldScene") {
@@ -77,18 +73,16 @@ public class Movement : MonoBehaviour {
                 enemy4 = Enemies.Goblin;
             }
             else if(SceneManager.GetActiveScene().name == "level2") {
-                // change to level 2 enemies
-                // enemy1 = Enemies.Hobgoblin;
-                // enemy2 = Enemies.Hobgoblin;
-                // enemy3 = Enemies.Goblin;
-                // enemy4 = Enemies.Goblin;
+                enemy1 = Enemies.Ghast;
+                enemy2 = Enemies.Ghast;
+                enemy3 = Enemies.MinotaurSkeleton;
+                enemy4 = Enemies.MinotaurSkeleton;
             }
             else if(SceneManager.GetActiveScene().name == "level3") {
-                // change to level 3 enemies
-                // enemy1 = Enemies.Hobgoblin;
-                // enemy2 = Enemies.Hobgoblin;
-                // enemy3 = Enemies.Goblin;
-                // enemy4 = Enemies.Goblin;
+                enemy1 = Enemies.HeckHound;
+                enemy2 = Enemies.HeckHound;
+                enemy3 = Enemies.Nightmare;
+                enemy4 = Enemies.Nightmare;
 
             }
 
@@ -118,19 +112,24 @@ public class Movement : MonoBehaviour {
             Enemies.defineEnemies();
             if(SceneManager.GetActiveScene().name == "worldScene") {
                 boss = Enemies.Hobgoblin; // change to boss enemy
+                enemy1 = Enemies.Hobgoblin;
             }
             else if(SceneManager.GetActiveScene().name == "level2") {
                 boss = Enemies.Hobgoblin; // change to level 2 boss enemy
+                enemy1 = Enemies.Ghast;
             }
             else if(SceneManager.GetActiveScene().name == "level3") {
                 boss = Enemies.Hobgoblin; // change to level 3 boss enemy
+                enemy1 = Enemies.HeckHound;
             }
 
             battleEnemies = new StructsClass.Enemy[1];
             battleEnemies[0] = boss;
+            battleEnemies[1] = enemy1;
 
             enemies = new StructsClass.Enemy[2];
             enemies[0] = battleEnemies[0];
+            enemies[1] = battleEnemies[1];
 
             players = player.GetComponent<PartyScript>().GetPartyMembers();
 
