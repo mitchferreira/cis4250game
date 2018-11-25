@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Equipment_slot : MonoBehaviour, 
@@ -21,6 +22,10 @@ public class Equipment_slot : MonoBehaviour,
     {
         int equip_slot = char_to_int(last_char(this.name));
         Debug.Log(transform.parent.name + "," + equip_slot);
-        inventory_correct.equip_weapon(transform.parent.name, equip_slot);
+
+        if (this.GetComponent<Toggle>().interactable == true)
+        {
+            inventory_correct.equip_weapon(transform.parent.name, equip_slot);
+        }
     }
 }

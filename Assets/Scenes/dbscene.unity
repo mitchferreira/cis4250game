@@ -4527,6 +4527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 519217049}
   - component: {fileID: 519217050}
+  - component: {fileID: 519217051}
   m_Layer: 5
   m_Name: show_armor
   m_TagString: Untagged
@@ -4599,6 +4600,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &519217051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519217048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d15da2eca1c6245823904ad877356e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &523248058 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224962173340540394, guid: 69b892b5b4f131c418d16b23c9856d67,
@@ -11212,6 +11224,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.x
       value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224625457465719278, guid: 69b892b5b4f131c418d16b23c9856d67,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 170
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b892b5b4f131c418d16b23c9856d67, type: 2}

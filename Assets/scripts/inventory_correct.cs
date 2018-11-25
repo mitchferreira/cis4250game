@@ -7,14 +7,11 @@ using UnityEngine.EventSystems;
 
 public class inventory_correct : MonoBehaviour
 {
+    public static List<string> weapons = new List<string>();
+    public static List<string> armors = new List<string>();
 
-    public static bool [,] weapons_equipped = new bool[18, 4];
-    public static bool [,] armor_equipped = new bool[18, 4];
-
-    public List<string> weapons = new List<string>();
-    public List<string> armors = new List<string>();
-
-    public static bool[] rotate = new bool[18];
+    public static bool[] rotate_weapon = new bool[30];
+    public static bool[] rotate_armor = new bool[30];
 
     public static bool is_armor;
 
@@ -89,7 +86,6 @@ public class inventory_correct : MonoBehaviour
         armor.damageResist = resistance;
 
         return armor;
-
     }
 
     public static void disable_radio_btns(string slot_name, int equip_slot, bool active)
@@ -101,18 +97,9 @@ public class inventory_correct : MonoBehaviour
             Toggle[] btns = other_slot.GetComponentsInChildren<Toggle>();
             if (other_slot.name != slot_name)
             {
-                if (btns.Length > 0 && btns[equip_slot] != null)
+                if (btns[equip_slot] != null)
                 {
                     btns[equip_slot].interactable = active;
-
-                    if (is_armor)
-                    {
-                        armor_equipped[j, equip_slot] = active;
-                    }
-                    else
-                    {
-                        weapons_equipped[j, equip_slot] = active;
-                    }
                 }
             }
         }
@@ -126,28 +113,90 @@ public class inventory_correct : MonoBehaviour
             if (i != equip_slot)
             {
                 toggles[i].interactable = active;
-
-                if(is_armor)
-                {
-                    weapons_equipped[i, equip_slot] = active;
-                }
-                else
-                {
-                    armor_equipped[i, equip_slot] = active;
-                }
             }
         }
     }
 
-    public static void set_equip_slots(bool [,] values)
+    public static bool[,] get_equip_slots(string mode)
     {
-        for(int i = 0; i < 18; i++)
+        bool[,] values = new bool[30, 4];
+
+        int size = (is_armor) ? armors.Count : weapons.Count;
+
+        Debug.Log("GETTING IT INNNNN");
+        for (int i = 0; i < size; i++)
         {
-            Toggle [] equip_slots = GameObject.Find("slot_" + i).GetComponentsInChildren<Toggle>();
+            Toggle[] equip_slots = GameObject.Find("slot_" + (i + 1)).GetComponentsInChildren<Toggle>();
+
 
             for (int j = 0; j < 4; j++)
             {
-                equip_slots[j].isOn = values[i, j];
+
+                if (mode == "enabled")
+                {
+                    values[i, j] = equip_slots[j].interactable;
+                }
+                else if (mode == "equipped")
+                {
+                    values[i, j] = equip_slots[j].isOn;
+
+                    if (values[i, j] == true)
+                    {
+                        Debug.Log("I GET OFF EVERYONE");
+                    }
+
+                }
+            }
+        }
+        return values;
+    }
+
+    public static void set_equip_slots(bool [,] values, bool [,] disabled, int mode = 'F')
+    {
+        int size;
+
+        if(armor_is_on_Screen())
+        {
+            size = armors.Count;
+        }
+        else
+        {
+            size = weapons.Count;
+        }
+
+        for(int i = 0; i < size; i++)
+        {
+            Debug.Log("SCHMLEETTING IT INNNNN");
+            Toggle [] equip_slots = GameObject.Find("slot_" + (i + 1)).GetComponentsInChildren<Toggle>();
+
+            for (int j = 0; j < 4; j++)
+            {
+
+                if (mode == 'F')
+                {
+                    equip_slots[j].isOn = false;
+                    equip_slots[j].interactable = true;
+
+                    //Debug.Log("I SET OFF FFFFFFFF mode EVERYONE");
+                    //Debug.Log("ITS AT " + i + "," + j + "... I SWEAR IT IS!!");
+                }
+                else
+                {
+                    equip_slots[j].interactable = disabled[i, j];
+
+                    Debug.Log("ALL MALE ORGY OVER AT:" + i + "," + j + "    interactable:" + equip_slots[j].interactable);
+
+                    equip_slots[j].isOn = values[i, j];
+
+                    Debug.Log("ALL MALE ORGY OVER AT:" + i + "," + j + "    equipped:" + equip_slots[j].isOn);
+
+                    if (equip_slots[j].isOn == true)
+                    {
+                        Debug.Log("I SET OFF NON ffff mode EVERYONE");
+                        Debug.Log("ITS AT " + i + "," + j + "... I SWEAR IT IS!!");
+                    }
+
+                }
             }
         }
     }
@@ -173,7 +222,18 @@ public class inventory_correct : MonoBehaviour
         {
             /*change the bool value of the item*/
             Debug.Log(values[5][0]);
-            string new_bool = (values[5][0] == 'T') ? ":False" : ":True";
+            string new_bool;
+
+            if (values[5][0] == 'T')
+            {
+                new_bool = ":False";
+                disable_radio_btns(slot_name, equip_slot, true);
+            }
+            else
+            {
+                new_bool = ":True";
+                disable_radio_btns(slot_name, equip_slot, false);
+            }
             Debug.Log(new_bool);
 
             string new_item = values[0] + ":" + values[1] + ":" + values[2] + ":" +
@@ -182,10 +242,6 @@ public class inventory_correct : MonoBehaviour
             /*replace the item*/
             items.RemoveAt(slot_number);
             items.Insert(slot_number, new_item);
-
-            bool active = (new_bool == ":True") ? false : true;
-
-            disable_radio_btns(slot_name, equip_slot, active);
 
             StructsClass.Character character = get_party_member(
                 player.GetComponentInChildren<PartyScript>(), equip_slot);
@@ -273,11 +329,11 @@ public class inventory_correct : MonoBehaviour
         foreach(string item in inventory)
         {
             string[] values = item.Split(':');
-            if(type == 'A' && values[4] != " ")
+            if(type == 'A' && values[4] == " ")
             {
                 type_items.Add(item);
             }
-            else if(type == 'W' && values[4] == " ")
+            else if(type == 'W' && values[4] != " ")
             {
                 type_items.Add(item);
             }
@@ -289,6 +345,7 @@ public class inventory_correct : MonoBehaviour
     //On Update
     void Update ()
     {
+        
         GameObject player = GameObject.Find("player");
         bool is_armor = armor_is_on_Screen();
 
@@ -296,8 +353,16 @@ public class inventory_correct : MonoBehaviour
 
         armors = separate_the_items(items, 'A');
         weapons = separate_the_items(items, 'W');
-
-        int size = items.Count;
+  
+        int size;
+        if (is_armor)
+        {
+            size = armors.Count;
+        }
+        else
+        {
+            size = weapons.Count;
+        }
 
         for (int i = 0; i < size; i++)
         {
@@ -309,9 +374,12 @@ public class inventory_correct : MonoBehaviour
             }
             toggle_radio_btn(slot, "delete", true);
 
-            string[] values = items[i].Split(':');
 
-            string item = items[i];
+            string item;
+            string [] values;
+
+            item = (is_armor) ? armors[i] : weapons[i];
+            values = item.Split(':');
 
             if (item.EndsWith("slot:0") ||
                 item.EndsWith("slot:1") ||
@@ -337,16 +405,20 @@ public class inventory_correct : MonoBehaviour
             sprite.sprite = ChestScript.getSpriteName(values[0]);
 
             /*the staff sprite sheet is at a 45 degree angle, so below is my way of fixing it*/
-            if (values[0].Contains("Staff") && rotate[i] == false)
+
+            
+            if (values[0].Contains("Staff") && rotate_weapon[i] == false)
             {
                 sprite.transform.Rotate(new Vector3(0, 0, 45));
-                rotate[i] = true;
+                rotate_weapon[i] = true;
             }
+            
 
             Transform t = slot.transform;
             t.Find("Name").GetComponent<Text>().text = values[0];
             t.Find("Modifier").GetComponent<Text>().text = values[1];
-            t.Find("Type").GetComponent<Text>().text = values[2];
+            t.Find("Type").GetComponent<Text>().text = 
+                (values[2].Contains("none")) ? "" : values[2];
 
             string amount;
             string modifier;

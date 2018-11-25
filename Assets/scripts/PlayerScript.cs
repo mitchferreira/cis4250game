@@ -47,8 +47,8 @@ public class PlayerScript : MonoBehaviour {
             GameObject.Find("player").GetComponent<PartyScript>().members.ToArray())
         {
             items.Add(weapon_to_str(character.weapon));
+            items.Add(armor_to_str(character.armor));
             items.Sort();
-            /*items.Add(armor_to_str(character.armor));*/
         }
 
         DontDestroyOnLoad(this.gameObject);
