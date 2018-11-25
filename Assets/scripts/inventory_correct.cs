@@ -89,6 +89,29 @@ public class inventory_correct : MonoBehaviour
         return armor;
     }
 
+    /*PURPOSE:: Does what disable_radio_btns() does but for all possible equipment slots. 
+     * If given true, it will look for any equipped slots and make the ones around them unequippable
+     * If given false, it will look for any unequipped slots, and make the ones around them equippable.
+     * This function will check all possible slots, rather than just the most recently equipped one*/
+    public static void disable_all_radio_btns(bool mode)
+    {
+        bool set = (mode == true) ? false : true;
+        for(int i = 0; i < 18; i++)
+        {
+            GameObject slot = GameObject.Find("slot_" + (i + 1));
+
+            Toggle [] btns = slot.GetComponentsInChildren<Toggle>();
+
+            for(int j = 0; j < 4; j++)
+            {
+                if(btns[j].isOn == mode)
+                {
+                    disable_radio_btns(slot.name, j, set);
+                }
+            }
+        }
+    }
+
     public static void disable_radio_btns(string slot_name, int equip_slot, bool active)
     {
         /*disable other toggles in the same column*/
@@ -124,7 +147,6 @@ public class inventory_correct : MonoBehaviour
 
         int size = (is_armor) ? armors.Count : weapons.Count;
 
-        Debug.Log("GETTING IT INNNNN");
         for (int i = 0; i < size; i++)
         {
             Toggle[] equip_slots = GameObject.Find("slot_" + (i + 1)).GetComponentsInChildren<Toggle>();
@@ -140,13 +162,6 @@ public class inventory_correct : MonoBehaviour
                 else if (mode == "equipped")
                 {
                     values[i, j] = equip_slots[j].isOn;
-
-                    if (values[i, j] == true)
-                    {
-                        Debug.Log("I GET OFF EVERYONE");
-                        Debug.Log(i + "," + j);
-                    }
-
                 }
             }
         }
@@ -177,7 +192,6 @@ public class inventory_correct : MonoBehaviour
 
         for(int i = 0; i < 18; i++)
         {
-            Debug.Log("SCHMLEETTING IT INNNNN");
             Toggle [] equip_slots = GameObject.Find("slot_" + (i + 1)).GetComponentsInChildren<Toggle>();
 
             for (int j = 0; j < 4; j++)
@@ -191,13 +205,6 @@ public class inventory_correct : MonoBehaviour
                 {
                     equip_slots[j].interactable = disabled[i, j];
                     equip_slots[j].isOn = values[i, j];
-
-                    if (equip_slots[j].isOn == true || values[i,j] == true)
-                    {
-                        Debug.Log("I SET OFF NON ffff mode EVERYONE");
-                        Debug.Log("ITS AT " + i + "," + j + "... I SWEAR IT IS!!");
-                    }
-
                 }
             }
         }
@@ -236,6 +243,9 @@ public class inventory_correct : MonoBehaviour
                 new_bool = ":True";
                 disable_radio_btns(slot_name, equip_slot, false);
             }
+            disable_all_radio_btns(false);
+            disable_all_radio_btns(true);
+            
             Debug.Log(new_bool);
 
             string new_item = values[0] + ":" + values[1] + ":" + values[2] + ":" +
@@ -376,29 +386,11 @@ public class inventory_correct : MonoBehaviour
             }
             toggle_radio_btn(slot, "delete", true);
 
-
             string item;
             string [] values;
 
             item = (is_armor) ? armors[i] : weapons[i];
             values = item.Split(':');
-
-            if (item.EndsWith("slot:0") ||
-                item.EndsWith("slot:1") ||
-                item.EndsWith("slot:2") ||
-                item.EndsWith("slot:3"))
-            {
-                Toggle[] toggles = slot.GetComponentsInChildren<Toggle>();
-
-                for(int j = 0; j < 4; j++)
-                {
-                    if(toggles[j].isOn == true)
-                    {
-                        disable_radio_btns(slot.name, j, false);
-                        break;
-                    }
-                }
-            }
 
             Image sprite = slot.transform.Find("Image").
                 GetComponentInChildren<Image>();
@@ -407,14 +399,11 @@ public class inventory_correct : MonoBehaviour
             sprite.sprite = ChestScript.getSpriteName(values[0]);
 
             /*the staff sprite sheet is at a 45 degree angle, so below is my way of fixing it*/
-
-            
             if (values[0].Contains("Staff") && rotate_weapon[i] == false)
             {
                 sprite.transform.Rotate(new Vector3(0, 0, 45));
                 rotate_weapon[i] = true;
             }
-            
 
             Transform t = slot.transform;
             t.Find("Name").GetComponent<Text>().text = values[0];
