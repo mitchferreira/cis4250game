@@ -22,6 +22,7 @@ public class inventory_correct : MonoBehaviour
 
     public static void toggle_radio_btn(GameObject g, string name, bool toggle)
     {
+        g.transform.Find(name).GetComponent<Toggle>().enabled = toggle;
         g.transform.Find(name + "/Background/Checkmark").GetComponent<Image>().enabled = toggle;
         g.transform.Find(name + "/Background").GetComponent<Image>().enabled = toggle;
     }
@@ -143,9 +144,19 @@ public class inventory_correct : MonoBehaviour
                     if (values[i, j] == true)
                     {
                         Debug.Log("I GET OFF EVERYONE");
+                        Debug.Log(i + "," + j);
                     }
 
                 }
+            }
+        }
+        for(int i = size; i < 18; i++)
+        {
+            Toggle[] equip_slots = GameObject.Find("slot_" + (i + 1)).GetComponentsInChildren<Toggle>();
+            for (int j = 0; j < 4; j++)
+            {
+                equip_slots[j].isOn = false;
+                equip_slots[j].interactable = true;
             }
         }
         return values;
@@ -164,33 +175,24 @@ public class inventory_correct : MonoBehaviour
             size = weapons.Count;
         }
 
-        for(int i = 0; i < size; i++)
+        for(int i = 0; i < 18; i++)
         {
             Debug.Log("SCHMLEETTING IT INNNNN");
             Toggle [] equip_slots = GameObject.Find("slot_" + (i + 1)).GetComponentsInChildren<Toggle>();
 
             for (int j = 0; j < 4; j++)
             {
-
-                if (mode == 'F')
+                if (mode == 'F' || i > size)
                 {
                     equip_slots[j].isOn = false;
                     equip_slots[j].interactable = true;
-
-                    //Debug.Log("I SET OFF FFFFFFFF mode EVERYONE");
-                    //Debug.Log("ITS AT " + i + "," + j + "... I SWEAR IT IS!!");
                 }
                 else
                 {
                     equip_slots[j].interactable = disabled[i, j];
-
-                    Debug.Log("ALL MALE ORGY OVER AT:" + i + "," + j + "    interactable:" + equip_slots[j].interactable);
-
                     equip_slots[j].isOn = values[i, j];
 
-                    Debug.Log("ALL MALE ORGY OVER AT:" + i + "," + j + "    equipped:" + equip_slots[j].isOn);
-
-                    if (equip_slots[j].isOn == true)
+                    if (equip_slots[j].isOn == true || values[i,j] == true)
                     {
                         Debug.Log("I SET OFF NON ffff mode EVERYONE");
                         Debug.Log("ITS AT " + i + "," + j + "... I SWEAR IT IS!!");

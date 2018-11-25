@@ -43,7 +43,7 @@ public class Show_armor : MonoBehaviour, IPointerClickHandler {
 
     void Start()
     {
-        //reset_equips();
+        reset_equips();
     }
 
     void set_initial_rotation(int rotate_z, int mode)
@@ -79,14 +79,11 @@ public class Show_armor : MonoBehaviour, IPointerClickHandler {
             this.gameObject.transform.Find("Label").GetComponent<Text>().text = "Weapons";
             set_Labels(" Name     Amount");
             set_initial_rotation(-90, 'A');
- 
+
             weapons_equipped = inventory_correct.get_equip_slots("equipped");
-            //print_arr(weapons_equipped);
-
             weapons_disabled = inventory_correct.get_equip_slots("enabled");
-            //print_arr(weapons_disabled);
 
-            //inventory_correct.set_equip_slots(null, null, 'F');
+            inventory_correct.set_equip_slots(null, null, 'F');
             inventory_correct.set_equip_slots(armor_equipped, armor_disabled, ' ');
         }
         else
@@ -98,7 +95,7 @@ public class Show_armor : MonoBehaviour, IPointerClickHandler {
             armor_equipped = inventory_correct.get_equip_slots("equipped");
             armor_disabled = inventory_correct.get_equip_slots("enabled");
 
-            //inventory_correct.set_equip_slots(null, null, 'F');
+            inventory_correct.set_equip_slots(null, null, 'F');
             inventory_correct.set_equip_slots(weapons_equipped, weapons_disabled, ' ');
         }
         
