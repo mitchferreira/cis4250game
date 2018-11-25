@@ -57,9 +57,6 @@ public class Movement : MonoBehaviour {
         if(c.gameObject.CompareTag("Enemy"))
         {
             encounteredEnemy = c.gameObject;
-            Debug.Log(encounteredEnemy);
-            // c.gameObject.GetComponent<EnemyScript>().defeated = true;
-            // GameObject.Find("_mysql").GetComponent<DatabaseHandler>().SaveGame();
 
             GameObject player = GameObject.Find("player");
 
@@ -108,6 +105,7 @@ public class Movement : MonoBehaviour {
 
         if(c.gameObject.CompareTag("Boss")) {
             GameObject player = GameObject.Find("player");
+            encounteredEnemy = c.gameObject;
 
             Enemies.defineEnemies();
             if(SceneManager.GetActiveScene().name == "worldScene") {
@@ -123,7 +121,7 @@ public class Movement : MonoBehaviour {
                 enemy1 = Enemies.HeckHound;
             }
 
-            battleEnemies = new StructsClass.Enemy[1];
+            battleEnemies = new StructsClass.Enemy[2];
             battleEnemies[0] = boss;
             battleEnemies[1] = enemy1;
 
