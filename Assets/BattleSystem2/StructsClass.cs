@@ -28,6 +28,8 @@ public class StructsClass : MonoBehaviour {
         public int attackBuff;
         public int defenceBuff;
 
+        public int burn;
+
         public Weapon weapon;
         public Armor armor;
 
@@ -66,7 +68,8 @@ public class StructsClass : MonoBehaviour {
         public string modifier;
         public string damageType;
 
-        public string description;
+        public string baseDescription;
+        public string finalDescription;
 
     }
 

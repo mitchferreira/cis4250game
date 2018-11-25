@@ -45,6 +45,8 @@ public class Definitions : MonoBehaviour
         Warrior.attackBuff = 0;
         Warrior.defenceBuff = 0;
 
+        Warrior.burn = 0;
+
         Warrior.weapon = Items.ILongsword;
         Warrior.armor = Items.Leather;
 
@@ -79,6 +81,8 @@ public class Definitions : MonoBehaviour
         Rogue.attackBuff = 0;
         Rogue.defenceBuff = 0;
 
+        Rogue.burn = 0;
+
         Rogue.weapon = Items.IDagger;
         Rogue.armor = Items.Leather;
 
@@ -111,6 +115,8 @@ public class Definitions : MonoBehaviour
         Wizard.blocking = 0;
         Wizard.attackBuff = 0;
         Wizard.defenceBuff = 0;
+
+        Wizard.burn = 0;
 
         Wizard.weapon = Items.OStaff;
         Wizard.armor = Items.Leather;
@@ -146,6 +152,8 @@ public class Definitions : MonoBehaviour
         Cleric.blocking = 0;
         Cleric.attackBuff = 0;
         Cleric.defenceBuff = 0;
+
+        Cleric.burn = 0;
 
         Cleric.weapon = Items.IMace;
         Cleric.armor = Items.Leather;
