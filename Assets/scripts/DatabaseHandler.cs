@@ -169,6 +169,8 @@ public class DatabaseHandler : MonoBehaviour
         foreach(string item in items) {
             itemsString += "," + item;
         }
+
+        Debug.Log(itemsString);
         string insertString = $"INSERT INTO player VALUES ({xCoordinate}, {yCoordinate}, {level}, {expPoints}, \"{itemsString}\", \"{gameLevel}\");";
 
         try {

@@ -405,27 +405,27 @@ Prefab:
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_name
-      value: Dagger
+      value: Iron Dagger
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_mod
-      value: Dexterity
+      value: dexterity
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_type
-      value: Slashing
+      value: piercing
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: dice_num
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: dice_type
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
@@ -1363,17 +1363,17 @@ Prefab:
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_name
-      value: Mace
+      value: Iron Mace
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_mod
-      value: Strength
+      value: strength
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_type
-      value: Bash
+      value: bashing
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
@@ -1383,7 +1383,7 @@ Prefab:
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: dice_type
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
@@ -1458,13 +1458,13 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 984620854}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0056159943, y: -0.019655973}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1475,7 +1475,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.36, y: 0.28}
+  m_Size: {x: 0.7980511, y: 0.6225779}
   m_EdgeRadius: 0
 --- !u!212 &984620859
 SpriteRenderer:
@@ -1818,17 +1818,17 @@ Prefab:
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_name
-      value: Longsword
+      value: Iron Longsword
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_mod
-      value: Strength
+      value: strength
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_type
-      value: Slashing
+      value: slashing
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
@@ -2610,17 +2610,17 @@ Prefab:
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_name
-      value: Staff
+      value: Oak Staff
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_mod
-      value: Strength
+      value: strength
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}
       propertyPath: item_type
-      value: Bash
+      value: bashing
       objectReference: {fileID: 0}
     - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
         type: 2}

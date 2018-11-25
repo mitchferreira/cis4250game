@@ -19,25 +19,19 @@ public class ChestScript : MonoBehaviour {
     public static Sprite getSpriteName(string s)
     {
         string sprite;
-        if(s == "Mace")
+
+        switch(s)
         {
-            sprite = "more_weapons_0";
-        }
-        else if(s == "Dagger")
-        {
-            sprite = "more_weapons_1";
-        }
-        else if(s == "Longsword")
-        {
-            sprite = "more_weapons_2";
-        }
-        else if(s == "Staff")
-        {
-            sprite = "more_weapons_3";
-        }
-        else
-        {
-            sprite =  "notification_types_0";
+            case "Iron Mace": sprite = "more_weapons_0"; break;
+            case "Iron Dagger": sprite = "more_weapons_1"; break;
+            case "Iron Longsword": sprite = "more_weapons_2"; break;
+            case "Oak Staff": sprite = "staffs_0"; break;
+            case "Mahogany Staff": sprite = "staffs_10"; break;
+            case "Wizard Staff": sprite = "staffs_7"; break;
+            case "Leather Armor": sprite = "armors_0"; break;
+            case "Chainmail": sprite = "armors_1"; break;
+            case "Mythril Armor": sprite = "armors_3"; break;
+            default: sprite = "notification_types_0"; break;
         }
 
         int len = sprite.Length;
@@ -74,7 +68,9 @@ public class ChestScript : MonoBehaviour {
 			c.gameObject.transform.position.x > chest.transform.position.x - 0.15 &&
 			c.gameObject.transform.position.x < chest.transform.position.x + 0.15 &&
             c.gameObject.transform.position.y < chest.transform.position.y && !opened)
-        { 
+        {
+            opened = true;
+            render.sprite = open;
 
             if (string.IsNullOrEmpty(item_name) == false)
             {
@@ -88,9 +84,6 @@ public class ChestScript : MonoBehaviour {
                         item_mod + ":" + item_type + ":" + dice_num + ":" + dice_type + ":False";
 
                     items.Add(item);
-
-                    opened = true;
-                    render.sprite = open;
 
                     /*the rest of the code in this if, is to show the item on screen*/
                     /*calls getSprite() which choose the sprite based on the weapon name*/

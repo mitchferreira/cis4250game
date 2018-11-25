@@ -13,12 +13,22 @@ public class Enemies : MonoBehaviour
     public static StructsClass.Enemy MinotaurSkeleton;
     public static StructsClass.Enemy Wight;
 
+    public static StructsClass.Enemy HeckHound;
+    public static StructsClass.Enemy Nightmare;
+    public static StructsClass.Enemy FlameE;
+
     public static StructsClass.EnemyAbility SwordAttack;
     public static StructsClass.EnemyAbility LongswordAttack;
+
     public static StructsClass.EnemyAbility GhoulClaws;
     public static StructsClass.EnemyAbility Greataxe;
     public static StructsClass.EnemyAbility Horns;
     public static StructsClass.EnemyAbility WLongswordAttack;
+
+    public static StructsClass.EnemyAbility HeckBite;
+    public static StructsClass.EnemyAbility HoofStomp;
+    public static StructsClass.EnemyAbility FlameTouch;
+
 
 
     public static void defineEnemies()
@@ -147,7 +157,7 @@ public class Enemies : MonoBehaviour
         MinotaurSkeleton.wis = 8;
         MinotaurSkeleton.chr = 5;
 
-        MinotaurSkeleton.health = 47;
+        MinotaurSkeleton.health = 37;
         MinotaurSkeleton.armor = 12;
         MinotaurSkeleton.rewardExp = 100;
         MinotaurSkeleton.rewardGold = 100;
@@ -204,6 +214,101 @@ public class Enemies : MonoBehaviour
         Wight.actions[0] = WLongswordAttack;
 
 
+
+
+
+
+
+
+
+
+        HeckHound.name = "Heck Hound";
+        HeckHound.str = 17;
+        HeckHound.dex = 12;
+        HeckHound.con = 14;
+        HeckHound.inte = 6;
+        HeckHound.wis = 13;
+        HeckHound.chr = 6;
+
+        HeckHound.health = 30;
+        HeckHound.armor = 15;
+        HeckHound.rewardExp = 100;
+        HeckHound.rewardGold = 100;
+
+        HeckHound.weaknesses = new string[1];
+        HeckHound.resistances = new string[1];
+        HeckHound.immunities = new string[1];
+
+        HeckHound.weaknesses[0] = "holy";
+        HeckHound.resistances[0] = "none";
+        HeckHound.immunities[0] = "fire";
+
+        HeckHound.poison = 0;
+        HeckHound.stun = 0;
+
+        HeckHound.actions = new StructsClass.EnemyAbility[1];
+        HeckHound.actions[0] = HeckBite;
+
+
+        // like a evil horse
+        Nightmare.name = "Night-mare";
+        Nightmare.str = 18;
+        Nightmare.dex = 15;
+        Nightmare.con = 16;
+        Nightmare.inte = 10;
+        Nightmare.wis = 13;
+        Nightmare.chr = 15;
+
+        Nightmare.health = 40;
+        Nightmare.armor = 13;
+        Nightmare.rewardExp = 100;
+        Nightmare.rewardGold = 100;
+
+        Nightmare.weaknesses = new string[1];
+        Nightmare.resistances = new string[1];
+        Nightmare.immunities = new string[1];
+
+        Nightmare.weaknesses[0] = "holy";
+        Nightmare.resistances[0] = "none";
+        Nightmare.immunities[0] = "fire";
+
+        Nightmare.poison = 0;
+        Nightmare.stun = 0;
+
+        Nightmare.actions = new StructsClass.EnemyAbility[1];
+        Nightmare.actions[0] = HoofStomp;
+
+
+        FlameE.name = "Lord of Fire and Flames";
+        FlameE.str = 10;
+        FlameE.dex = 17;
+        FlameE.con = 16;
+        FlameE.inte = 6;
+        FlameE.wis = 10;
+        FlameE.chr = 7;
+
+        FlameE.health = 70;
+        FlameE.armor = 13;
+        FlameE.rewardExp = 100;
+        FlameE.rewardGold = 100;
+
+        FlameE.weaknesses = new string[1];
+        FlameE.resistances = new string[3];
+        FlameE.immunities = new string[2];
+
+        FlameE.weaknesses[0] = "none";
+        FlameE.resistances[0] = "slashing";
+        FlameE.resistances[1] = "piercing";
+        FlameE.resistances[2] = "bashing";
+        FlameE.immunities[0] = "fire";
+        FlameE.immunities[0] = "poison";
+
+        FlameE.poison = 0;
+        FlameE.stun = 0;
+
+        FlameE.actions = new StructsClass.EnemyAbility[1];
+        FlameE.actions[0] = FlameTouch;
+
     }
 
 
@@ -230,6 +335,8 @@ public class Enemies : MonoBehaviour
         LongswordAttack.addedHit = 3;
         LongswordAttack.addedDamage = 1;
         LongswordAttack.damageType = "slashing";
+
+
 
         GhoulClaws.name = "Claws Attack";
         GhoulClaws.diceType = 6;
@@ -258,6 +365,30 @@ public class Enemies : MonoBehaviour
         WLongswordAttack.addedHit = 3;
         WLongswordAttack.addedDamage = 3;
         WLongswordAttack.damageType = "slashing";
+
+
+
+        HeckBite.name = "Bite";
+        HeckBite.diceType = 6;
+        HeckBite.numOfDice = 3;
+        HeckBite.addedHit = 5;
+        HeckBite.addedDamage = 3;
+        HeckBite.damageType = "piercing";
+
+        HoofStomp.name = "Hoof Stomp";
+        HoofStomp.diceType = 8;
+        HoofStomp.numOfDice = 2;
+        HoofStomp.addedHit = 6;
+        HoofStomp.addedDamage = 2;
+        HoofStomp.damageType = "bashing";
+
+
+        FlameTouch.name = "Flame Touch";
+        FlameTouch.diceType = 6;
+        FlameTouch.numOfDice = 2;
+        FlameTouch.addedHit = 6;
+        FlameTouch.addedDamage = 2;
+        FlameTouch.damageType = "fire";
     }
 
 
