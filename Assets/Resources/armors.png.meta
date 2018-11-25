@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 6eef4023de8c8c345be6086bb4aaf8a6
+guid: 2522352e0c34b6a4ba2f000a4d5c22e0
 TextureImporter:
   fileIDToRecycleName:
-    21300000: more_weapons_0
-    21300002: more_weapons_1
-    21300004: more_weapons_2
-    21300006: more_weapons_3
+    21300000: armors_0
+    21300002: armors_1
+    21300004: armors_2
+    21300006: armors_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 70
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -88,13 +88,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: more_weapons_0
+      name: armors_0
       rect:
         serializedVersion: 2
-        x: 226
-        y: 122
-        width: 17
-        height: 65
+        x: 3
+        y: 450
+        width: 26
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -102,19 +102,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eef4e9752717df743bf8d2f109fe1a4f
+      spriteID: db0e8b9d6a4096e4286c022b44299b19
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: more_weapons_1
+      name: armors_1
       rect:
         serializedVersion: 2
-        x: 716
-        y: 198
-        width: 11
-        height: 26
+        x: 34
+        y: 449
+        width: 28
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,19 +122,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ae8fd2ec6d01a749bf5a3bed1e2f531
+      spriteID: 29ac559023f47c64394ef2340ce8941d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: more_weapons_2
+      name: armors_2
       rect:
         serializedVersion: 2
-        x: 5
-        y: 198
-        width: 15
-        height: 50
+        x: 64
+        y: 448
+        width: 31
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,19 +142,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88c369a13c396e14a9ac2c2c3bf9c3e7
+      spriteID: ca95cf23eceb7a6408ae92e1ae332e62
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: more_weapons_3
+      name: armors_3
       rect:
         serializedVersion: 2
-        x: 8
-        y: 121
-        width: 8
-        height: 65
+        x: 96
+        y: 448
+        width: 31
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,7 +162,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7facb56849e1343409a1f911d2356149
+      spriteID: 18fdee27bd2c5ac4e85ebf468ccb8856
       vertices: []
       indices: 
       edges: []
@@ -170,7 +170,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b64831d86631f8945b32ae156029e8e6
+    spriteID: 89f7411c82337bd4f83cbd61933780e0
     vertices: []
     indices: 
     edges: []
