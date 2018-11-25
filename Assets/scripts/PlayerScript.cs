@@ -37,7 +37,7 @@ public class PlayerScript : MonoBehaviour {
 
     string armor_to_str(StructsClass.Armor a)
     {
-        return a.name + ":" + a.armorValue + ":" + a.damageResist + ": : :False";
+        return a.name + ":" + a.armorValue + ":" + a.damageResist + ":::False";
     }
 
     // Use this for initialization
