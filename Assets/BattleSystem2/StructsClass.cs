@@ -21,6 +21,8 @@ public class StructsClass : MonoBehaviour {
         public int maxHealth;
         public int currentHealth;
         public int magicPoints;
+        public int maxMagicPoints;
+        public int currentMagicPoints;
 
 
         //public string[] statusEffects;

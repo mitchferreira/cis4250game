@@ -567,28 +567,28 @@ public class Calculations : MonoBehaviour
 
             // Warrior Skills
             case 2:
-                if (Abilities.ShieldBash.cost <= player.magicPoints)
+                if (Abilities.ShieldBash.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Shield Bash\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.ShieldBash);
                     if (hitStatus != 0)
                     {
                         damage = CalculatePlayerDamage(Abilities.ShieldBash, hitStatus, enemy);
+                        dice = (rand.Next(1,4));
+                        if(dice == 4)
+                        {
+                            enemy.stun = 1;
+                        }
                     }
                     else
                     {
                         damage = 0;
                     }
-                    dice = (rand.Next(1,4));
-                    if(dice == 4)
-                    {
-                        enemy.stun = 1;
-                    }
                 }
                 return damage;
 
             case 3:
-                if (Abilities.AttackStance.cost <= player.magicPoints)
+                if (Abilities.AttackStance.cost <= player.currentMagicPoints)
                 {
                     player.attackBuff = 4;
                 }
@@ -596,7 +596,7 @@ public class Calculations : MonoBehaviour
 
 
             case 4:
-                if (Abilities.Thrust.cost <= player.magicPoints)
+                if (Abilities.Thrust.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Thrust\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.Thrust);
@@ -613,7 +613,7 @@ public class Calculations : MonoBehaviour
                 return damage;
 
             case 5:
-                if (Abilities.PowerSlash.cost <= player.magicPoints)
+                if (Abilities.PowerSlash.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Power Slash\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.PowerSlash);
@@ -631,7 +631,7 @@ public class Calculations : MonoBehaviour
 
             // Rogue Skills
             case 6:
-                if (Abilities.SwiftCut.cost <= player.magicPoints)
+                if (Abilities.SwiftCut.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Swift Cut\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.SwiftCut);
@@ -659,7 +659,7 @@ public class Calculations : MonoBehaviour
 
 
             case 7:
-                if (Abilities.EvasiveStance.cost <= player.magicPoints)
+                if (Abilities.EvasiveStance.cost <= player.currentMagicPoints)
                 {
                     player.defenceBuff = 4;
                 }
@@ -667,7 +667,7 @@ public class Calculations : MonoBehaviour
 
 
             case 8:
-                if (Abilities.PoisonKnife.cost <= player.magicPoints)
+                if (Abilities.PoisonKnife.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Poison Knife\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.PoisonKnife);
@@ -675,6 +675,11 @@ public class Calculations : MonoBehaviour
                     if (hitStatus != 0)
                     {
                         damage = CalculatePlayerDamage(Abilities.PoisonKnife, hitStatus, enemy);
+                        dice = (rand.Next(1, 4));
+                        if (dice == 3)
+                        {
+                            enemy.poison = 2;
+                        }
                     }
                     else
                     {
@@ -684,7 +689,7 @@ public class Calculations : MonoBehaviour
                 return damage;
 
             case 9:
-                if (Abilities.MultiStab.cost <= player.magicPoints)
+                if (Abilities.MultiStab.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Multi-Stab\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.MultiStab);
@@ -702,7 +707,7 @@ public class Calculations : MonoBehaviour
 
             // Wizard Skills
             case 10:
-                if (Abilities.AcidSplash.cost <= player.magicPoints)
+                if (Abilities.AcidSplash.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Acid Splash\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.AcidSplash);
@@ -718,7 +723,7 @@ public class Calculations : MonoBehaviour
                 return damage;
 
             case 11:
-                if (Abilities.EldritchBlast.cost <= player.magicPoints)
+                if (Abilities.EldritchBlast.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Eldritch Blash\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.EldritchBlast);
@@ -734,13 +739,18 @@ public class Calculations : MonoBehaviour
                 return damage;
 
             case 12:
-                if (Abilities.PoisonSpray.cost <= player.magicPoints)
+                if (Abilities.PoisonSpray.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Poison Spray\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.PoisonSpray);
                     if (hitStatus != 0)
                     {
                         damage = CalculatePlayerDamage(Abilities.PoisonSpray, hitStatus, enemy);
+                        dice = (rand.Next(1, 4));
+                        if (dice == 3)
+                        {
+                            enemy.poison = 2;
+                        }
                     }
                     else
                     {
@@ -750,7 +760,7 @@ public class Calculations : MonoBehaviour
                 return damage;
 
             case 13:
-                if (Abilities.MagicMissile.cost <= player.magicPoints)
+                if (Abilities.MagicMissile.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Magic Missile\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.MagicMissile);
@@ -771,7 +781,7 @@ public class Calculations : MonoBehaviour
                 return damage;
 
             case 14:
-                if (Abilities.FlamingSphere.cost <= player.magicPoints)
+                if (Abilities.FlamingSphere.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Flaming Sphere\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.FlamingSphere);
@@ -788,7 +798,7 @@ public class Calculations : MonoBehaviour
 
             // Cleric Skills
             case 15:
-                if (Abilities.SacredFlame.cost <= player.magicPoints)
+                if (Abilities.SacredFlame.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Sacred Flame\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.SacredFlame);
@@ -804,7 +814,7 @@ public class Calculations : MonoBehaviour
                 return damage;
 
             case 16:
-                if (Abilities.CureWounds.cost <= player.magicPoints)
+                if (Abilities.CureWounds.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Cure Wounds\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.CureWounds);
@@ -820,7 +830,7 @@ public class Calculations : MonoBehaviour
                 return damage;
 
             case 17:
-                if (Abilities.SpiritualWeapon.cost <= player.magicPoints)
+                if (Abilities.SpiritualWeapon.cost <= player.currentMagicPoints)
                 {
                     battle.outputText.text += (player.name + " uses Spiritual Weapon\n");
                     hitStatus = CalculatePlayerHit(player, enemy, Abilities.SpiritualWeapon);

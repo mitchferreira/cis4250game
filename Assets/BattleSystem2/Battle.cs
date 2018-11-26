@@ -227,6 +227,14 @@ public class Battle : MonoBehaviour {
         Enemy1.text = initA.enemies[0].name;
         Enemy2.text = initA.enemies[1].name;
 
+	    
+	if(initA.enemies[0].name == initA.enemies[1].name)
+        {
+            initA.enemies[0].name = initA.enemies[0].name + " 1";
+            initA.enemies[1].name = initA.enemies[1].name + " 2";
+        }
+	    
+	    
         for (i = 4; i < initiativeReferenceArray.Length; i++)
         {
             initiativeReferenceArray[i] = initA.enemies[j].name;
@@ -350,6 +358,12 @@ public class Battle : MonoBehaviour {
                             initA.characters[j].burn = initA.characters[j].burn - 1;
                             initA.characters[j].currentHealth = initA.characters[j].currentHealth - 2;
                             outputText.text = (initA.characters[j].name + " was burned.\n");
+				
+			    if(initA.characters[j].currentHealth <= 0)
+                            {
+                                outputText.text += (initA.enemies[enemySelector].name + " has died\n");
+                                break;
+                            }
                         }
 
 
@@ -390,12 +404,14 @@ public class Battle : MonoBehaviour {
                             if(playerAttack == 0)
                             {
                                 initA.characters[j].blocking = 1;
+				    break;
                             }
 
                             // special action for the cleric's healing skill, as it involves a different function
-                            else if(playerAttack == 15)
+                            else if(playerAttack == 16)
                             {
                                 initA.characters = Calculations.CureWounds(initA.characters);
+				    break;
                             }
 
 
@@ -437,7 +453,8 @@ public class Battle : MonoBehaviour {
                                 else if (flag != 0)
                                 {
                                     damage = Calculations.DeterminePlayerAction(playerAttack, initA.characters[j], initA.enemies[enemySelector]);
-                                }
+                                    initA.characters[j].currentMagicPoints = initA.characters[j].currentMagicPoints - 1;
+				}
                             }
 
 
@@ -455,7 +472,7 @@ public class Battle : MonoBehaviour {
 
                         // subtract damage from enemy health and determine if it is dead
                         initA.enemies[enemySelector].health = initA.enemies[enemySelector].health - damage;
-                        if (initA.enemies[enemySelector].health < 0)
+                        if (initA.enemies[enemySelector].health <= 0)
                         {
                             initA.enemies[enemySelector].health = 0;
                             numAliveEnemies = numAliveEnemies - 1;
@@ -482,6 +499,19 @@ public class Battle : MonoBehaviour {
                             initA.enemies[j].stun = 0;
                             outputText.text += (initiativeReferenceArray[i] + " is stunned\n");
                             break;
+                        }
+			if (initA.enemies[j].poison > 0)
+                        {
+                            initA.enemies[j].poison = initA.enemies[j].poison - 1;
+                            initA.enemies[j].health = initA.enemies[j].health - 2;
+                            outputText.text += (initiativeReferenceArray[i] + " took poison damage\n");
+                            if (initA.enemies[enemySelector].health <= 0)
+                            {
+                                initA.enemies[enemySelector].health = 0;
+                                numAliveEnemies = numAliveEnemies - 1;
+                                outputText.text += (initA.enemies[enemySelector].name + " has died\n");
+                                break;
+                            }
                         }
 
                         outputText.text += (initiativeReferenceArray[i] + " attacks\n");

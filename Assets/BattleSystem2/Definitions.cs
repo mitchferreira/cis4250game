@@ -39,6 +39,8 @@ public class Definitions : MonoBehaviour
         Warrior.maxHealth = (Warrior.level * Warrior.hitDiceValue) + Calculations.numberConvert(Warrior.con);
         Warrior.currentHealth = Warrior.maxHealth;
         Warrior.magicPoints = 10;
+        Warrior.maxMagicPoints = 10;
+        Warrior.currentMagicPoints = 10;
 
         //Warrior.statusEffects = "none";
         Warrior.blocking = 0;
@@ -75,6 +77,8 @@ public class Definitions : MonoBehaviour
         Rogue.maxHealth = (Rogue.level * Rogue.hitDiceValue) + Calculations.numberConvert(Rogue.con);
         Rogue.currentHealth = Rogue.maxHealth;
         Rogue.magicPoints = 10;
+        Rogue.maxMagicPoints = 10;
+        Rogue.currentMagicPoints = 10;
 
         //Warrior.statusEffects = "none";
         Rogue.blocking = 0;
@@ -109,7 +113,9 @@ public class Definitions : MonoBehaviour
         Wizard.hitDiceValue = 4;
         Wizard.maxHealth = (Wizard.level * Wizard.hitDiceValue) + Calculations.numberConvert(Wizard.con);
         Wizard.currentHealth = Wizard.maxHealth;
-        Wizard.magicPoints = 10;
+        Wizard.magicPoints = 20;
+        Wizard.maxMagicPoints = 20;
+        Wizard.currentMagicPoints = 20;
 
         //Warrior.statusEffects = "none";
         Wizard.blocking = 0;
@@ -146,7 +152,9 @@ public class Definitions : MonoBehaviour
         Cleric.hitDiceValue = 5;
         Cleric.maxHealth = (Cleric.level * Cleric.hitDiceValue) + Calculations.numberConvert(Cleric.con);
         Cleric.currentHealth = Cleric.maxHealth;
-        Cleric.magicPoints = 10;
+        Cleric.magicPoints = 15;
+        Cleric.maxMagicPoints = 15;
+        Cleric.currentMagicPoints = 15;
 
         //Warrior.statusEffects = "none";
         Cleric.blocking = 0;
