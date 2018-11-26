@@ -42,7 +42,7 @@ public class Enemies : MonoBehaviour
         Goblin.chr = 8;
 
         Goblin.health = 7;
-        Goblin.armor = 13;
+        Goblin.armor = 10;
         Goblin.rewardExp = 100;
         Goblin.rewardGold = 100;
 
@@ -72,7 +72,7 @@ public class Enemies : MonoBehaviour
         Hobgoblin.chr = 9;
 
         Hobgoblin.health = 11;
-        Hobgoblin.armor = 15;
+        Hobgoblin.armor = 12;
         Hobgoblin.rewardExp = 100;
         Hobgoblin.rewardGold = 100;
 
@@ -99,8 +99,8 @@ public class Enemies : MonoBehaviour
         GobKing.wis = 10;
         GobKing.chr = 9;
 
-        GobKing.health = 40;
-        GobKing.armor = 15;
+        GobKing.health = 20;
+        GobKing.armor = 12;
         GobKing.rewardExp = 100;
         GobKing.rewardGold = 100;
 
@@ -128,8 +128,8 @@ public class Enemies : MonoBehaviour
         Ghast.wis = 10;
         Ghast.chr = 8;
 
-        Ghast.health = 22;
-        Ghast.armor = 13;
+        Ghast.health = 17;
+        Ghast.armor = 10;
         Ghast.rewardExp = 100;
         Ghast.rewardGold = 100;
 
@@ -157,8 +157,8 @@ public class Enemies : MonoBehaviour
         MinotaurSkeleton.wis = 8;
         MinotaurSkeleton.chr = 5;
 
-        MinotaurSkeleton.health = 37;
-        MinotaurSkeleton.armor = 12;
+        MinotaurSkeleton.health = 25;
+        MinotaurSkeleton.armor = 9;
         MinotaurSkeleton.rewardExp = 100;
         MinotaurSkeleton.rewardGold = 100;
 
@@ -191,8 +191,8 @@ public class Enemies : MonoBehaviour
         Wight.wis = 13;
         Wight.chr = 15;
 
-        Wight.health = 50;
-        Wight.armor = 13;
+        Wight.health = 20;
+        Wight.armor = 10;
         Wight.rewardExp = 100;
         Wight.rewardGold = 100;
 
@@ -230,8 +230,8 @@ public class Enemies : MonoBehaviour
         HeckHound.wis = 13;
         HeckHound.chr = 6;
 
-        HeckHound.health = 30;
-        HeckHound.armor = 15;
+        HeckHound.health = 25;
+        HeckHound.armor = 12;
         HeckHound.rewardExp = 100;
         HeckHound.rewardGold = 100;
 
@@ -259,8 +259,8 @@ public class Enemies : MonoBehaviour
         Nightmare.wis = 13;
         Nightmare.chr = 15;
 
-        Nightmare.health = 40;
-        Nightmare.armor = 13;
+        Nightmare.health = 24;
+        Nightmare.armor = 10;
         Nightmare.rewardExp = 100;
         Nightmare.rewardGold = 100;
 
@@ -287,8 +287,8 @@ public class Enemies : MonoBehaviour
         FlameE.wis = 10;
         FlameE.chr = 7;
 
-        FlameE.health = 70;
-        FlameE.armor = 13;
+        FlameE.health = 30;
+        FlameE.armor = 10;
         FlameE.rewardExp = 100;
         FlameE.rewardGold = 100;
 
@@ -323,14 +323,14 @@ public class Enemies : MonoBehaviour
     public static void defineEnemyActions()
     {
         SwordAttack.name = "Sword Attack";
-        SwordAttack.diceType = 6;
+        SwordAttack.diceType = 4;
         SwordAttack.numOfDice = 1;
         SwordAttack.addedHit = 4;
         SwordAttack.addedDamage = 2;
         SwordAttack.damageType = "slashing";
 
         LongswordAttack.name = "Longsword Attack";
-        LongswordAttack.diceType = 8;
+        LongswordAttack.diceType = 6;
         LongswordAttack.numOfDice = 1;
         LongswordAttack.addedHit = 3;
         LongswordAttack.addedDamage = 1;
@@ -339,28 +339,28 @@ public class Enemies : MonoBehaviour
 
 
         GhoulClaws.name = "Claws Attack";
-        GhoulClaws.diceType = 6;
+        GhoulClaws.diceType = 4;
         GhoulClaws.numOfDice = 2;
         GhoulClaws.addedHit = 4;
         GhoulClaws.addedDamage = 2;
         GhoulClaws.damageType = "slashing";
 
         Greataxe.name = "Greataxe Attack";
-        Greataxe.diceType = 12;
+        Greataxe.diceType = 10;
         Greataxe.numOfDice = 1;
         Greataxe.addedHit = 2;
         Greataxe.addedDamage = 4;
         Greataxe.damageType = "slashing";
 
         Horns.name = "Horn Attack";
-        Horns.diceType = 8;
+        Horns.diceType = 6;
         Horns.numOfDice = 1;
         Horns.addedHit = 6;
         Horns.addedDamage = 4;
         Horns.damageType = "piercing";
 
         WLongswordAttack.name = "Longsword Attack";
-        WLongswordAttack.diceType = 12;
+        WLongswordAttack.diceType = 10;
         WLongswordAttack.numOfDice = 1;
         WLongswordAttack.addedHit = 3;
         WLongswordAttack.addedDamage = 3;
@@ -369,14 +369,14 @@ public class Enemies : MonoBehaviour
 
 
         HeckBite.name = "Bite";
-        HeckBite.diceType = 6;
+        HeckBite.diceType = 4;
         HeckBite.numOfDice = 3;
         HeckBite.addedHit = 5;
         HeckBite.addedDamage = 3;
         HeckBite.damageType = "piercing";
 
         HoofStomp.name = "Hoof Stomp";
-        HoofStomp.diceType = 8;
+        HoofStomp.diceType = 6;
         HoofStomp.numOfDice = 2;
         HoofStomp.addedHit = 6;
         HoofStomp.addedDamage = 2;
