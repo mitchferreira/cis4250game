@@ -383,12 +383,14 @@ public class Battle : MonoBehaviour {
                             if(playerAttack == 0)
                             {
                                 initA.characters[j].blocking = 1;
+				    break;
                             }
 
                             // special action for the cleric's healing skill, as it involves a different function
                             else if(playerAttack == 16)
                             {
                                 initA.characters = Calculations.CureWounds(initA.characters);
+				    break;
                             }
 
 
@@ -430,7 +432,8 @@ public class Battle : MonoBehaviour {
                                 else if (flag != 0)
                                 {
                                     damage = Calculations.DeterminePlayerAction(playerAttack, initA.characters[j], initA.enemies[enemySelector]);
-                                }
+                                    initA.characters[j].currentMagicPoints = initA.characters[j].currentMagicPoints - 1;
+				}
                             }
 
 
