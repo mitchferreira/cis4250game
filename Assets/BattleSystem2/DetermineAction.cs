@@ -59,35 +59,40 @@ public class DetermineAction : MonoBehaviour
     {
         Battle.playerAttack = 10;
     }
-
-    public void PoisonSpray()
+    
+    public void EldritchBlast()
     {
         Battle.playerAttack = 11;
     }
 
-    public void MagicMissile()
+    public void PoisonSpray()
     {
         Battle.playerAttack = 12;
     }
 
-    public void FlamingSphere()
+    public void MagicMissile()
     {
         Battle.playerAttack = 13;
     }
 
-    public void SacredFlame()
+    public void FlamingSphere()
     {
         Battle.playerAttack = 14;
     }
 
-    public void CureWounds()
+    public void SacredFlame()
     {
         Battle.playerAttack = 15;
     }
 
+    public void CureWounds()
+    {
+        Battle.playerAttack = 16;
+    }
+
     public void SpiritualWeapon()
     {
-        Battle.playerAttack = 6;
+        Battle.playerAttack = 17;
     }
 
 }
