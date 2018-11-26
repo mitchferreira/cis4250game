@@ -574,15 +574,15 @@ public class Calculations : MonoBehaviour
                     if (hitStatus != 0)
                     {
                         damage = CalculatePlayerDamage(Abilities.ShieldBash, hitStatus, enemy);
+                        dice = (rand.Next(1,4));
+                        if(dice == 4)
+                        {
+                            enemy.stun = 1;
+                        }
                     }
                     else
                     {
                         damage = 0;
-                    }
-                    dice = (rand.Next(1,4));
-                    if(dice == 4)
-                    {
-                        enemy.stun = 1;
                     }
                 }
                 return damage;
@@ -675,6 +675,11 @@ public class Calculations : MonoBehaviour
                     if (hitStatus != 0)
                     {
                         damage = CalculatePlayerDamage(Abilities.PoisonKnife, hitStatus, enemy);
+                        dice = (rand.Next(1, 4));
+                        if (dice == 3)
+                        {
+                            enemy.poison = 2;
+                        }
                     }
                     else
                     {
@@ -741,6 +746,11 @@ public class Calculations : MonoBehaviour
                     if (hitStatus != 0)
                     {
                         damage = CalculatePlayerDamage(Abilities.PoisonSpray, hitStatus, enemy);
+                        dice = (rand.Next(1, 4));
+                        if (dice == 3)
+                        {
+                            enemy.poison = 2;
+                        }
                     }
                     else
                     {
