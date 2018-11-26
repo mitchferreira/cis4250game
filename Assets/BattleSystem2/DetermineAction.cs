@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DetermineAction : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class DetermineAction : MonoBehaviour
 
     public void BasicAttack()
     {
+        
         Battle.playerAttack = 1;
+        
+
     }
 
     public void ShieldBash()

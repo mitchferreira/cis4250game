@@ -37,6 +37,12 @@ public class Battle : MonoBehaviour {
     public Button clericSkill2;
     public Button clericSkill3;
 
+    public Button enemyOne;
+    public Button enemyTwo;
+
+    public Text Enemy1;
+    public Text Enemy2;
+
 	public GameObject warrior_skill_panel;
     public GameObject rogue_skill_panel;
     public GameObject wizard_skill_panel;
@@ -49,6 +55,8 @@ public class Battle : MonoBehaviour {
     public SimpleHealthBar c4health;
 
     public static int whoseTurnIsIt;
+
+    
 
 
     /*
@@ -185,6 +193,8 @@ public class Battle : MonoBehaviour {
 
         whoseTurnIsIt = 0;
 
+        
+        
         // create a struct containing all battle participants
         StructsClass.InitiativeArray initA;
         initA.characters = new StructsClass.Character[4];
@@ -193,7 +203,7 @@ public class Battle : MonoBehaviour {
         // create variables to check if all enemies are dead or if the player is
         int numAlivePlayers = initA.characters.Length;
         int numAliveEnemies = initA.enemies.Length;
-
+        
         System.Random rand = new System.Random();
 
         // assign the participants to the struct
@@ -213,6 +223,9 @@ public class Battle : MonoBehaviour {
         initiativeReferenceArray[1] = "Joseph";
         initiativeReferenceArray[2] = "Scott";
         initiativeReferenceArray[3] = "Mitchell";
+
+        Enemy1.text = initA.enemies[0].name;
+        Enemy2.text = initA.enemies[1].name;
 
         for (i = 4; i < initiativeReferenceArray.Length; i++)
         {
@@ -524,6 +537,14 @@ public class Battle : MonoBehaviour {
                 {
                     break;
                 }
+            if(initA.enemies[0].health <= 0){
+                Debug.Log("DIE1");
+                enemyOne.gameObject.SetActive(false);
+            }
+            if(initA.enemies[1].health <= 0){
+                Debug.Log("DIE2");
+                enemyTwo.gameObject.SetActive(false);
+            }
 
             }
         }
@@ -532,6 +553,8 @@ public class Battle : MonoBehaviour {
         if(numAliveEnemies == 0)
         {
             outputText.text += ("PLAYERS WIN\n");
+            enemyOne.gameObject.SetActive(false);
+            enemyTwo.gameObject.SetActive(false);
 /*
             // give the player gold
             outputText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
