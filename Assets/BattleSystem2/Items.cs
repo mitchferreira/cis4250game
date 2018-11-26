@@ -92,28 +92,28 @@ public class Items : MonoBehaviour {
         MLongsword.diceType = 12;
         MLongsword.numOfDice = 1;
         MLongsword.modifier = "strength";
-        MLongsword.damageType = "slashing";
+        MLongsword.damageType = "super slashing";
         MLongsword.isEquiped = 0;
 
         MDagger.name = "Mythril Dagger";
         MDagger.diceType = 8;
         MDagger.numOfDice = 2;
         MDagger.modifier = "dexterity";
-        MDagger.damageType = "piercing";
+        MDagger.damageType = "super piercing";
         MDagger.isEquiped = 0;
 
         WStaff.name = "Wizard Staff";
         WStaff.diceType = 10;
         WStaff.numOfDice = 1;
         WStaff.modifier = "strength";
-        WStaff.damageType = "bashing";
+        WStaff.damageType = "super bashing";
         WStaff.isEquiped = 0;
 
         MMace.name = "Mythril Mace";
         MMace.diceType = 12;
         MMace.numOfDice = 1;
         MMace.modifier = "strength";
-        MMace.damageType = "bashing";
+        MMace.damageType = "super bashing";
         MMace.isEquiped = 0;
     }
 

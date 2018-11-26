@@ -39,11 +39,15 @@ public class Definitions : MonoBehaviour
         Warrior.maxHealth = (Warrior.level * Warrior.hitDiceValue) + Calculations.numberConvert(Warrior.con);
         Warrior.currentHealth = Warrior.maxHealth;
         Warrior.magicPoints = 10;
+        Warrior.maxMagicPoints = 10;
+        Warrior.currentMagicPoints = 10;
 
         //Warrior.statusEffects = "none";
         Warrior.blocking = 0;
         Warrior.attackBuff = 0;
         Warrior.defenceBuff = 0;
+
+        Warrior.burn = 0;
 
         Warrior.weapon = Items.ILongsword;
         Warrior.armor = Items.Leather;
@@ -73,11 +77,15 @@ public class Definitions : MonoBehaviour
         Rogue.maxHealth = (Rogue.level * Rogue.hitDiceValue) + Calculations.numberConvert(Rogue.con);
         Rogue.currentHealth = Rogue.maxHealth;
         Rogue.magicPoints = 10;
+        Rogue.maxMagicPoints = 10;
+        Rogue.currentMagicPoints = 10;
 
         //Warrior.statusEffects = "none";
         Rogue.blocking = 0;
         Rogue.attackBuff = 0;
         Rogue.defenceBuff = 0;
+
+        Rogue.burn = 0;
 
         Rogue.weapon = Items.IDagger;
         Rogue.armor = Items.Leather;
@@ -105,12 +113,16 @@ public class Definitions : MonoBehaviour
         Wizard.hitDiceValue = 4;
         Wizard.maxHealth = (Wizard.level * Wizard.hitDiceValue) + Calculations.numberConvert(Wizard.con);
         Wizard.currentHealth = Wizard.maxHealth;
-        Wizard.magicPoints = 10;
+        Wizard.magicPoints = 20;
+        Wizard.maxMagicPoints = 20;
+        Wizard.currentMagicPoints = 20;
 
         //Warrior.statusEffects = "none";
         Wizard.blocking = 0;
         Wizard.attackBuff = 0;
         Wizard.defenceBuff = 0;
+
+        Wizard.burn = 0;
 
         Wizard.weapon = Items.OStaff;
         Wizard.armor = Items.Leather;
@@ -140,12 +152,16 @@ public class Definitions : MonoBehaviour
         Cleric.hitDiceValue = 5;
         Cleric.maxHealth = (Cleric.level * Cleric.hitDiceValue) + Calculations.numberConvert(Cleric.con);
         Cleric.currentHealth = Cleric.maxHealth;
-        Cleric.magicPoints = 10;
+        Cleric.magicPoints = 15;
+        Cleric.maxMagicPoints = 15;
+        Cleric.currentMagicPoints = 15;
 
         //Warrior.statusEffects = "none";
         Cleric.blocking = 0;
         Cleric.attackBuff = 0;
         Cleric.defenceBuff = 0;
+
+        Cleric.burn = 0;
 
         Cleric.weapon = Items.IMace;
         Cleric.armor = Items.Leather;

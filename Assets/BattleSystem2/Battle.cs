@@ -8,10 +8,12 @@ public class Battle : MonoBehaviour {
     public static int playerGold;
     public static int playerExp;
     public static int playerAttack;
+    public static int flag;
+    public static int enemySelector = 0;
 
-    
-    public Text victoryText;
     public Text outputText;
+
+    public Text victoryText;
     public Text healthBar1;
     public Text healthBar2;
     public Text healthBar3;
@@ -54,59 +56,66 @@ public class Battle : MonoBehaviour {
     // This Start() function makes a test battle against two goblins
      void Start()
      {
-         int i,j = 0;
+
+        testGobKing();
+        testGobKing();
+        testGobKing();
+
+    }
+
+    void testGobKing()
+    {
+        int i, j = 0;
 
         // define the different static public variables needed
-         Items.defineWeapons();
-         Items.defineArmor();
-         Enemies.defineEnemies();
-         Enemies.defineEnemyActions();
-         Abilities.defineActions();
+        Items.defineWeapons();
+        Items.defineArmor();
+        Enemies.defineEnemies();
+        Enemies.defineEnemyActions();
+        Abilities.defineActions();
 
         // create the four characters
-         StructsClass.Character Warrior;
-         StructsClass.Character Rogue;
-         StructsClass.Character Wizard;
-         StructsClass.Character Cleric;
+        StructsClass.Character Warrior;
+        StructsClass.Character Rogue;
+        StructsClass.Character Wizard;
+        StructsClass.Character Cleric;
 
-         StructsClass.Enemy Goblin1;
-         StructsClass.Enemy Goblin2;
+        StructsClass.Enemy GoblinKing;
+        StructsClass.Enemy Goblin;
 
         // define their starting stats and equipment
-         Warrior = Definitions.defineStartingWarrior();
-         Rogue = Definitions.defineStartingRogue();
-         Wizard = Definitions.defineStartingWizard();
-         Cleric = Definitions.defineStartingCleric();
-         Warrior.weapon = Items.ILongsword;
-         Warrior.armor = Items.Leather;
-         Rogue.weapon = Items.IDagger;
-         Rogue.armor = Items.Leather;
-         Wizard.weapon = Items.OStaff;
-         Wizard.armor = Items.Leather;
-         Cleric.weapon = Items.IMace;
-         Cleric.armor = Items.Leather;
+        Warrior = Definitions.defineStartingWarrior();
+        Rogue = Definitions.defineStartingRogue();
+        Wizard = Definitions.defineStartingWizard();
+        Cleric = Definitions.defineStartingCleric();
+        Warrior.weapon = Items.ILongsword;
+        Warrior.armor = Items.Leather;
+        Rogue.weapon = Items.IDagger;
+        Rogue.armor = Items.Leather;
+        Wizard.weapon = Items.OStaff;
+        Wizard.armor = Items.Leather;
+        Cleric.weapon = Items.IMace;
+        Cleric.armor = Items.Leather;
 
         // define enemy goblin stats and abilities
-         Goblin1 = Enemies.Goblin;
-         Goblin2 = Enemies.Goblin;
-
-         Goblin1.name = "Goblin1";
-         Goblin2.name = "Goblin2";
-         Goblin1.actions[0] = Enemies.SwordAttack;
-         Goblin2.actions[0] = Enemies.SwordAttack;
-
+        GoblinKing = Enemies.GobKing;
+        Goblin = Enemies.Goblin;
+        
+        GoblinKing.actions[0] = Enemies.LongswordAttack;
+        Goblin.actions[0] = Enemies.SwordAttack;
+        
         // create a struct for all battle participants
-         StructsClass.InitiativeArray initA;
-         initA.characters = new StructsClass.Character[4];
-         initA.enemies = new StructsClass.Enemy[2];
+        StructsClass.InitiativeArray initA;
+        initA.characters = new StructsClass.Character[4];
+        initA.enemies = new StructsClass.Enemy[2];
 
-         initA.characters[0] = Warrior;
-         initA.characters[1] = Rogue;
-         initA.characters[2] = Wizard;
-         initA.characters[3] = Cleric;
+        initA.characters[0] = Warrior;
+        initA.characters[1] = Rogue;
+        initA.characters[2] = Wizard;
+        initA.characters[3] = Cleric;
 
-         initA.enemies[0] = Goblin1;
-         initA.enemies[1] = Goblin2;
+        initA.enemies[0] = GoblinKing;
+        initA.enemies[1] = Goblin;
 
 
 
@@ -115,19 +124,20 @@ public class Battle : MonoBehaviour {
 
 
         // start the battle simulation
-         StartCoroutine(simulateBattle(initA.characters, initA.enemies));
-     }
-
-        */
-
-// this function is used in the main program to run actual battles against generated enemies
-
-    void Start() {
-        GameObject player = GameObject.Find("player");
-        victory_panel.SetActive(false);
-        StartCoroutine(simulateBattle(player.GetComponent<Movement>().players, player.GetComponent<Movement>().enemies));
+        StartCoroutine(simulateBattle(initA.characters, initA.enemies));
     }
 
+    */
+
+
+    // this function is used in the main program to run actual battles against generated enemies
+    
+        void Start() {
+            GameObject player = GameObject.Find("player");
+
+            StartCoroutine(simulateBattle(player.GetComponent<Movement>().players, player.GetComponent<Movement>().enemies));
+        }
+        
     public void showSP(){
         // Add checking for skills based on level
         if(whoseTurnIsIt == 1){
@@ -158,13 +168,20 @@ public class Battle : MonoBehaviour {
 		//skills_panel.SetActive(true);
 	}
 
+    public void hideSkills(){
+            warrior_skill_panel.SetActive(false);
+            rogue_skill_panel.SetActive(false);
+            wizard_skill_panel.SetActive(false);
+            cleric_skill_panel.SetActive(false);
+    }
+
     // This function manages every part of the battle loop
     public IEnumerator simulateBattle(StructsClass.Character[] players, StructsClass.Enemy[] enemies)
     {
         int i, j = 0;
-        int enemySelector = 0;
         int hitStatus = 0;
         int damage = 0;
+        int dice = 0;
 
         whoseTurnIsIt = 0;
 
@@ -197,6 +214,14 @@ public class Battle : MonoBehaviour {
         initiativeReferenceArray[2] = "Scott";
         initiativeReferenceArray[3] = "Mitchell";
 
+	    
+	if(initA.enemies[0].name == initA.enemies[1].name)
+        {
+            initA.enemies[0].name = initA.enemies[0].name + " 1";
+            initA.enemies[1].name = initA.enemies[1].name + " 2";
+        }
+	    
+	    
         for (i = 4; i < initiativeReferenceArray.Length; i++)
         {
             initiativeReferenceArray[i] = initA.enemies[j].name;
@@ -223,6 +248,49 @@ public class Battle : MonoBehaviour {
                 }
             }
         }
+
+
+
+
+        for (i=0; i<initA.characters.Length; i++)
+        {
+            if(initA.characters[i].charClass == "Warrior")
+            {
+                for (j=0; j<initA.characters[i].actions.Length; j++)
+                {
+                    if(initA.characters[i].actions[j].name == "Thrust")
+                    {
+                        initA.characters[i].actions[j].finalDescription = initA.characters[i].actions[j].baseDescription + initA.characters[i].actions[j].numOfDice + "d" + initA.characters[i].weapon.diceType + 2;
+                    }
+                    if (initA.characters[i].actions[j].name == "Power Slash")
+                    {
+                        initA.characters[i].actions[j].finalDescription = initA.characters[i].actions[j].baseDescription + initA.characters[i].actions[j].numOfDice + "d" + initA.characters[i].weapon.diceType + 4;
+                    }
+
+                }
+            }
+
+            if (initA.characters[i].charClass == "Rogue")
+            {
+                for (j = 0; j < initA.characters[i].actions.Length; j++)
+                {
+                    if ((initA.characters[i].actions[j].name == "Swift Cut") || (initA.characters[i].actions[j].name == "Poison Knife") || (initA.characters[i].actions[j].name == "Multi-Stab"))
+                    {
+                        initA.characters[i].actions[j].finalDescription = initA.characters[i].actions[j].baseDescription + initA.characters[i].actions[j].numOfDice + "d" + initA.characters[i].weapon.diceType + 2;
+                    }
+
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
         
         outputText.text = ("Beginning Battle.\n");
         outputText.text += ("The initiative order for the battle is:\n");
@@ -257,25 +325,33 @@ public class Battle : MonoBehaviour {
                     {
                         if(initA.characters[j].charClass == "Warrior")
                         {
-                            //Warrior max 4
                             whoseTurnIsIt = 1;
                         }
                         if (initA.characters[j].charClass == "Rogue")
                         {
-                            //2 skills max 4
                             whoseTurnIsIt = 2;
                         }
                         if (initA.characters[j].charClass == "Wizard")
                         {
-                            //3 skills max 5
                             whoseTurnIsIt = 3;
                         }
                         if (initA.characters[j].charClass == "Cleric")
                         {
-                            //1 skill max 3
                             whoseTurnIsIt = 4;
                         }
 
+                        if(initA.characters[j].burn > 0)
+                        {
+                            initA.characters[j].burn = initA.characters[j].burn - 1;
+                            initA.characters[j].currentHealth = initA.characters[j].currentHealth - 2;
+                            outputText.text = (initA.characters[j].name + " was burned.\n");
+				
+			    if(initA.characters[j].currentHealth <= 0)
+                            {
+                                outputText.text += (initA.enemies[enemySelector].name + " has died\n");
+                                break;
+                            }
+                        }
 
 
                         // if this character was blocking, they stop blocking
@@ -290,8 +366,16 @@ public class Battle : MonoBehaviour {
                             initA.characters[j].defenceBuff = initA.characters[j].defenceBuff - 1;
                         }
 
+
+
+
+
+
                         //due to the simplicity of the current code, the target enemy is selected randomly
                         enemySelector = (rand.Next(0, initA.enemies.Length));
+
+
+
 
 
                         outputText.text +=("It's " + initiativeReferenceArray[i] + "'s turn.\n");
@@ -307,48 +391,64 @@ public class Battle : MonoBehaviour {
                             if(playerAttack == 0)
                             {
                                 initA.characters[j].blocking = 1;
+				    break;
                             }
 
                             // special action for the cleric's healing skill, as it involves a different function
-                            else if(playerAttack == 14)
+                            else if(playerAttack == 16)
                             {
                                 initA.characters = Calculations.CureWounds(initA.characters);
+				    break;
                             }
 
-                            // the player has done a basic attack with their weapon
-                            else if(playerAttack == 2)
+
+
+                            enemySelector = 0;
+                            flag = 0;
+                            while (flag == 0)
                             {
+                                // causes the loop
+                                yield return null;
 
-                                if (initA.characters[j].charClass == "Warrior")
+
+                                // the player has done a basic attack with their weapon
+                                if ((playerAttack == 1) && (flag != 0))
                                 {
-                                    damage = Calculations.DeterminePlayerAction(2, initA.characters[j], initA.enemies[enemySelector]);
-                                }
-                                if (initA.characters[j].charClass == "Rogue")
-                                {
-                                    damage = Calculations.DeterminePlayerAction(5, initA.characters[j], initA.enemies[enemySelector]);
-                                }
-                                if (initA.characters[j].charClass == "Wizard")
-                                {
-                                    damage = Calculations.DeterminePlayerAction(9, initA.characters[j], initA.enemies[enemySelector]);
-                                }
-                                if (initA.characters[j].charClass == "Cleric")
-                                {
-                                    damage = Calculations.DeterminePlayerAction(13, initA.characters[j], initA.enemies[enemySelector]);
+                                    damage = Calculations.DeterminePlayerAction(1, initA.characters[j], initA.enemies[enemySelector]);
+                                    /*
+                                    if (initA.characters[j].charClass == "Warrior")
+                                    {
+                                        damage = Calculations.DeterminePlayerAction(2, initA.characters[j], initA.enemies[enemySelector]);
+                                    }
+                                    if (initA.characters[j].charClass == "Rogue")
+                                    {
+                                        damage = Calculations.DeterminePlayerAction(5, initA.characters[j], initA.enemies[enemySelector]);
+                                    }
+                                    if (initA.characters[j].charClass == "Wizard")
+                                    {
+                                        damage = Calculations.DeterminePlayerAction(9, initA.characters[j], initA.enemies[enemySelector]);
+                                    }
+                                    if (initA.characters[j].charClass == "Cleric")
+                                    {
+                                        damage = Calculations.DeterminePlayerAction(13, initA.characters[j], initA.enemies[enemySelector]);
+                                    }
+                                    */
+
                                 }
 
-                            }
-
-                            // the player has used an ability, consult the chart in Calculations
-                            else
-                            {
-                                damage = Calculations.DeterminePlayerAction(playerAttack, initA.characters[j], initA.enemies[enemySelector]);
+                                // the player has used an ability, consult the chart in Calculations
+                                else if (flag != 0)
+                                {
+                                    damage = Calculations.DeterminePlayerAction(playerAttack, initA.characters[j], initA.enemies[enemySelector]);
+                                    initA.characters[j].currentMagicPoints = initA.characters[j].currentMagicPoints - 1;
+				}
                             }
 
 
                             // if the player tries to use an ability but doesn't have enough mp to use it
                             if ((damage == -1) && (playerAttack != -1))
                             {
-                                playerAttack = 0;
+                                playerAttack = -1;
                                 outputText.text += ("Not Enough MP, please select a different attack.\n");
                             }
 
@@ -372,6 +472,7 @@ public class Battle : MonoBehaviour {
                     }
                 }
 
+                //// enemy attack ////
 
                 // go through the list of enemies
                 for (j = 0; j < initA.enemies.Length; j++)
@@ -400,13 +501,25 @@ public class Battle : MonoBehaviour {
                             }
                         }
 
+                        
+                        dice = rand.Next(0, initA.enemies[j].actions.Length);
+
                         // calculate if the enemy hits
-                        hitStatus = Calculations.CalculateEnemyHit(initA.characters[enemySelector], Enemies.SwordAttack);
+                        hitStatus = Calculations.CalculateEnemyHit(initA.characters[enemySelector], initA.enemies[j].actions[dice]);
 
                         // if the enemy hit, calculate damage
                         if (hitStatus != 0)
                         {
-                            damage = Calculations.CalculateEnemyDamage(Enemies.SwordAttack, hitStatus);
+                            damage = Calculations.CalculateEnemyDamage(initA.enemies[j].actions[dice], hitStatus);
+
+                            if(initA.enemies[j].actions[dice].name == "Flame Touch")
+                            {
+                                dice = rand.Next(0, 4);
+                                if(dice == 4)
+                                {
+                                    initA.characters[enemySelector].burn = 3;
+                                }
+                            }
 
                             // determine if a player character died
                             initA.characters[enemySelector].currentHealth = initA.characters[enemySelector].currentHealth - damage;
@@ -435,17 +548,15 @@ public class Battle : MonoBehaviour {
         // if the player won
         if(numAliveEnemies == 0)
         {
-            victory_panel.SetActive(true);
-            victoryText.text += ("PLAYERS WIN\n");
-
-
+            outputText.text += ("PLAYERS WIN\n");
+/*
             // give the player gold
-            victoryText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
+            outputText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
             playerGold = playerGold + Calculations.calculateGold(initA.enemies);
 
             // give the players experience points
             playerExp = Calculations.calculateExperience(initA.enemies);
-            victoryText.text += ("You obtained " + playerExp + " experience points.\n");
+            outputText.text += ("You obtained " + playerExp + " experience points.\n");
 
             initA.characters[0].exp = initA.characters[0].exp + playerExp;
             initA.characters[1].exp = initA.characters[1].exp + playerExp;
@@ -456,21 +567,14 @@ public class Battle : MonoBehaviour {
             initA.characters = Calculations.levelUp(initA.characters);
 
             GameObject player = GameObject.Find("player");
-            // kill the encountered enemy
-            Debug.Log(player.GetComponent<Movement>().encounteredEnemy.name);
-            player.GetComponent<Movement>().encounteredEnemy.GetComponent<EnemyScript>().defeated = true;
             player.GetComponent<PartyScript>().LevelUpParty(initA.characters);
-
+*/
         }
         // the enemies won
         else
         {
             outputText.text += ("ENEMIES WIN\n");
         }
-
-
     }
-
-
 
 }

@@ -21,12 +21,16 @@ public class StructsClass : MonoBehaviour {
         public int maxHealth;
         public int currentHealth;
         public int magicPoints;
+        public int maxMagicPoints;
+        public int currentMagicPoints;
 
 
         //public string[] statusEffects;
         public int blocking;
         public int attackBuff;
         public int defenceBuff;
+
+        public int burn;
 
         public Weapon weapon;
         public Armor armor;
@@ -66,7 +70,8 @@ public class StructsClass : MonoBehaviour {
         public string modifier;
         public string damageType;
 
-        public string description;
+        public string baseDescription;
+        public string finalDescription;
 
     }
 
