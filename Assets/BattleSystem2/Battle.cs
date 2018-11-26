@@ -459,7 +459,7 @@ public class Battle : MonoBehaviour {
 
                         // subtract damage from enemy health and determine if it is dead
                         initA.enemies[enemySelector].health = initA.enemies[enemySelector].health - damage;
-                        if (initA.enemies[enemySelector].health < 0)
+                        if (initA.enemies[enemySelector].health <= 0)
                         {
                             initA.enemies[enemySelector].health = 0;
                             numAliveEnemies = numAliveEnemies - 1;
