@@ -168,6 +168,13 @@ public class Battle : MonoBehaviour {
 		//skills_panel.SetActive(true);
 	}
 
+    public void hideSkills(){
+            warrior_skill_panel.SetActive(false);
+            rogue_skill_panel.SetActive(false);
+            wizard_skill_panel.SetActive(false);
+            cleric_skill_panel.SetActive(false);
+    }
+
     // This function manages every part of the battle loop
     public IEnumerator simulateBattle(StructsClass.Character[] players, StructsClass.Enemy[] enemies)
     {
