@@ -151,10 +151,8 @@ public class inventory_correct : MonoBehaviour
         {
             Toggle[] equip_slots = GameObject.Find("slot_" + (i + 1)).GetComponentsInChildren<Toggle>();
 
-
             for (int j = 0; j < 4; j++)
             {
-
                 if (mode == "enabled")
                 {
                     values[i, j] = equip_slots[j].interactable;
@@ -196,7 +194,7 @@ public class inventory_correct : MonoBehaviour
 
             for (int j = 0; j < 4; j++)
             {
-                if (mode == 'F' || i > size)
+                if (mode == 'F')
                 {
                     equip_slots[j].isOn = false;
                     equip_slots[j].interactable = true;
@@ -341,11 +339,11 @@ public class inventory_correct : MonoBehaviour
         foreach(string item in inventory)
         {
             string[] values = item.Split(':');
-            if(type == 'A' && values[4] == " ")
+            if(type == 'A' && values[4] == "")
             {
                 type_items.Add(item);
             }
-            else if(type == 'W' && values[4] != " ")
+            else if(type == 'W' && values[4] != "")
             {
                 type_items.Add(item);
             }
