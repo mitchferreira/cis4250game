@@ -487,6 +487,19 @@ public class Battle : MonoBehaviour {
                             outputText.text += (initiativeReferenceArray[i] + " is stunned\n");
                             break;
                         }
+			if (initA.enemies[j].poison > 0)
+                        {
+                            initA.enemies[j].poison = initA.enemies[j].poison - 1;
+                            initA.enemies[j].health = initA.enemies[j].health - 2;
+                            outputText.text += (initiativeReferenceArray[i] + " took poison damage\n");
+                            if (initA.enemies[enemySelector].health <= 0)
+                            {
+                                initA.enemies[enemySelector].health = 0;
+                                numAliveEnemies = numAliveEnemies - 1;
+                                outputText.text += (initA.enemies[enemySelector].name + " has died\n");
+                                break;
+                            }
+                        }
 
                         outputText.text += (initiativeReferenceArray[i] + " attacks\n");
 
