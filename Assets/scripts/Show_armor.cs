@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class Show_armor : MonoBehaviour, IPointerClickHandler {
 
     string text;
+
+    int switches = 0;
     bool [] rotated = new bool[18];
 
     bool[,] weapons_equipped = new bool[30, 4];
@@ -18,6 +20,20 @@ public class Show_armor : MonoBehaviour, IPointerClickHandler {
     void set_Labels(string label_text)
     {
         GameObject.Find("Labels").GetComponent<Text>().text = label_text;
+    }
+
+    void set_starting_equipment()
+    {
+
+        for (int i = 0; i < 4; i++)
+        {
+            weapons_equipped[i, i] = true;
+            armor_equipped[i, i] = true;
+        }
+
+        inventory_correct.set_equip_slots(weapons_equipped, weapons_disabled, ' ');
+        inventory_correct.disable_all_radio_btns(false);
+        inventory_correct.disable_all_radio_btns(true);
     }
 
     bool[,] clear(bool [,] values, bool value)
@@ -35,10 +51,9 @@ public class Show_armor : MonoBehaviour, IPointerClickHandler {
     void reset_equips()
     {
         weapons_disabled = clear(weapons_disabled, true);
-        weapons_equipped = clear(weapons_equipped, false);
-
         armor_disabled = clear(armor_disabled, true);
-        armor_equipped = clear(armor_equipped, false);
+
+        set_starting_equipment();
     }
 
     void Start()
@@ -57,19 +72,6 @@ public class Show_armor : MonoBehaviour, IPointerClickHandler {
         }
     }
 
-    void print_arr(bool [,] arr)
-    {
-        for (int i = 0; i < 18; i++)
-        {
-            Debug.Log("column:" + i);
-            for (int j = 0; j < 4; j++)
-            {
-                Debug.Log("row:" + j);
-                Debug.Log(arr[i, j]);
-            }
-        }
-    }
-
     public void OnPointerClick(PointerEventData ped)
     {
         text = this.gameObject.transform.Find("Label").GetComponent<Text>().text;
@@ -85,6 +87,14 @@ public class Show_armor : MonoBehaviour, IPointerClickHandler {
 
             inventory_correct.set_equip_slots(null, null, 'F');
             inventory_correct.set_equip_slots(armor_equipped, armor_disabled, ' ');
+
+            //when it is set to armor for the first time, this is here so that the default equipped
+            //armor will grey out the other possible equipment slots. 
+            if (switches++ == 0)
+            {
+                inventory_correct.disable_all_radio_btns(false);
+                inventory_correct.disable_all_radio_btns(true);
+            }
         }
         else
         {
