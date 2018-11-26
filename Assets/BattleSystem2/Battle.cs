@@ -41,7 +41,8 @@ public class Battle : MonoBehaviour {
     public GameObject rogue_skill_panel;
     public GameObject wizard_skill_panel;
     public GameObject cleric_skill_panel;
-    public GameObject victory_panel;  
+    public GameObject victory_panel;
+    public GameObject defeated_panel;
 
     public SimpleHealthBar c1health;
     public SimpleHealthBar c2health;
@@ -100,10 +101,10 @@ public class Battle : MonoBehaviour {
         // define enemy goblin stats and abilities
         GoblinKing = Enemies.GobKing;
         Goblin = Enemies.Goblin;
-        
+
         GoblinKing.actions[0] = Enemies.LongswordAttack;
         Goblin.actions[0] = Enemies.SwordAttack;
-        
+
         // create a struct for all battle participants
         StructsClass.InitiativeArray initA;
         initA.characters = new StructsClass.Character[4];
@@ -131,13 +132,13 @@ public class Battle : MonoBehaviour {
 
 
     // this function is used in the main program to run actual battles against generated enemies
-    
+
         void Start() {
             GameObject player = GameObject.Find("player");
 
             StartCoroutine(simulateBattle(player.GetComponent<Movement>().players, player.GetComponent<Movement>().enemies));
         }
-        
+
     public void showSP(){
         // Add checking for skills based on level
         if(whoseTurnIsIt == 1){
@@ -214,14 +215,14 @@ public class Battle : MonoBehaviour {
         initiativeReferenceArray[2] = "Scott";
         initiativeReferenceArray[3] = "Mitchell";
 
-	    
+
 	if(initA.enemies[0].name == initA.enemies[1].name)
         {
             initA.enemies[0].name = initA.enemies[0].name + " 1";
             initA.enemies[1].name = initA.enemies[1].name + " 2";
         }
-	    
-	    
+
+
         for (i = 4; i < initiativeReferenceArray.Length; i++)
         {
             initiativeReferenceArray[i] = initA.enemies[j].name;
@@ -291,7 +292,7 @@ public class Battle : MonoBehaviour {
 
 
 
-        
+
         outputText.text = ("Beginning Battle.\n");
         outputText.text += ("The initiative order for the battle is:\n");
 
@@ -345,7 +346,7 @@ public class Battle : MonoBehaviour {
                             initA.characters[j].burn = initA.characters[j].burn - 1;
                             initA.characters[j].currentHealth = initA.characters[j].currentHealth - 2;
                             outputText.text = (initA.characters[j].name + " was burned.\n");
-				
+
 			    if(initA.characters[j].currentHealth <= 0)
                             {
                                 outputText.text += (initA.enemies[enemySelector].name + " has died\n");
@@ -501,7 +502,7 @@ public class Battle : MonoBehaviour {
                             }
                         }
 
-                        
+
                         dice = rand.Next(0, initA.enemies[j].actions.Length);
 
                         // calculate if the enemy hits
@@ -549,7 +550,7 @@ public class Battle : MonoBehaviour {
         if(numAliveEnemies == 0)
         {
             outputText.text += ("PLAYERS WIN\n");
-/*
+
             // give the player gold
             outputText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
             playerGold = playerGold + Calculations.calculateGold(initA.enemies);
@@ -568,11 +569,16 @@ public class Battle : MonoBehaviour {
 
             GameObject player = GameObject.Find("player");
             player.GetComponent<PartyScript>().LevelUpParty(initA.characters);
-*/
+
+            victory_panel.SetActive(true);
+            Debug.Log("WOOOOOOOO");
+            GameObject.Find("player").GetComponent<Movement>().encounteredEnemy.GetComponent<EnemyScript>().defeated = true;
+            GameObject.Find("_mysql").GetComponent<DatabaseHandler>().SaveGame();
         }
         // the enemies won
         else
         {
+            GameObject.Find("DefeatScreen").SetActive(true);
             outputText.text += ("ENEMIES WIN\n");
         }
     }

@@ -31,7 +31,7 @@ public class PartyScript : MonoBehaviour {
 
 	}
 
-	public void SetPartyMember(string name, int str, int dex, int con, int inte, int wis, int chr, int level, int hitDiceValue, int maxHealth, int currentHealth, string className, int member, int mp, int exp) {
+	public void SetPartyMember(string name, int str, int dex, int con, int inte, int wis, int chr, int level, int hitDiceValue, int maxHealth, int currentHealth, string className, int member, int mp, int exp, int currentMp) {
 		StructsClass.Character insertMember = Definitions.defineStartingWarrior(); // just to have some starting character
 		insertMember.name = name;
 		insertMember.str = str;
@@ -45,8 +45,9 @@ public class PartyScript : MonoBehaviour {
 		insertMember.maxHealth = maxHealth;
 		insertMember.currentHealth = currentHealth;
 		insertMember.charClass = className;
-		insertMember.magicPoints = mp;
+		insertMember.currentMagicPoints = mp;
 		insertMember.exp = exp;
+		insertMember.maxMagicPoints = currentMp;
 		members[member-1] = insertMember;
 	}
 
