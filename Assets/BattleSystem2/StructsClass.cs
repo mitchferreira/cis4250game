@@ -20,6 +20,7 @@ public class StructsClass : MonoBehaviour {
         public int hitDiceValue;
         public int maxHealth;
         public int currentHealth;
+        public int magicPoints;
         public int maxMagicPoints;
         public int currentMagicPoints;
 
