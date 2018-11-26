@@ -337,6 +337,12 @@ public class Battle : MonoBehaviour {
                             initA.characters[j].burn = initA.characters[j].burn - 1;
                             initA.characters[j].currentHealth = initA.characters[j].currentHealth - 2;
                             outputText.text = (initA.characters[j].name + " was burned.\n");
+				
+			    if(initA.characters[j].currentHealth <= 0)
+                            {
+                                outputText.text += (initA.enemies[enemySelector].name + " has died\n");
+                                break;
+                            }
                         }
 
 
@@ -380,7 +386,7 @@ public class Battle : MonoBehaviour {
                             }
 
                             // special action for the cleric's healing skill, as it involves a different function
-                            else if(playerAttack == 15)
+                            else if(playerAttack == 16)
                             {
                                 initA.characters = Calculations.CureWounds(initA.characters);
                             }
