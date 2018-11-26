@@ -214,6 +214,14 @@ public class Battle : MonoBehaviour {
         initiativeReferenceArray[2] = "Scott";
         initiativeReferenceArray[3] = "Mitchell";
 
+	    
+	if(initA.enemies[0].name == initA.enemies[1].name)
+        {
+            initA.enemies[0].name = initA.enemies[0].name + " 1";
+            initA.enemies[1].name = initA.enemies[1].name + " 2";
+        }
+	    
+	    
         for (i = 4; i < initiativeReferenceArray.Length; i++)
         {
             initiativeReferenceArray[i] = initA.enemies[j].name;
