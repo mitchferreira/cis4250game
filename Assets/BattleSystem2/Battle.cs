@@ -12,6 +12,7 @@ public class Battle : MonoBehaviour {
     public static int enemySelector = 0;
 
     public Text outputText;
+    public Text victoryOutputText;
 
     public Text victoryText;
     public Text healthBar1;
@@ -549,15 +550,14 @@ public class Battle : MonoBehaviour {
         // if the player won
         if(numAliveEnemies == 0)
         {
-            outputText.text += ("PLAYERS WIN\n");
+            Debug.Log("Winner");
+            victory_panel.SetActive(true);
 
             // give the player gold
-            outputText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
             playerGold = playerGold + Calculations.calculateGold(initA.enemies);
 
             // give the players experience points
             playerExp = Calculations.calculateExperience(initA.enemies);
-            outputText.text += ("You obtained " + playerExp + " experience points.\n");
 
             initA.characters[0].exp = initA.characters[0].exp + playerExp;
             initA.characters[1].exp = initA.characters[1].exp + playerExp;
@@ -570,15 +570,15 @@ public class Battle : MonoBehaviour {
             GameObject player = GameObject.Find("player");
             player.GetComponent<PartyScript>().LevelUpParty(initA.characters);
 
-            victory_panel.SetActive(true);
-            Debug.Log("WOOOOOOOO");
             GameObject.Find("player").GetComponent<Movement>().encounteredEnemy.GetComponent<EnemyScript>().defeated = true;
             GameObject.Find("_mysql").GetComponent<DatabaseHandler>().SaveGame();
+            victoryOutputText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
+            victoryOutputText.text += ("You obtained " + playerExp + " experience points.\n");
         }
         // the enemies won
         else
         {
-            GameObject.Find("DefeatScreen").SetActive(true);
+            defeated_panel.SetActive(true);
             outputText.text += ("ENEMIES WIN\n");
         }
     }
