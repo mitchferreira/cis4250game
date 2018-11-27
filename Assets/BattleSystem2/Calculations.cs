@@ -148,7 +148,10 @@ public class Calculations : MonoBehaviour
         }
         else
         {
-            battle.outputText.text += ("You Miss.\n");
+            if (attack.name != "Magic Missile")
+            {
+                battle.outputText.text += ("You Miss.\n");
+            }
             return 0;
         }
     }

@@ -6,6 +6,12 @@ TextureImporter:
     21300002: more_weapons_1
     21300004: more_weapons_2
     21300006: more_weapons_3
+    21300008: more_weapons_4
+    21300010: more_weapons_5
+    21300012: more_weapons_6
+    21300014: more_weapons_7
+    21300016: more_weapons_8
+    21300018: more_weapons_9
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -163,6 +169,126 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7facb56849e1343409a1f911d2356149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: more_weapons_4
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 120
+        width: 15
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b030f8f5e952d4fac1806bbb546527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: more_weapons_5
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 119
+        width: 17
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c111ad358557aff4cae75fa5e7ce40ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: more_weapons_6
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 197
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc712d6aa91da2e42b60822663d7bf7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: more_weapons_7
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 199
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe56581a39d9a24085c5116a14022df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: more_weapons_8
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 197
+        width: 17
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 162039b4c344ff6428d896b08f164c5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: more_weapons_9
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 198
+        width: 14
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dfe4d60570560f4eb85b7ce9542d4a1
       vertices: []
       indices: 
       edges: []
