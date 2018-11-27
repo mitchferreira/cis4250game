@@ -42,7 +42,7 @@ public class inventory_correct : MonoBehaviour
         {
             toggle_radio_btn(item_slot, "is_equipped_" + i, false);
         }
-        toggle_radio_btn(item_slot, "delete", false);
+        //toggle_radio_btn(item_slot, "delete", false);
     }
 
     public static void hide_item_slots(int start, int end)
@@ -352,6 +352,14 @@ public class inventory_correct : MonoBehaviour
         return type_items;
     }
 
+    void Start()
+    {
+        for(int i = 0; i < 18; i++)
+        {
+            GameObject.Find("slot_" + (i + 1)).GetComponentsInChildren<Toggle>()[4].enabled = false;
+        }
+    }
+
     //On Update
     void Update ()
     {
@@ -382,7 +390,7 @@ public class inventory_correct : MonoBehaviour
             {
                 toggle_radio_btn(slot, "is_equipped_" + j, true);
             }
-            toggle_radio_btn(slot, "delete", true);
+            //toggle_radio_btn(slot, "delete", true);
 
             string item;
             string [] values;
