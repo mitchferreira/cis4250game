@@ -339,11 +339,13 @@ public class inventory_correct : MonoBehaviour
         foreach(string item in inventory)
         {
             string[] values = item.Split(':');
-            if(type == 'A' && values[4] == "")
+
+            bool isNotWhiteSpace = string.IsNullOrWhiteSpace(values[4]);
+            if(type == 'A' && isNotWhiteSpace == false)
             {
                 type_items.Add(item);
             }
-            else if(type == 'W' && values[4] != "")
+            else if(type == 'W' && isNotWhiteSpace == true)
             {
                 type_items.Add(item);
             }
