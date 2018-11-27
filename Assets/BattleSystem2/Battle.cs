@@ -63,6 +63,11 @@ public class Battle : MonoBehaviour {
     public SimpleHealthBar c3MP;
     public SimpleHealthBar c4MP;
 
+    public Image warImage;
+    public Image rogImage;
+    public Image wizImage;
+    public Image cleImage;
+
 
     public static int whoseTurnIsIt;
 
@@ -425,6 +430,9 @@ public class Battle : MonoBehaviour {
                     c3magic.text = initA.characters[2].currentMagicPoints + "/" + initA.characters[2].maxMagicPoints;
                     c4magic.text = initA.characters[3].currentMagicPoints + "/" + initA.characters[3].maxMagicPoints;
 
+                    
+                    
+
                     // if it is that player character's turn and they are not dead, commence their turn
                     if ((initA.characters[j].name == initiativeReferenceArray[i]) && (initA.characters[j].currentHealth != 0))
                     {
@@ -646,6 +654,18 @@ public class Battle : MonoBehaviour {
                                 initA.characters[enemySelector].currentHealth = 0;
                                 numAlivePlayers = numAlivePlayers - 1;
                                 outputText.text += (initA.characters[enemySelector].name + " has died\n");
+                                /*if(initA.characters[enemySelector].charClass == "Warrior"){
+                                    warImage.gameObject.SetActive(false);
+                                }else if(initA.characters[enemySelector].charClass == "Rogue"){
+                                    rogImage.gameObject.SetActive(false);
+                                }else if(initA.characters[enemySelector].charClass == "Wizard"){
+                                    wizImage.gameObject.SetActive(false);
+                                }else if(initA.characters[enemySelector].charClass == "Cleric"){
+                                    cleImage.gameObject.SetActive(false);
+                                }*/
+
+                                
+                            
                             }
                         }
 
