@@ -893,6 +893,21 @@ Prefab:
       propertyPath: m_Name
       value: chest (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_name
+      value: Chainmail
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_mod
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_type
+      value: none
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
   m_IsPrefabAsset: 0
@@ -978,6 +993,21 @@ Prefab:
     - target: {fileID: 1945062983128778, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
       propertyPath: m_Name
       value: chest (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_name
+      value: Chainmail
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_mod
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_type
+      value: none
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
