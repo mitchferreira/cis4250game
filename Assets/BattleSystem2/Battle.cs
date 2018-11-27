@@ -12,6 +12,7 @@ public class Battle : MonoBehaviour {
     public static int enemySelector = 0;
 
     public Text outputText;
+    public Text victoryOutputText;
 
     public Text victoryText;
     public Text healthBar1;
@@ -23,7 +24,7 @@ public class Battle : MonoBehaviour {
     public Text c2magic;
     public Text c3magic;
     public Text c4magic;
- 
+
     public Button warriorSkill1;
     public Button warriorSkill2;
     public Button warriorSkill3;
@@ -51,7 +52,8 @@ public class Battle : MonoBehaviour {
     public GameObject rogue_skill_panel;
     public GameObject wizard_skill_panel;
     public GameObject cleric_skill_panel;
-    public GameObject victory_panel;  
+    public GameObject victory_panel;
+    public GameObject defeated_panel;
 
     public SimpleHealthBar c1health;
     public SimpleHealthBar c2health;
@@ -66,7 +68,7 @@ public class Battle : MonoBehaviour {
 
     public static int whoseTurnIsIt;
 
-    
+
 
 
     /*
@@ -118,10 +120,10 @@ public class Battle : MonoBehaviour {
         // define enemy goblin stats and abilities
         GoblinKing = Enemies.GobKing;
         Goblin = Enemies.Goblin;
-        
+
         GoblinKing.actions[0] = Enemies.LongswordAttack;
         Goblin.actions[0] = Enemies.SwordAttack;
-        
+
         // create a struct for all battle participants
         StructsClass.InitiativeArray initA;
         initA.characters = new StructsClass.Character[4];
@@ -149,12 +151,12 @@ public class Battle : MonoBehaviour {
 
 
     // this function is used in the main program to run actual battles against generated enemies
-    
+
         void Start() {
-            GameObject player = GameObject.Find("player");  
+            GameObject player = GameObject.Find("player");
             StartCoroutine(simulateBattle(player.GetComponent<Movement>().players, player.GetComponent<Movement>().enemies));
         }
-        
+
     public void showSP(){
 
         // Add checking for skills based on level
@@ -203,8 +205,8 @@ public class Battle : MonoBehaviour {
 
         whoseTurnIsIt = 0;
 
-        
-        
+
+
         // create a struct containing all battle participants
         StructsClass.InitiativeArray initA;
         initA.characters = new StructsClass.Character[4];
@@ -213,7 +215,7 @@ public class Battle : MonoBehaviour {
         // create variables to check if all enemies are dead or if the player is
         int numAlivePlayers = initA.characters.Length;
         int numAliveEnemies = initA.enemies.Length;
-        
+
         System.Random rand = new System.Random();
 
         // assign the participants to the struct
@@ -315,14 +317,14 @@ public class Battle : MonoBehaviour {
 
 
 
-	    
+
 	if(initA.enemies[0].name == initA.enemies[1].name)
         {
             initA.enemies[0].name = initA.enemies[0].name + " 1";
             initA.enemies[1].name = initA.enemies[1].name + " 2";
         }
-	    
-	    
+
+
         for (i = 4; i < initiativeReferenceArray.Length; i++)
         {
             initiativeReferenceArray[i] = initA.enemies[j].name;
@@ -386,7 +388,7 @@ public class Battle : MonoBehaviour {
 
 
 
-        
+
         outputText.text = ("Beginning Battle.\n");
         outputText.text += ("The initiative order for the battle is:\n");
 
@@ -450,7 +452,7 @@ public class Battle : MonoBehaviour {
                             initA.characters[j].burn = initA.characters[j].burn - 1;
                             initA.characters[j].currentHealth = initA.characters[j].currentHealth - 2;
                             outputText.text = (initA.characters[j].name + " was burned.\n");
-				
+
 			    if(initA.characters[j].currentHealth <= 0)
                             {
                                 outputText.text += (initA.enemies[enemySelector].name + " has died\n");
@@ -512,10 +514,10 @@ public class Battle : MonoBehaviour {
                             flag = 0;
                             while (flag == 0)
                             {
-				    
-				    
-				    
-				    
+
+
+
+
 				// the player decided to block
                                 if (playerAttack == 0)
                                 {
@@ -539,7 +541,7 @@ public class Battle : MonoBehaviour {
 
                                 else if ((playerAttack == 3) || (playerAttack == 7))
                                 {
-                                    
+
                                     damage = Calculations.DeterminePlayerAction(playerAttack, initA.characters[j], initA.enemies[enemySelector]);
                                     if (damage != 1)
                                     {
@@ -559,15 +561,15 @@ public class Battle : MonoBehaviour {
 
                                     flag = 1;
                                 }
-				    
-				    
-				    
-				    
-				    
-				    
-				    
-				    
-				    
+
+
+
+
+
+
+
+
+
                                 // causes the loop
                                 yield return null;
 
@@ -675,7 +677,7 @@ public class Battle : MonoBehaviour {
                             }
                         }
 
-                        
+
                         dice = rand.Next(0, initA.enemies[j].actions.Length);
 
                         // calculate if the enemy hits
@@ -730,17 +732,15 @@ public class Battle : MonoBehaviour {
         // if the player won
         if(numAliveEnemies == 0)
         {
-            outputText.text += ("PLAYERS WIN\n");
+            victory_panel.SetActive(true);
             enemyOne.gameObject.SetActive(false);
             enemyTwo.gameObject.SetActive(false);
 
             // give the player gold
-            outputText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
             playerGold = playerGold + Calculations.calculateGold(initA.enemies);
 
             // give the players experience points
             playerExp = Calculations.calculateExperience(initA.enemies);
-            outputText.text += ("You obtained " + playerExp + " experience points.\n");
 
             initA.characters[0].exp = initA.characters[0].exp + playerExp;
             initA.characters[1].exp = initA.characters[1].exp + playerExp;
@@ -753,10 +753,15 @@ public class Battle : MonoBehaviour {
             GameObject player = GameObject.Find("player");
             player.GetComponent<PartyScript>().LevelUpParty(initA.characters);
 
+            GameObject.Find("player").GetComponent<Movement>().encounteredEnemy.GetComponent<EnemyScript>().defeated = true;
+            GameObject.Find("_mysql").GetComponent<DatabaseHandler>().SaveGame();
+            victoryOutputText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
+            victoryOutputText.text += ("You obtained " + playerExp + " experience points.\n");
         }
         // the enemies won
         else
         {
+            defeated_panel.SetActive(true);
             outputText.text += ("ENEMIES WIN\n");
         }
     }
