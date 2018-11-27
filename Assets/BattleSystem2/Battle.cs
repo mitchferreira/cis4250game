@@ -732,6 +732,8 @@ public class Battle : MonoBehaviour {
         // if the player won
         if(numAliveEnemies == 0)
         {
+            Debug.Log(GameObject.Find("player").GetComponent<Movement>().enemies[0].name);
+            Debug.Log(GameObject.Find("player").GetComponent<Movement>().enemies[1].name);
             victory_panel.SetActive(true);
             enemyOne.gameObject.SetActive(false);
             enemyTwo.gameObject.SetActive(false);
