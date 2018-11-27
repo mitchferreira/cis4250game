@@ -781,7 +781,7 @@ public class Battle : MonoBehaviour {
             victoryOutputText.text += ("You obtained " + playerExp + " experience points.\n");
         }
         // the enemies won
-        else
+        else if ((initA.characters[0].currentHealth == 0) && (initA.characters[1].currentHealth == 0) && (initA.characters[2].currentHealth == 0) && (initA.characters[3].currentHealth == 0))
         {
             defeated_panel.SetActive(true);
             outputText.text += ("ENEMIES WIN\n");
