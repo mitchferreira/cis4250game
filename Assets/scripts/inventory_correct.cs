@@ -356,10 +356,6 @@ public class inventory_correct : MonoBehaviour
 
     void Start()
     {
-        for(int i = 0; i < 18; i++)
-        {
-            GameObject.Find("slot_" + (i + 1)).GetComponentsInChildren<Toggle>()[4].enabled = false;
-        }
     }
 
     //On Update
