@@ -177,7 +177,6 @@ public class Battle : MonoBehaviour {
         }
         
     public void showSP(){
-
         // Add checking for skills based on level
         if(whoseTurnIsIt == 1){
             Debug.Log("warrior");
@@ -206,6 +205,21 @@ public class Battle : MonoBehaviour {
         }
 		//skills_panel.SetActive(true);
 	}
+    public void hideWarSP(){
+        warrior_skill_panel.SetActive(false);
+    }
+
+    public void hideRogSP(){
+        rogue_skill_panel.SetActive(false);
+    }
+
+    public void hideWizSP(){
+        wizard_skill_panel.SetActive(false);
+    }
+
+    public void hideCleSP(){
+        cleric_skill_panel.SetActive(false);
+    }
 
     public void hideSkills(){
             warrior_skill_panel.SetActive(false);
