@@ -64,6 +64,7 @@ public class InGameMenu : MonoBehaviour {
 			Text wis = GameObject.Find("member" + i + "Wis").GetComponent<Text>();
 			Text chr = GameObject.Find("member" + i + "Chr").GetComponent<Text>();
 			Text hit = GameObject.Find("member" + i + "HitDiceValue").GetComponent<Text>();
+			Text maxMp = GameObject.Find("member" + i + "MaxMp").GetComponent<Text>();
 			name.text = member.name.ToString();
 			charClass.text = member.charClass.ToString();
 			level.text = member.level.ToString();
@@ -78,6 +79,7 @@ public class InGameMenu : MonoBehaviour {
 			wis.text = member.wis.ToString();
 			chr.text = member.chr.ToString();
 			hit.text = member.hitDiceValue.ToString();
+			maxMp.text = member.maxMagicPoints.ToString();
 			i++;
 		}
 	}

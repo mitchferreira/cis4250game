@@ -42,7 +42,7 @@ public class inventory_correct : MonoBehaviour
         {
             toggle_radio_btn(item_slot, "is_equipped_" + i, false);
         }
-        toggle_radio_btn(item_slot, "delete", false);
+        //toggle_radio_btn(item_slot, "delete", false);
     }
 
     public static void hide_item_slots(int start, int end)
@@ -336,20 +336,44 @@ public class inventory_correct : MonoBehaviour
     {
         List<string> type_items = new List<string>();
 
+        
         foreach(string item in inventory)
         {
+            int total_dmg = 0;
             string[] values = item.Split(':');
-            if(type == 'A' && values[4] == "")
+
+            if (values[3] != "" && values[4] != "")
             {
+                Debug.Log(values[3]);
+                Debug.Log(values[4]);
+                total_dmg = char_to_int(values[3][0]) + char_to_int(values[4][0]);
+                Debug.Log(total_dmg);
+            }
+
+            Debug.Log(total_dmg);
+            if(type == 'A' && (total_dmg == 0 || values[3] == ""))
+            {
+                Debug.Log("Added as armor");
+                Debug.Log(values[0]);
+                Debug.Log(values[1]);
+                Debug.Log(values[4]);
                 type_items.Add(item);
             }
-            else if(type == 'W' && values[4] != "")
+            else if(type == 'W' && total_dmg != 0)
             {
+                Debug.Log("Added as weapon");
+                Debug.Log(values[0]);
+                Debug.Log(values[1]);
+                Debug.Log(values[4]);
                 type_items.Add(item);
             }
         }
 
         return type_items;
+    }
+
+    void Start()
+    {
     }
 
     //On Update
@@ -382,7 +406,7 @@ public class inventory_correct : MonoBehaviour
             {
                 toggle_radio_btn(slot, "is_equipped_" + j, true);
             }
-            toggle_radio_btn(slot, "delete", true);
+            //toggle_radio_btn(slot, "delete", true);
 
             string item;
             string [] values;
@@ -413,8 +437,13 @@ public class inventory_correct : MonoBehaviour
             string modifier;
             if (is_armor != true)
             {
-                int min = char_to_int(values[3][0]);
-                int max = char_to_int(values[4][0]);
+                int min = 0;
+                int max = 0;
+                if (values[3] != "" && values[4] != "")
+                {
+                    min = char_to_int(values[3][0]);
+                    max = char_to_int(values[4][0]);
+                }
 
                 if (min > 1)
                 {

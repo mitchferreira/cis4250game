@@ -625,6 +625,21 @@ Prefab:
       propertyPath: m_Name
       value: chest (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_name
+      value: Mythril Armor
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_mod
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_type
+      value: none
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
   m_IsPrefabAsset: 0
@@ -1171,6 +1186,31 @@ Prefab:
       propertyPath: m_Name
       value: chest (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_name
+      value: Mythril Mace
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_mod
+      value: strength
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_type
+      value: bashing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_num
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_type
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
   m_IsPrefabAsset: 0
@@ -1347,6 +1387,21 @@ Prefab:
     - target: {fileID: 1945062983128778, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
       propertyPath: m_Name
       value: chest (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_name
+      value: Mythril Armor
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_mod
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_type
+      value: none
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
@@ -1671,6 +1726,31 @@ Prefab:
     - target: {fileID: 1945062983128778, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
       propertyPath: m_Name
       value: chest (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_name
+      value: Mythril Dagger
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_mod
+      value: dexterity
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_type
+      value: piercing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_num
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_type
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
@@ -2275,6 +2355,31 @@ Prefab:
       propertyPath: m_Name
       value: chest (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_name
+      value: Wizard Staff
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_mod
+      value: strength
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_type
+      value: bashing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_num
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_type
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
   m_IsPrefabAsset: 0
@@ -2734,6 +2839,31 @@ Prefab:
     - target: {fileID: 1945062983128778, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}
       propertyPath: m_Name
       value: chest (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_name
+      value: Mythril Longsword
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_mod
+      value: strength
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: item_type
+      value: slashing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_num
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241332810293582, guid: d96dfd61801c64875ae9f9b737898caf,
+        type: 2}
+      propertyPath: dice_type
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96dfd61801c64875ae9f9b737898caf, type: 2}

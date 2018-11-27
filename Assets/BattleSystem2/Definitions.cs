@@ -18,6 +18,7 @@ public class Definitions : MonoBehaviour
     public void Update()
     {
         battle.outputText = GameObject.Find("BattleText").GetComponent<Text>();
+        // battle.outputText = GameObject.Find("ictoryOutputText)
     }
 
     public static StructsClass.Character defineStartingWarrior()

@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour {
 
     string weapon_to_str(StructsClass.Weapon w)
     {
-        return w.name + ":" + w.modifier + ":" + w.damageType + ":" + 
+        return w.name + ":" + w.modifier + ":" + w.damageType + ":" +
             w.numOfDice + ":" + w.diceType + ":False";
     }
 
@@ -43,7 +43,7 @@ public class PlayerScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        foreach(StructsClass.Character character in 
+        foreach(StructsClass.Character character in
             GameObject.Find("player").GetComponent<PartyScript>().members.ToArray())
         {
             items.Add(weapon_to_str(character.weapon));
@@ -65,7 +65,7 @@ public class PlayerScript : MonoBehaviour {
     void Update()
     {
         /*to move around the player*/
-        if (Input.anyKey && frame++ % speed == 0)
+        if (Input.anyKey && frame++ % speed == 0 && SceneManager.GetActiveScene().name != "menu" && !SceneManager.GetSceneByName("BattleUI").isLoaded && SceneManager.GetActiveScene().name != "dbscene")
         {
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
