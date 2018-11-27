@@ -54,6 +54,7 @@ public class Battle : MonoBehaviour {
     public GameObject cleric_skill_panel;
     public GameObject victory_panel;
     public GameObject defeated_panel;
+    public GameObject victory_text_container;
 
     public SimpleHealthBar c1health;
     public SimpleHealthBar c2health;
@@ -507,8 +508,8 @@ public class Battle : MonoBehaviour {
                     c3magic.text = initA.characters[2].currentMagicPoints + "/" + initA.characters[2].maxMagicPoints;
                     c4magic.text = initA.characters[3].currentMagicPoints + "/" + initA.characters[3].maxMagicPoints;
 
-                    
-                    
+
+
 
                     // if it is that player character's turn and they are not dead, commence their turn
                     if ((initA.characters[j].name == initiativeReferenceArray[i]) && (initA.characters[j].currentHealth != 0))
@@ -797,8 +798,8 @@ public class Battle : MonoBehaviour {
                                     cleImage.gameObject.SetActive(false);
                                 }*/
 
-                                
-                            
+
+
                             }
                         }
 
@@ -830,6 +831,7 @@ public class Battle : MonoBehaviour {
             Debug.Log(GameObject.Find("player").GetComponent<Movement>().enemies[0].name);
             Debug.Log(GameObject.Find("player").GetComponent<Movement>().enemies[1].name);
             victory_panel.SetActive(true);
+            victory_text_container.transform.position = new Vector3(250, 180, 0);
             enemyOne.gameObject.SetActive(false);
             enemyTwo.gameObject.SetActive(false);
 
