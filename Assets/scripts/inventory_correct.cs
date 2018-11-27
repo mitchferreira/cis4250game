@@ -336,21 +336,28 @@ public class inventory_correct : MonoBehaviour
     {
         List<string> type_items = new List<string>();
 
+        int total_dmg;
         foreach(string item in inventory)
         {
             string[] values = item.Split(':');
 
-            bool isNotWhiteSpace = string.IsNullOrWhiteSpace(values[4]);
-            if(type == 'A' && isNotWhiteSpace == false)
+            total_dmg = char_to_int(values[3][0]) + char_to_int(values[4][0]);
+
+            if(type == 'A' && (total_dmg == 0 || values[4] == ""))
             {
+                Debug.Log("0:" + values[0]);
+                Debug.Log("1:" + values[1]);
+                Debug.Log("4:" + values[4]);
                 type_items.Add(item);
             }
-            else if(type == 'W' && isNotWhiteSpace == true)
+            else if(type == 'W' && total_dmg != 0)
             {
+                Debug.Log("0:" + values[0]);
+                Debug.Log("1:" + values[1]);
+                Debug.Log("4:" + values[4]);
                 type_items.Add(item);
             }
         }
-
         return type_items;
     }
 
