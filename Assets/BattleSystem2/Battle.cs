@@ -70,6 +70,22 @@ public class Battle : MonoBehaviour {
     public Image wizImage;
     public Image cleImage;
 
+    public Image Enemy1Model;
+    public Image Enemy2Model;
+    public Image BossModel;
+
+    public Sprite Goblin;
+    public Sprite Hobgoblin;
+    public Sprite Ghast;
+    public Sprite HeckHound;
+    public Sprite Minotaur;
+    public Sprite Nightmare;
+    public Sprite Boss1;
+    public Sprite Boss2;
+    public Sprite Boss3;
+
+
+
 
     public static int whoseTurnIsIt;
 
@@ -163,7 +179,6 @@ public class Battle : MonoBehaviour {
         }
 
     public void showSP(){
-
         // Add checking for skills based on level
         if(whoseTurnIsIt == 1){
             Debug.Log("warrior");
@@ -192,6 +207,21 @@ public class Battle : MonoBehaviour {
         }
 		//skills_panel.SetActive(true);
 	}
+    public void hideWarSP(){
+        warrior_skill_panel.SetActive(false);
+    }
+
+    public void hideRogSP(){
+        rogue_skill_panel.SetActive(false);
+    }
+
+    public void hideWizSP(){
+        wizard_skill_panel.SetActive(false);
+    }
+
+    public void hideCleSP(){
+        cleric_skill_panel.SetActive(false);
+    }
 
     public void hideSkills(){
             warrior_skill_panel.SetActive(false);
@@ -243,6 +273,51 @@ public class Battle : MonoBehaviour {
 
         Enemy1.text = initA.enemies[0].name;
         Enemy2.text = initA.enemies[1].name;
+
+        Debug.Log(GameObject.Find("player").GetComponent<Movement>().enemies[0].name);
+        Debug.Log(GameObject.Find("player").GetComponent<Movement>().enemies[1].name);
+
+        if(initA.enemies[0].name == "Goblin" || initA.enemies[0].name == "Goblin 1" || initA.enemies[0].name == "Goblin 2"){
+            Enemy1Model.sprite = Goblin;
+        }else if(initA.enemies[0].name == "Hobgoblin" || initA.enemies[0].name == "Hobgoblin 1" || initA.enemies[0].name == "Hobgoblin 2"){
+            Enemy1Model.sprite = Hobgoblin;
+        }else if(initA.enemies[0].name == "Ghast"|| initA.enemies[0].name == "Ghast 1" || initA.enemies[0].name == "Ghast 2"){
+            Enemy1Model.sprite = Ghast;
+        }else if(initA.enemies[0].name == "Heck Hound" || initA.enemies[0].name == "Heck Hound 1" || initA.enemies[0].name == "Heck Hound 2"){
+            Enemy1Model.sprite = HeckHound;
+        }else if(initA.enemies[0].name == "Minotaur Skeleton" || initA.enemies[0].name == "Minotaur Skeleton 1" || initA.enemies[0].name == "Minotaur Skeleton 2"){
+            Enemy1Model.sprite = Minotaur;
+        }else if(initA.enemies[0].name == "Night-mare" || initA.enemies[0].name == "Night-mare 1" || initA.enemies[0].name == "Night-mare 2"){
+            Enemy1Model.sprite = Nightmare;
+        }else if(initA.enemies[0].name == "Yeemik, The Goblin King"){
+            BossModel.gameObject.SetActive(true);
+            Enemy1Model.gameObject.SetActive(false);
+            BossModel.sprite = Boss1; 
+        }else if(initA.enemies[0].name == "The White Wight"){
+            BossModel.gameObject.SetActive(true);
+            Enemy1Model.gameObject.SetActive(false);
+            BossModel.sprite = Boss2; 
+        }else if(initA.enemies[0].name == "Lord of Fire and Flames"){
+            BossModel.gameObject.SetActive(true);
+            Enemy1Model.gameObject.SetActive(false);
+            BossModel.sprite = Boss3; 
+        }
+
+        if(initA.enemies[1].name == "Goblin" || initA.enemies[1].name == "Goblin 1" || initA.enemies[1].name == "Goblin 2"){
+            Enemy2Model.sprite = Goblin;
+        }else if(initA.enemies[1].name == "Hobgoblin" || initA.enemies[1].name == "Hobgoblin 1" || initA.enemies[1].name == "Hobgoblin 2"){
+            Enemy2Model.sprite = Hobgoblin;
+        }else if(initA.enemies[1].name == "Ghast"|| initA.enemies[1].name == "Ghast 1" || initA.enemies[1].name == "Ghast 2"){
+            Enemy2Model.sprite = Ghast;
+        }else if(initA.enemies[1].name == "Heck Hound" || initA.enemies[1].name == "Heck Hound 1" || initA.enemies[1].name == "Heck Hound 2"){
+            Enemy2Model.sprite = HeckHound;
+        }else if(initA.enemies[1].name == "Minotaur Skeleton" || initA.enemies[1].name == "Minotaur Skeleton 1" || initA.enemies[1].name == "Minotaur Skeleton 2"){
+            Enemy2Model.sprite = Minotaur;
+        }else if(initA.enemies[1].name == "Night-mare" || initA.enemies[1].name == "Night-mare 1" || initA.enemies[1].name == "Night-mare 2"){
+            Enemy2Model.sprite = Nightmare;
+        }
+
+
 
         if(initA.characters[0].level == 1){
             warriorSkill1.gameObject.SetActive(true);
