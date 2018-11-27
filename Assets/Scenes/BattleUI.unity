@@ -3357,6 +3357,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack_panel: {fileID: 1369971086}
   character: {fileID: 0}
+  pos: {x: 0, y: 0}
+  hasMoved: 0
+  frames: 0
 --- !u!114 &770575607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3435,6 +3438,10 @@ MonoBehaviour:
   c2MP: {fileID: 1181348337}
   c3MP: {fileID: 426309160}
   c4MP: {fileID: 1121798025}
+  warImage: {fileID: 1602854955}
+  rogImage: {fileID: 1553167181}
+  wizImage: {fileID: 871420142}
+  cleImage: {fileID: 966034851}
 --- !u!114 &770575610
 MonoBehaviour:
   m_ObjectHideFlags: 0
