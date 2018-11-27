@@ -30,7 +30,7 @@ public class ChestScript : MonoBehaviour {
             case "Steel Mace": sprite = "more_weapons_4"; break;
             case "Mythril Longsword": sprite = "more_weapons_9"; break;
             case "Mythril Dagger": sprite = "more_weapons_7"; break;
-            case "Mythril Mace": sprite = "more_Weapons_5"; break;
+            case "Mythril Mace": sprite = "more_weapons_5"; break;
             case "Oak Staff": sprite = "staffs_0"; break;
             case "Mahogany Staff": sprite = "staffs_10"; break;
             case "Wizard Staff": sprite = "staffs_7"; break;
