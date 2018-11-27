@@ -19,7 +19,11 @@ public class Battle : MonoBehaviour {
     public Text healthBar3;
     public Text healthBar4;
 
-
+    public Text c1magic;
+    public Text c2magic;
+    public Text c3magic;
+    public Text c4magic;
+ 
     public Button warriorSkill1;
     public Button warriorSkill2;
     public Button warriorSkill3;
@@ -37,6 +41,12 @@ public class Battle : MonoBehaviour {
     public Button clericSkill2;
     public Button clericSkill3;
 
+    public Button enemyOne;
+    public Button enemyTwo;
+
+    public Text Enemy1;
+    public Text Enemy2;
+
 	public GameObject warrior_skill_panel;
     public GameObject rogue_skill_panel;
     public GameObject wizard_skill_panel;
@@ -48,7 +58,15 @@ public class Battle : MonoBehaviour {
     public SimpleHealthBar c3health;
     public SimpleHealthBar c4health;
 
+    public SimpleHealthBar c1MP;
+    public SimpleHealthBar c2MP;
+    public SimpleHealthBar c3MP;
+    public SimpleHealthBar c4MP;
+
+
     public static int whoseTurnIsIt;
+
+    
 
 
     /*
@@ -133,12 +151,12 @@ public class Battle : MonoBehaviour {
     // this function is used in the main program to run actual battles against generated enemies
     
         void Start() {
-            GameObject player = GameObject.Find("player");
-
+            GameObject player = GameObject.Find("player");  
             StartCoroutine(simulateBattle(player.GetComponent<Movement>().players, player.GetComponent<Movement>().enemies));
         }
         
     public void showSP(){
+
         // Add checking for skills based on level
         if(whoseTurnIsIt == 1){
             Debug.Log("warrior");
@@ -185,6 +203,8 @@ public class Battle : MonoBehaviour {
 
         whoseTurnIsIt = 0;
 
+        
+        
         // create a struct containing all battle participants
         StructsClass.InitiativeArray initA;
         initA.characters = new StructsClass.Character[4];
@@ -193,7 +213,7 @@ public class Battle : MonoBehaviour {
         // create variables to check if all enemies are dead or if the player is
         int numAlivePlayers = initA.characters.Length;
         int numAliveEnemies = initA.enemies.Length;
-
+        
         System.Random rand = new System.Random();
 
         // assign the participants to the struct
@@ -213,6 +233,87 @@ public class Battle : MonoBehaviour {
         initiativeReferenceArray[1] = "Joseph";
         initiativeReferenceArray[2] = "Scott";
         initiativeReferenceArray[3] = "Mitchell";
+
+        Enemy1.text = initA.enemies[0].name;
+        Enemy2.text = initA.enemies[1].name;
+
+        if(initA.characters[0].level == 1){
+            warriorSkill1.gameObject.SetActive(true);
+            warriorSkill2.gameObject.SetActive(true);
+            warriorSkill3.gameObject.SetActive(false);
+            warriorSkill4.gameObject.SetActive(false);
+
+        }else if(initA.characters[0].level == 2){
+            warriorSkill1.gameObject.SetActive(true);
+            warriorSkill2.gameObject.SetActive(true);
+            warriorSkill3.gameObject.SetActive(true);
+            warriorSkill4.gameObject.SetActive(false);
+
+        }else if(initA.characters[0].level == 3){
+            warriorSkill1.gameObject.SetActive(true);
+            warriorSkill2.gameObject.SetActive(true);
+            warriorSkill3.gameObject.SetActive(true);
+            warriorSkill4.gameObject.SetActive(true);
+        }
+
+        if(initA.characters[1].level == 1){
+            rogueSkill1.gameObject.SetActive(true);
+            rogueSkill2.gameObject.SetActive(true);
+            rogueSkill3.gameObject.SetActive(false);
+            rogueSkill4.gameObject.SetActive(false);
+
+        }else if(initA.characters[1].level == 2){
+            rogueSkill1.gameObject.SetActive(true);
+            rogueSkill2.gameObject.SetActive(true);
+            rogueSkill3.gameObject.SetActive(true);
+            rogueSkill4.gameObject.SetActive(false);
+
+        }else if(initA.characters[1].level == 3){
+            rogueSkill1.gameObject.SetActive(true);
+            rogueSkill2.gameObject.SetActive(true);
+            rogueSkill3.gameObject.SetActive(true);
+            rogueSkill4.gameObject.SetActive(true);
+        }
+
+        if(initA.characters[2].level == 1){
+            wizardSkill1.gameObject.SetActive(true);
+            wizardSkill2.gameObject.SetActive(true);
+            wizardSkill3.gameObject.SetActive(true);
+            wizardSkill4.gameObject.SetActive(false);
+            wizardSkill5.gameObject.SetActive(false);
+
+        }else if(initA.characters[2].level == 2){
+            wizardSkill1.gameObject.SetActive(true);
+            wizardSkill2.gameObject.SetActive(true);
+            wizardSkill3.gameObject.SetActive(true);
+            wizardSkill4.gameObject.SetActive(true);
+            wizardSkill5.gameObject.SetActive(false);
+
+        }else if(initA.characters[2].level == 3){
+            wizardSkill1.gameObject.SetActive(true);
+            wizardSkill2.gameObject.SetActive(true);
+            wizardSkill3.gameObject.SetActive(true);
+            wizardSkill4.gameObject.SetActive(true);
+            wizardSkill5.gameObject.SetActive(true);
+        }
+
+        if(initA.characters[3].level == 1){
+            clericSkill1.gameObject.SetActive(true);
+            clericSkill2.gameObject.SetActive(true);
+            clericSkill3.gameObject.SetActive(false);
+
+        }else if(initA.characters[3].level == 2){
+            clericSkill1.gameObject.SetActive(true);
+            clericSkill2.gameObject.SetActive(true);
+            clericSkill3.gameObject.SetActive(false);
+
+        }else if(initA.characters[3].level == 3){
+            clericSkill1.gameObject.SetActive(true);
+            clericSkill2.gameObject.SetActive(true);
+            clericSkill3.gameObject.SetActive(true);
+        }
+
+
 
 	    
 	if(initA.enemies[0].name == initA.enemies[1].name)
@@ -285,12 +386,6 @@ public class Battle : MonoBehaviour {
 
 
 
-
-
-
-
-
-
         
         outputText.text = ("Beginning Battle.\n");
         outputText.text += ("The initiative order for the battle is:\n");
@@ -319,6 +414,16 @@ public class Battle : MonoBehaviour {
                     c2health.UpdateBar(initA.characters[1].currentHealth, initA.characters[1].maxHealth);
                     c3health.UpdateBar(initA.characters[2].currentHealth, initA.characters[2].maxHealth);
                     c4health.UpdateBar(initA.characters[3].currentHealth, initA.characters[3].maxHealth);
+
+                    c1MP.UpdateBar(initA.characters[0].currentMagicPoints, initA.characters[0].maxMagicPoints);
+                    c2MP.UpdateBar(initA.characters[1].currentMagicPoints, initA.characters[1].maxMagicPoints);
+                    c3MP.UpdateBar(initA.characters[2].currentMagicPoints, initA.characters[2].maxMagicPoints);
+                    c4MP.UpdateBar(initA.characters[3].currentMagicPoints, initA.characters[3].maxMagicPoints);
+
+                    c1magic.text = initA.characters[0].currentMagicPoints + "/" + initA.characters[0].maxMagicPoints;
+                    c2magic.text = initA.characters[1].currentMagicPoints + "/" + initA.characters[1].maxMagicPoints;
+                    c3magic.text = initA.characters[2].currentMagicPoints + "/" + initA.characters[2].maxMagicPoints;
+                    c4magic.text = initA.characters[3].currentMagicPoints + "/" + initA.characters[3].maxMagicPoints;
 
                     // if it is that player character's turn and they are not dead, commence their turn
                     if ((initA.characters[j].name == initiativeReferenceArray[i]) && (initA.characters[j].currentHealth != 0))
@@ -610,6 +715,14 @@ public class Battle : MonoBehaviour {
                 {
                     break;
                 }
+            if(initA.enemies[0].health <= 0){
+                Debug.Log("DIE1");
+                enemyOne.gameObject.SetActive(false);
+            }
+            if(initA.enemies[1].health <= 0){
+                Debug.Log("DIE2");
+                enemyTwo.gameObject.SetActive(false);
+            }
 
             }
         }
@@ -618,6 +731,8 @@ public class Battle : MonoBehaviour {
         if(numAliveEnemies == 0)
         {
             outputText.text += ("PLAYERS WIN\n");
+            enemyOne.gameObject.SetActive(false);
+            enemyTwo.gameObject.SetActive(false);
 
             // give the player gold
             outputText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
