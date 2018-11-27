@@ -336,28 +336,39 @@ public class inventory_correct : MonoBehaviour
     {
         List<string> type_items = new List<string>();
 
-        int total_dmg;
+        
         foreach(string item in inventory)
         {
+            int total_dmg = 0;
             string[] values = item.Split(':');
 
-            total_dmg = char_to_int(values[3][0]) + char_to_int(values[4][0]);
-
-            if(type == 'A' && (total_dmg == 0 || values[4] == ""))
+            if (values[3] != "" && values[4] != "")
             {
-                Debug.Log("0:" + values[0]);
-                Debug.Log("1:" + values[1]);
-                Debug.Log("4:" + values[4]);
+                Debug.Log(values[3]);
+                Debug.Log(values[4]);
+                total_dmg = char_to_int(values[3][0]) + char_to_int(values[4][0]);
+                Debug.Log(total_dmg);
+            }
+
+            Debug.Log(total_dmg);
+            if(type == 'A' && (total_dmg == 0 || values[3] == ""))
+            {
+                Debug.Log("Added as armor");
+                Debug.Log(values[0]);
+                Debug.Log(values[1]);
+                Debug.Log(values[4]);
                 type_items.Add(item);
             }
             else if(type == 'W' && total_dmg != 0)
             {
-                Debug.Log("0:" + values[0]);
-                Debug.Log("1:" + values[1]);
-                Debug.Log("4:" + values[4]);
+                Debug.Log("Added as weapon");
+                Debug.Log(values[0]);
+                Debug.Log(values[1]);
+                Debug.Log(values[4]);
                 type_items.Add(item);
             }
         }
+
         return type_items;
     }
 
@@ -426,8 +437,13 @@ public class inventory_correct : MonoBehaviour
             string modifier;
             if (is_armor != true)
             {
-                int min = char_to_int(values[3][0]);
-                int max = char_to_int(values[4][0]);
+                int min = 0;
+                int max = 0;
+                if (values[3] != "" && values[4] != "")
+                {
+                    min = char_to_int(values[3][0]);
+                    max = char_to_int(values[4][0]);
+                }
 
                 if (min > 1)
                 {
