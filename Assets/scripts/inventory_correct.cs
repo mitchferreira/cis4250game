@@ -343,7 +343,7 @@ public class inventory_correct : MonoBehaviour
 
             total_dmg = char_to_int(values[3][0]) + char_to_int(values[4][0]);
 
-            if(type == 'A' && total_dmg == 0)
+            if(type == 'A' && (total_dmg == 0 || values[4] == ""))
             {
                 Debug.Log("0:" + values[0]);
                 Debug.Log("1:" + values[1]);
