@@ -6519,6 +6519,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 770575603}
+        m_MethodName: setInvsAP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1356025136
@@ -10322,51 +10333,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Warrior Kent leveled up
-
-    Strength +2
-
-    Constitution +2
-
-    Health went up
-
-    Learned ''Thrust'' skill
-
-    Rogue Joseph leveled up
-
-    Strength +2
-
-    Constitution +2
-
-    Health went up
-
-    Learned ''Poison Knife'' skill
-
-    Wizard Scott leveled up
-
-    Strength +2
-
-    Constitution +2
-
-    Health went up
-
-    Learned ''Magic Missile'' skill
-
-    Cleric Mitchell leveled up
-
-    Strength +2
-
-    Wisdom +2
-
-    Health went up
-
-    Learned ''Cure Wounds'' skill
-
-    You obtained 200 gold.
-
-    You obtained 200 experience points.
-
-'
+  m_Text: 
 --- !u!222 &2100566973
 CanvasRenderer:
   m_ObjectHideFlags: 0
