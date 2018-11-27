@@ -512,6 +512,62 @@ public class Battle : MonoBehaviour {
                             flag = 0;
                             while (flag == 0)
                             {
+				    
+				    
+				    
+				    
+				// the player decided to block
+                                if (playerAttack == 0)
+                                {
+                                    initA.characters[j].blocking = 1;
+                                    flag = 1;
+                                }
+
+                                // special action for the cleric's healing skill, as it involves a different function
+                                else if (playerAttack == 16)
+                                {
+                                    if (initA.characters[j].currentMagicPoints >= 1)
+                                    {
+                                        outputText.text += (initA.characters[j].name + " used Cure Wounds\n");
+                                        initA.characters = Calculations.CureWounds(initA.characters);
+                                        initA.characters[j].currentMagicPoints = initA.characters[j].currentMagicPoints - 1;
+                                        break;
+                                    }
+
+                                    flag = 1;
+                                }
+
+                                else if ((playerAttack == 3) || (playerAttack == 7))
+                                {
+                                    
+                                    damage = Calculations.DeterminePlayerAction(playerAttack, initA.characters[j], initA.enemies[enemySelector]);
+                                    if (damage != 1)
+                                    {
+                                        if (playerAttack == 3)
+                                        {
+                                            outputText.text += (initA.characters[j].name + " increased their attack\n");
+                                            initA.characters[j].currentMagicPoints = initA.characters[j].currentMagicPoints - 1;
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            outputText.text += (initA.characters[j].name + " increased their defense\n");
+                                            initA.characters[j].currentMagicPoints = initA.characters[j].currentMagicPoints - 1;
+                                            break;
+                                        }
+                                    }
+
+                                    flag = 1;
+                                }
+				    
+				    
+				    
+				    
+				    
+				    
+				    
+				    
+				    
                                 // causes the loop
                                 yield return null;
 
@@ -677,7 +733,7 @@ public class Battle : MonoBehaviour {
             outputText.text += ("PLAYERS WIN\n");
             enemyOne.gameObject.SetActive(false);
             enemyTwo.gameObject.SetActive(false);
-/*
+
             // give the player gold
             outputText.text += ("You obtained " + Calculations.calculateGold(initA.enemies) + " gold.\n");
             playerGold = playerGold + Calculations.calculateGold(initA.enemies);
@@ -696,7 +752,7 @@ public class Battle : MonoBehaviour {
 
             GameObject player = GameObject.Find("player");
             player.GetComponent<PartyScript>().LevelUpParty(initA.characters);
-*/
+
         }
         // the enemies won
         else
