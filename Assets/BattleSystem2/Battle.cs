@@ -90,7 +90,7 @@ public class Battle : MonoBehaviour {
 
     public static int whoseTurnIsIt;
 
-
+    public static attackPanel aPanel = new attackPanel();
 
 
     /*
@@ -788,7 +788,8 @@ public class Battle : MonoBehaviour {
                                 initA.characters[enemySelector].currentHealth = 0;
                                 numAlivePlayers = numAlivePlayers - 1;
                                 outputText.text += (initA.characters[enemySelector].name + " has died\n");
-                                /*if(initA.characters[enemySelector].charClass == "Warrior"){
+
+                                if(initA.characters[enemySelector].charClass == "Warrior"){
                                     warImage.gameObject.SetActive(false);
                                 }else if(initA.characters[enemySelector].charClass == "Rogue"){
                                     rogImage.gameObject.SetActive(false);
@@ -796,10 +797,7 @@ public class Battle : MonoBehaviour {
                                     wizImage.gameObject.SetActive(false);
                                 }else if(initA.characters[enemySelector].charClass == "Cleric"){
                                     cleImage.gameObject.SetActive(false);
-                                }*/
-
-
-
+                                }
                             }
                         }
 
@@ -816,10 +814,17 @@ public class Battle : MonoBehaviour {
             if(initA.enemies[0].health <= 0){
                 Debug.Log("DIE1");
                 enemyOne.gameObject.SetActive(false);
+                Enemy1Model.gameObject.SetActive(false);
+                if(initA.enemies[0].name == "Yeemik, The Goblin King" || initA.enemies[0].name == "The White Wight" 
+                || initA.enemies[0].name == "Lord of Fire and Flames"){
+                    BossModel.gameObject.SetActive(false);
+                }
+
             }
             if(initA.enemies[1].health <= 0){
                 Debug.Log("DIE2");
                 enemyTwo.gameObject.SetActive(false);
+                Enemy2Model.gameObject.SetActive(false);
             }
 
             }
