@@ -24,10 +24,14 @@ public class Show_armor : MonoBehaviour, IPointerClickHandler {
 
     void set_starting_equipment()
     {
+        weapons_equipped[0, 1] = true;
+        weapons_equipped[1, 0] = true;
+        weapons_equipped[2, 3] = true;
+        weapons_equipped[3, 2] = true;
 
         for (int i = 0; i < 4; i++)
         {
-            weapons_equipped[i, i] = true;
+            
             armor_equipped[i, i] = true;
         }
 
