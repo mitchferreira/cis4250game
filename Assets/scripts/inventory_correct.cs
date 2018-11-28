@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 using UnityEditor;
 using UnityEngine.EventSystems;
 
@@ -56,11 +57,6 @@ public class inventory_correct : MonoBehaviour
     public static char last_char(string s)
     {
         return s[s.Length - 1];
-    }
-
-    public static int char_to_int (char c)
-    {
-        return c - '0';
     }
 
     /*Well Scott, I made a constructor for weapon, it bothered me too much, if you want to move this to Items.cs you can.
@@ -208,6 +204,20 @@ public class inventory_correct : MonoBehaviour
         }
     }
 
+    public static void debug_character(StructsClass.Character character)
+    {
+        Debug.Log(character.name);
+        Debug.Log(character.weapon.name);
+        Debug.Log(character.weapon.modifier);
+        Debug.Log(character.weapon.damageType);
+        Debug.Log(character.weapon.numOfDice);
+        Debug.Log(character.weapon.diceType);
+
+        Debug.Log(character.armor.name);
+        Debug.Log(character.armor.armorValue);
+        Debug.Log(character.armor.damageResist);
+    }
+
     public static StructsClass.Character get_party_member(PartyScript party, int member_number)
     {
         return party.members[member_number];
@@ -217,18 +227,35 @@ public class inventory_correct : MonoBehaviour
     {
         GameObject player = GameObject.Find("player");
 
-        int slot_number = char_to_int(last_char(slot_name)) - 1;
+        int slot_number;
+
+        Int32.TryParse(last_char(slot_name).ToString(), out slot_number);
+
+        slot_number = slot_number - 1;
 
         /*get the item at the item slot*/
-        List<string> items = player.GetComponent<PlayerScript>().items;
-        string item = items[slot_number];
+
+        string item;
+
+        bool get_armor = armor_is_on_Screen(); 
+
+
+
+        if (get_armor)
+        {
+            item = armors[slot_number];
+        }
+        else
+        {
+            item = weapons[slot_number];
+        }
         string[] values = item.Split(':');
 
         if (values.Length >= 6 &&
             values[5] != null)
         {
             /*change the bool value of the item*/
-            Debug.Log(values[5][0]);
+            //Debug.Log(values[5][0]);
             string new_bool;
 
             if (values[5][0] == 'T')
@@ -244,48 +271,95 @@ public class inventory_correct : MonoBehaviour
             disable_all_radio_btns(false);
             disable_all_radio_btns(true);
             
-            Debug.Log(new_bool);
+            //Debug.Log(new_bool);
 
             string new_item = values[0] + ":" + values[1] + ":" + values[2] + ":" +
                values[3] + ":" + values[4] + new_bool + ":" + "slot:" + equip_slot;
 
             /*replace the item*/
-            items.RemoveAt(slot_number);
-            items.Insert(slot_number, new_item);
+
+
+            List<string> items;
+            items = GameObject.Find("player").GetComponent<PlayerScript>().items;
+
+            for(int i = 0; i < items.Count; i++)
+            {
+                string tool = items[i];
+                if(tool == item)
+                {
+                    items.Remove(tool);
+                    items.Insert(i, new_item);
+                }
+            }
 
             StructsClass.Character character = get_party_member(
                 player.GetComponentInChildren<PartyScript>(), equip_slot);
 
-            Debug.Log(character.name);
-            Debug.Log(character.charClass);
+            //Debug.Log(character.name);
+            //Debug.Log(character.charClass);
 
             /*I tried to base the item equips on the order that party members are added
              * in the file party script:
              * member1 -> warrior, member2 -> rogue, member3 -> wizard, member4 -> cleric
              * WRWC is the order (Warrior, Rogue, Wizard, Cleric)*/
 
+
             if (new_bool == ":True")
-            {
-                if (is_armor)
+            {/*
+                Debug.Log(values[0]);
+                Debug.Log(values[1]);
+                Debug.Log(values[2]);
+                Debug.Log(values[3]);
+                Debug.Log(values[4]);
+
+                Debug.Log("ARMOR:" + get_armor);
+                */
+                if (get_armor == true)
                 {
-                    character.armor = Armor(values[0], values[1][0], values[2]);
+                    //Debug.Log("BEFORE EQUIPPING ARMOR");
+                    //debug_character(character);
+
+                    int value;
+                    Int32.TryParse(values[1], out value);
+
+                    character.armor = Armor(values[0], value, values[2]);
+                    //Debug.Log("AFTER EQUIPPING ARMOR");
+                    //debug_character(character);
                 }
                 else
                 {
-                    character.weapon = Weapon(values[0], values[1], values[2], values[3][0], values[4][0]);
+                    //Debug.Log("BEFORE EQUIPPING WEAPON");
+                    //debug_character(character);
+
+                    int min;
+                    Int32.TryParse(values[3], out min);
+
+                    int max;
+                    Int32.TryParse(values[4], out max);
+                    
+                    character.weapon = Weapon(values[0], values[1], values[2], min, max);
+                    //Debug.Log("AFTER EQUIPPING WEAPON");
+                    //debug_character(character);
                 }
             }
             else
             {
-                if (is_armor)
+                if (get_armor == true)
                 {
-                    character.armor = Armor("", 0, "");
+                    character.armor.name = "";
+                    character.armor.armorValue = 0;
+                    character.armor.damageResist = "";
                 }
                 else
                 {
-                    character.weapon = Weapon("", "", "", 0, 0);
+                    character.weapon.name = "";
+                    character.weapon.modifier = "";
+                    character.weapon.damageType = "";
+                    character.weapon.diceType = 0;
+                    character.weapon.numOfDice = 0;
                 }
             }
+
         }
     }
 
@@ -296,7 +370,9 @@ public class inventory_correct : MonoBehaviour
 
         /*the +1 is to count the fact that slots are 1-indexed,
          * items are 0-indexed*/
-        int slot_number = char_to_int(last_char(slot.name)) - 1;
+        int slot_number = 0;
+
+        Int32.TryParse(last_char(slot.name).ToString(), out slot_number);
 
         /*-1 is not an equip_slot, this is so we that can know if none exist*/
         int equip_slot = -1;
@@ -306,7 +382,7 @@ public class inventory_correct : MonoBehaviour
 
         if (values.Length >= 8)
         {
-            equip_slot = char_to_int(values[7][0]);
+            Int32.TryParse(values[7][0].ToString(), out equip_slot);
 
             if (equip_slot != -1)
             {
@@ -336,7 +412,6 @@ public class inventory_correct : MonoBehaviour
     {
         List<string> type_items = new List<string>();
 
-        
         foreach(string item in inventory)
         {
             int total_dmg = 0;
@@ -344,27 +419,22 @@ public class inventory_correct : MonoBehaviour
 
             if (values[3] != "" && values[4] != "")
             {
-                Debug.Log(values[3]);
-                Debug.Log(values[4]);
-                total_dmg = char_to_int(values[3][0]) + char_to_int(values[4][0]);
-                Debug.Log(total_dmg);
+                int min;
+                int max;
+
+                Int32.TryParse(values[3].ToString(), out min);
+                Int32.TryParse(values[4].ToString(), out max);
+
+                total_dmg = min + max;
             }
 
-            Debug.Log(total_dmg);
+            //Debug.Log(total_dmg);
             if(type == 'A' && (total_dmg == 0 || values[3] == ""))
             {
-                Debug.Log("Added as armor");
-                Debug.Log(values[0]);
-                Debug.Log(values[1]);
-                Debug.Log(values[4]);
                 type_items.Add(item);
             }
             else if(type == 'W' && total_dmg != 0)
             {
-                Debug.Log("Added as weapon");
-                Debug.Log(values[0]);
-                Debug.Log(values[1]);
-                Debug.Log(values[4]);
                 type_items.Add(item);
             }
         }
@@ -441,8 +511,8 @@ public class inventory_correct : MonoBehaviour
                 int max = 0;
                 if (values[3] != "" && values[4] != "")
                 {
-                    min = char_to_int(values[3][0]);
-                    max = char_to_int(values[4][0]);
+                    Int32.TryParse(values[3].ToString(), out min);
+                    Int32.TryParse(values[4].ToString(), out max);
                 }
 
                 if (min > 1)
